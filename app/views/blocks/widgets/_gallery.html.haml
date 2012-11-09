@@ -1,0 +1,25 @@
+- @album = Album.find_by_filename "main-album"
+- if @album
+  - @photos = @album.photos
+  
+- if @photos
+  - @photos.each do |photo|
+    .two.columns
+      - link_to photo.file.url(:large), :class => 'group', :alt => photo.title, :rel => "#{@album.title}" do
+        = image_tag(photo.file.url(:thumb), :alt => photo.desc, :class => "shadowed")
+      .info
+        %h3{:class => "title"}
+          = truncate photo.title
+        %p{:class => "desc"}
+          = photo.desc
+  .clear
+
+  - if false #permitted_to? :manage, :albums
+    %p
+      = link_to "Manage Photos", @album 
+      |
+      = link_to "Edit", edit_album_path(@album)
+      |
+      = link_to "Destroy", @album, :confirm => 'Are you sure?', :method => :delete
+      |
+      = link_to "View All", albums_path

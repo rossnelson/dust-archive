@@ -1,0 +1,5 @@
+#searchbox
+  - form_tag photos_path, :method => 'get' do
+    = text_field_tag :search, params[:search], :class => "input-text", :placeholder => 'Search Photos'
+    = image_submit_tag "admin/blank.png", :class => "image-submit"
+

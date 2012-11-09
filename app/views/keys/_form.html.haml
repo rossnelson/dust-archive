@@ -1,0 +1,9 @@
+.item
+  = form_for @key, :validate => true do |f|
+    = f.error_messages
+    %p
+      = f.label :word, "New Keyword"
+      %br/
+      = f.text_field :word, :class => 'field'
+      %br/
+      = f.submit "Create Keyword"

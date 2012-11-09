@@ -1,0 +1,10 @@
+- heading "Reset Password"
+#login
+  %h3 Enter your email address below.
+  = link_to "Back to Login", login_path
+  %br/
+  %br/
+  = form_tag password_resets_path do
+    = text_field_tag :email, nil, :class => 'field'
+    %br/
+    = submit_tag "Reset Password"

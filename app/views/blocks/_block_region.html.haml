@@ -1,0 +1,6 @@
+- unless blocks.blank?
+  .clearfix{ :id => "#{name}-blocks-container" }
+    .clearfix{ :id => "#{name}-blocks-wrapper" }
+      .container-twelve{:id => "#{name}-blocks"}
+        - blocks.each do |block|
+          = render(:partial => "blocks/block", :locals => {:block => block})

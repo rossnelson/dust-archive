@@ -1,0 +1,17 @@
+- title "CMS Menu Items"
+- content_for :left do
+  = render :partial => 'roots'
+.button_bar
+  #searchbox
+    = form_tag cms_menu_items_path, :method => 'get' do
+      = text_field_tag :search, params[:search], :class => "input-text", :placeholder => 'Search Admin Menu Items'
+      = image_submit_tag "admin/blank.png", :class => "image-submit"
+  = link_to('new admin menu item', new_cms_menu_item_path, :class => 'newfile tip', :title => "New Admin Menu Item")
+= will_paginate @cms_menu_item_list
+- @cms_menu_item_list.each do |cms_menu_item|
+  .item
+    .ui-widget.ui-helper-clearfix{:style => "float:right"}
+      = link_to "", edit_cms_menu_item_path(cms_menu_item), :class => 'ui-icon	ui-icon-pencil edit tip', :title => "Edit This Item"
+      = link_to "", cms_menu_item, :confirm => 'Are you sure?', :method => :delete, :class => 'ui-icon ui-icon-close destroy tip', :title => "Destroy This Item"
+    %h3= cms_menu_item.controller_name.capitalize
+= will_paginate @cms_menu_item_list

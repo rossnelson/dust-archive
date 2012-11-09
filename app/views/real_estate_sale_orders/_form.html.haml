@@ -1,0 +1,233 @@
+= content_for :head do
+  = javascript_include_tag :ckeditor
+
+- form_for @real_estate_sale_order, :validate => true do |f|
+  .twelve.columns.alpha.omega
+    = f.error_messages
+    .item 
+      = f.label :provide_closing_deed_and_transfer, "Provide closing deed and transfer?"
+      = f.check_box :provide_closing_deed_and_transfer, :class => 'field expand-closing'
+  .twelve.columns.alpha.omega
+    %h5 Transfer Information
+    .six.columns.alpha.omega
+      .item 
+        = f.label :sales_price
+        %br
+        = f.text_field :sales_price, :class => 'field'
+    .optional-fields
+      .six.columns.alpha.omega
+        .item 
+          = f.label :transfer_type, "Type of transfer"
+          %br
+          = f.select :transfer_type, RealEstateSaleOrder.transfer_types, :class => 'field'
+  %hr/
+  .twelve.columns.alpha.omega
+    %h5 Property Information
+    .six.columns.alpha.omega
+      .item 
+        = f.label :property_address
+        %br
+        = f.text_field :property_address, :class => 'field'
+      .item 
+        = f.label :water_type, "Type of water"
+        %br
+        = f.select :water_type, RealEstateSaleOrder.water_types, :class => 'field'
+        
+      .optional-fields
+        .item 
+          = f.label :property_heat_type, "Type of heat"
+          %br
+          = f.select :property_heat_type, RealEstateSaleOrder.heat_types, :class => 'field'
+        .item 
+          = f.label :property_heat_value, "Current heat value"
+          %br
+          = f.text_field :property_heat_value, :class => 'field'
+        .item 
+          = f.label :property_sanitation_type, "Type of sanitation"
+          %br
+          = f.select :property_sanitation_type, RealEstateSaleOrder.sanitation_types, :class => 'field'
+        .item 
+          = f.label :property_repair_inspection_fees, "Repair/Inspection Fees?"
+          = f.check_box :property_repair_inspection_fees, :class => 'field'
+        .item 
+          = f.label :property_weatherization, "DILHR Weatherization"
+          %br
+          = f.select :property_weatherization, RealEstateSaleOrder.weatherization_types, :class => 'field'
+        .item 
+          = f.label :property_type, "Type of Property"
+          %br
+          = f.select :property_type, RealEstateSaleOrder.property_types, :class => 'field'
+          
+        %strong If the property is a condominium or has a homeowner#{"'"}s association, please complete the following:
+        .item 
+          = f.label :property_condominium_association_name, "Association name"
+          %br
+          = f.text_field :property_condominium_association_name, :class => 'field'
+        .item 
+          = f.label :property_condominium_contact_name, "Association contact name"
+          %br
+          = f.text_field :property_condominium_contact_name, :class => 'field'
+        .item 
+          = f.label :property_condominium_contact_address, "Association address"
+          %br
+          = f.text_field :property_condominium_contact_address, :class => 'field'
+        .item 
+          = f.label :property_condominium_contact_phone, "Association phone"
+          %br
+          = f.text_field :property_condominium_contact_phone, :class => 'field'
+            
+    .six.columns.alpha
+      .optional-fields
+        %strong If multi-family, please complete the following:
+        .item 
+          = f.label :property_multifamily_units, "Number of Units"
+          %br
+          = f.number_field :property_multifamily_units, :class => 'field'
+        
+        %h6 Upper:
+        = render 'real_estate_sale_orders/unit_subform', :f => f, :unit => 'upper'
+        %h6 Lower:
+        = render 'real_estate_sale_orders/unit_subform', :f => f, :unit => 'lower'
+      
+        
+  %hr/
+  .twelve.columns.alpha
+    %h5 Seller Information
+    .six.columns.alpha
+      .item 
+        = f.label :owners_names, "Owners' names"
+        %br
+        = f.text_area :owners_names, :class => 'field'
+      .optional-fields
+        .item 
+          = f.label :seller_is_related, "Is seller related to the buyer?"
+          = f.check_box :seller_is_related, :class => 'field'
+        .item 
+          = f.label :seller_marital_status, "Sellers' marital status"
+          %br
+          = f.select :seller_marital_status, RealEstateSaleOrder.marriage_types, :class => 'field'
+        .item 
+          = f.label :new_address, "New Address (if currently homestead)"
+          %br
+          = f.text_field :new_address, :class => 'field'
+    .optional-fields
+      .six.columns.alpha
+        .item 
+          = f.label :seller_is_primary_residence, "Is this the seller's primary residence?"
+          = f.check_box :seller_is_primary_residence, :class => 'field'
+        .item 
+          = f.label :seller_phone_number, "Seller phone number"
+          %br
+          = f.text_field :seller_phone_number, :class => 'field'
+        .item
+          = f.label :seller_current_loan_information, "Seller's current loan information (lender names, phone numbers, loan numbers)"
+          %br
+          = f.text_area :seller_current_loan_information, :class => 'field'
+  %hr/
+  .six.columns.alpha
+    %h5 Buyer Information
+    
+    .item 
+      = f.label :buyers_lender, "Buyers' lender"
+      %br
+      = f.text_field :buyers_lender, :class => 'field'
+    .item 
+      = f.label :contact_person
+      %br
+      = f.text_field :contact_person, :class => 'field'
+    .item 
+      = f.label :lender_address
+      %br
+      = f.text_field :lender_address, :class => 'field'
+    .item 
+      = f.label :lender_phone
+      %br
+      = f.text_field :lender_phone, :class => 'field'
+    .item 
+      = f.label :lender_fax
+      %br
+      = f.text_field :lender_fax, :class => 'field'
+    .item 
+      = f.label :lender_email
+      %br
+      = f.text_field :lender_email, :class => 'field'
+  .six.columns.alpha
+    .item 
+      = f.label :buyers_names, "Buyers' names"
+      %br
+      = f.text_area :buyers_names, :class => 'field'
+    .optional-fields
+      .item 
+        = f.label :buyers_marital_status, "Buyers' marital status"
+        %br
+        = f.select :buyers_marital_status, RealEstateSaleOrder.marriage_types, :class => 'field'
+      .item 
+        = f.label :buyer_is_primary_residence, "Will this be the buyers' primary residence?"
+        = f.check_box :buyer_is_primary_residence, :class => 'field'
+    .item 
+      = f.label :buyers_financing, "Buyers' financing type"
+      %br
+      = f.select :buyers_financing, RealEstateSaleOrder.financing_types, :class => 'field'
+    .item 
+      = f.label :prior_title, "Do you have a prior title?"
+      = f.check_box :prior_title, :class => 'field'
+    .item 
+      = f.label :gap_endorsement, "GAP Endorsement?"
+      = f.check_box :gap_endorsement, :class => 'field'
+    .item 
+      = f.label :need_by_date, "When would you like a title commitment by?"
+      %br
+      = f.date_select :need_by_date, :class => 'field'
+    .item 
+      = f.label :copies_to, "Copies and Notes"
+      %br
+      = f.text_area :copies_to, :class => 'field'
+  .optional-fields.twelve.columns.alpha.omega
+    %hr/
+    %h5 Commission Agreement
+    .six.columns.alpha
+      .item 
+        = f.label :commission_total_percent, "% Total commission"
+        %br
+        = f.number_field :commission_total_percent, :class => 'field'
+      .item 
+        = f.label :commission_listing_broker, "% Listing broker"
+        %br
+        = f.number_field :commission_listing_broker, :class => 'field'
+      .item 
+        = f.label :commission_selling_broker, "% Selling broker"
+        %br
+        = f.number_field :commission_selling_broker, :class => 'field'
+    .six.columns.alpha
+      .item 
+        = f.label :commission_earnest, "Earnest $"
+        %br
+        = f.text_field :commission_earnest, :class => 'field'
+      .item 
+        = f.label :commission_who_has_earnest, "Who has earnest $?"
+        %br
+        = f.text_field :commission_who_has_earnest, :class => 'field'
+      .item 
+        = f.label :commission_is_earnest_money_deducted, "Is the earnest money deducted from the commission?"
+        = f.check_box :commission_is_earnest_money_deducted, :class => 'field'
+  %hr/
+  .twelve.columns.alpha
+    .six.columns.alpha
+      .item 
+        %h5 User Information
+        = render 'users/order_info', order: @real_estate_sale_order
+    .optional-fields
+      .six.columns.alpha
+        %h5 Closing Information
+        .item 
+          = f.label :tentative_closing_date
+          %br
+          = f.date_select :tentative_closing_date, :class => 'field'
+        .item 
+          = f.label :closing_location
+          %br
+          = f.text_field :closing_location, :class => 'field'
+  
+  .twelve.columns.alpha.omega
+    .item
+      = f.submit "Submit Real Estate Sale Order", :class => 'submit-field'

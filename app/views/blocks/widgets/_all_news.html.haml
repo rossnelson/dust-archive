@@ -1,0 +1,15 @@
+- @posts = Post.all_published
+
+%h1 News
+.posts.all
+  - @posts.each do |post|
+    .post.clearfix{ id: post.id }
+      %h2.title= post.title
+      .content.eight.columns
+        = raw post.content
+        - if permitted_to? :manage, :posts
+          .edit-link
+            = link_to edit_icon("Testimonial"), edit_post_path(post, :return => request.fullpath), :class => "to-admin"
+        
+      .photo.four.columns
+        = image_tag post.image.url(:medium), title: post.title

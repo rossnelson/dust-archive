@@ -1,0 +1,40 @@
+- title "User"
+- content_for :left do
+  = render 'user'
+- content_for :head do
+  %script{:charset => "utf-8", :type => "text/javascript"}
+    $(document).ready(function() {
+    new Highcharts.Chart({
+    chart: {
+    renderTo: "contacts_chart"
+    },
+    title: {
+    text: "Website Activity By Day"
+    },
+    xAxis: {
+    type: "datetime"
+    },
+    yAxis: {
+    title: {
+    text: "Total Submissions"
+    }
+    },
+    tooltip: {
+    formatter: function() {
+    return Highcharts.dateFormat("%B %e, %Y", this.x) + ': ' +
+    Highcharts.numberFormat(this.y, 0) + " Submissions";
+    }
+    },
+    series: [
+    {
+    name: "Contact Requests",
+    pointInterval: <haml:loud> 1.day * 1000 </haml:loud>,
+    pointStart: <haml:loud> 1.week.ago.to_i * 1000 </haml:loud>,
+    data: <haml:loud> (1.week.ago.to_date..Date.today).map { |date| Contact.total_on(date).count }.inspect </haml:loud>
+    }
+    ]
+    });
+    });
+.item
+  %p Welcome to the administration section of your website. From here, you can view, edit and delete any page in your website, add a new page to your website or modify your list of keywords. Along with many other features. Have Fun!
+#contacts_chart{:style => " height:300px;"}

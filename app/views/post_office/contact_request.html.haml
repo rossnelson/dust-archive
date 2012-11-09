@@ -1,0 +1,24 @@
+!!!
+%html
+  %body
+    %p
+      %strong Name:
+      = h @contact.name
+    %p
+      %strong Address:
+      = h @contact.address
+    %p
+      %strong City:
+      = h @contact.city
+    %p
+      %strong State:
+      = h @contact.state
+    %p
+      %strong Email:
+      = h @contact.email
+    %p
+      %strong Phone Number:
+      = h @contact.phone unless @contact.phone.nil?
+    %p{:class => "woah"}
+      %strong Message:
+      = h @contact.message

@@ -1,0 +1,11 @@
+= content_tag :li, :id => dom_id(root) do
+  %div
+    %span.handle &nbsp;
+    = link_to root.title, cms_menu_item_path(root)
+    %small
+      = link_to "", edit_cms_menu_item_path(root), :class => 'ui-icon	ui-icon-pencil edit tip', :title => "Edit This Item"
+      = link_to "", root, :confirm => 'Are you sure?', :method => :delete, :class => 'ui-icon ui-icon-close destroy tip', :title => "Destroy This Item"
+  = content_tag :ul do
+    - for child in root.children do
+      = render :partial => "tree", :locals => {:root => child }
+  - end unless root.leaf?

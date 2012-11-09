@@ -1,0 +1,16 @@
+= content_for :head do
+  = GMap.header
+  = @page.map.to_html
+
+.contact_page_content
+  = raw(block.body)
+#google_map
+  = render "maps/map", :map => Map.new({:address => "719 Washington Avenue, Racine, WI 53403", :content => "<div>719 Washington Avenue<br /> Racine, WI 53403</div>", :width => 420, :height => 272 })
+  %p{:class => "driving-directions"}
+    Enter your address below to get driving directions.
+  = form_tag("http://maps.google.com/maps", :enctype => "application/x-www-form-urlencoded", :method => "get", :target =>"_blank") do
+    = hidden_field_tag "daddr", "719 Washington Avenue, Racine, WI 53403"
+    = hidden_field_tag "hl", "en"
+    .short-form
+      = text_field_tag 'saddr', nil, :name => "saddr", :class => "field short-form-field", :size => 20
+      = submit_tag "Go", :class => "short-form-button"

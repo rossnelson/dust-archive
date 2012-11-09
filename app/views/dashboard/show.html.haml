@@ -1,0 +1,27 @@
+- title "User"
+- content_for :left do
+  = render current_user
+- content_for :head do
+  = javascript_include_tag "build_highcharts"
+.kicker.item
+  %p
+    %span.run-in Welcome to the administration section of your website.
+    %br/
+    From here, you can view, edit and delete any page in your website, add a new page or modify your list of keywords. Along with many other features.
+    %br/
+    %span.run-in Have Fun!
+- #contacts_chart{:style => " height:200px;"}
+#options
+  .kicker.item
+    %p
+      %span.run-in Site Wide Administration.
+  = form_tag('/dashboard/update') do
+    .accordion
+      - @options.each do |name, options|
+        %h3= link_to name.to_s.titleize, '#'
+        %div
+          - options.each do |k, v|
+            .item
+              = render 'dashboard/options', :key => k, :value => v, :name => name
+    .item
+      = submit_tag

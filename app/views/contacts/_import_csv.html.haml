@@ -1,0 +1,8 @@
+.item
+  = form_for :csv_import, :url=>{ :controller=>"contacts", :action => 'csv_import'}, :html => { :multipart => true } do |f|
+    %p
+      = f.label :file, 'Import Contact file'
+      %br/
+      = f.file_field :file
+    %p
+      = submit_tag "Submit"

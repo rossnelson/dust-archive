@@ -1,0 +1,12 @@
+- title "Menu Item"
+%p
+  %strong Title:
+  = h @menu_item.title
+%p
+  %strong Url:
+  = h @menu_item.url
+%p
+  = link_to "Edit", edit_menu_item_path(@menu_item)
+  |
+  \#{link_to "Destroy", @menu_item, :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "View All", menu_items_path}

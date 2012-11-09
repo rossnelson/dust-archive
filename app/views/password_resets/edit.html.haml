@@ -1,0 +1,6 @@
+- heading "Update your password"
+%h3 Enter your new password below.
+= form_tag password_reset_path, :method => :put do
+  = password_field_tag :password, nil, :class => "field"
+  %br/
+  = submit_tag "Update Password"

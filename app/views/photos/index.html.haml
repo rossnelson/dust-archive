@@ -1,0 +1,85 @@
+<% title "Photos" %>
+
+<%= stylesheet( 'dust_album','album_uploadify') %>
+<%= javascript( 'uploadify/jquery.uploadify.v2.1.0' ) %>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    $(function () { // this line makes sure this code runs on page load
+      $('.checkall').click(function () {
+        $(this).parents('form:eq(0)').find(':checkbox').attr('checked', this.checked);
+      });
+    });
+  });
+</script>
+
+<div class="button_bar">
+  <%= render :partial => 'search' %>
+</div>
+
+
+<%= will_paginate @photos %>
+
+<% @photo_albums.sort.each do |title, photos| %>
+  <div class='photolist'>
+    <h1><%= link_to title, album_path(photos.first.album) %></h1>
+
+    <% form_for :photo, :url => {:action => 'destroy'} do %>
+
+    <table class='photos'>
+      <tr style='color:#222;'>
+        <th>
+
+        </th>
+        <th></th>
+        <th>
+          File Name
+        </th>
+        <th>
+          File Size
+        </th>
+        <th>
+          Created At
+        </th>
+      </tr>
+    <% for photo in photos %>
+    <%= hidden_field_tag :album_id, photo.album.id %>
+    <tr class='<%= cycle('odd', 'even')%>'>
+      <td>
+        <%= check_box_tag "photo_ids[]", photo.id %>
+      </td>
+      <td>
+        <%= link_to image_tag(photo.file.url(:thumb), :height => "30"), photo.file.url(:original), :rel => title, :id => 'single_image' %>
+
+          <div style="display:none"><div id="<%=photo.id%>"><%= image_tag(photo.file.url(:original)) %></div></div>
+      </td>
+      <td>
+        <%= photo.file_file_name %>
+      </td>
+      <td>
+        <%= number_to_human_size(photo.file_file_size) %>
+      </td>
+      <td>
+        <%= photo.created_at.to_s(:m_d_y) %>
+      </td>
+    </tr>
+    <% end %>
+    <tr class='odd'>
+      <td colspan='5'>
+        <input type="checkbox" class="checkall"> Check all
+        <%= submit_tag "Delete checked" %>
+      </td>
+    </tr>
+    </table>
+
+
+    <% end -%>
+
+  </div>
+
+
+
+<% end %>
+
+<%= will_paginate @photos %>
+

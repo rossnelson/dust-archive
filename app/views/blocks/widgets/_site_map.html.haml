@@ -1,0 +1,7 @@
+%h2= block.title if !block.show_title
+%ul.tree
+  - @application_menu_items.each do |item|
+    = render 'layouts/app_partials/application_tree', :root => item
+- if logged_in?
+  .edit-link
+    = link_to edit_icon("Menu"), "/menu-manage", :class => "to-admin"

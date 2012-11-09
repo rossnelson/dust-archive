@@ -1,0 +1,14 @@
+--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+site_info: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  site_url: www.newsite.com
+  default_description: New Site
+contact_forms: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  default_recipient: brandon@imagemanagement.com
+  recipient_name: Brandon Edmark
+contact_info: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  address:
+  - 719 Washington Avenue
+  - Racine
+  - Wisconsin
+  - '53403'
+  phone: 262-632-6262

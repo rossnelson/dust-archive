@@ -1,0 +1,16 @@
+= form_for @menu_item do |f|
+  = f.error_messages
+  .item
+    %p
+      = f.label :title
+      %br/
+      = f.text_field :title, :class => 'field'
+    %p
+      = f.label :url
+      %br/
+      = f.text_field :url, :class => 'field'
+    %p
+      = f.label :active
+      = f.check_box :active
+  .item
+    %p= f.submit

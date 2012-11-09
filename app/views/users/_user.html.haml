@@ -1,0 +1,11 @@
+#show_user
+  .item
+    = raw(user.avatar)
+  .item
+    %strong Username:
+    %br/
+    = h user.username
+  .item
+    %strong Email:
+    %br/
+    = h user.email

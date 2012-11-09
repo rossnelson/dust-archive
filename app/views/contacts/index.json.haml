@@ -1,0 +1,6 @@
+{
+name: "Contact Requests",
+pointInterval:  #{1.day * 1000 },
+pointStart: #{ 1.week.ago.to_i * 1000},
+data: #{ (1.week.ago.to_date..Date.tomorrow).map { |date| Contact.total_on(date + 1.day).count }.inspect} 
+}

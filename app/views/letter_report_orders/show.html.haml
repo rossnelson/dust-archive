@@ -1,0 +1,29 @@
+- title "Letter Report Order"
+
+.item
+
+  .ui-widget.ui-helper-clearfix{:style => "float:right"}
+    =link_to '', edit_letter_report_order_path(@letter_report_order), :class => 'ui-icon ui-icon-pencil edit tip', :title => "Edit This Item"
+    =link_to "", @letter_report_order, :confirm => 'Are you sure?', :method => :delete, :class => 'ui-icon ui-icon-close destroy tip', :title => "Destroy This Item"
+
+  %h3= link_to "Order for #{@letter_report_order.property_address} by #{@letter_report_order.user.proper_name}", @letter_report_order
+
+  %p
+    %strong User:
+    = @letter_report_order.user_id
+  %p
+    %strong Owners Names:
+    = @letter_report_order.owners_names
+  %p
+    %strong Property Address:
+    = @letter_report_order.property_address
+  %p
+    %strong Need By Date:
+    = @letter_report_order.need_by_date
+  %p
+    %strong Flood Plain:
+    = @letter_report_order.flood_plain
+  %p
+    %strong Additional Info:
+    = @letter_report_order.additional_info
+  = render 'users/order_info', order: @letter_report_order

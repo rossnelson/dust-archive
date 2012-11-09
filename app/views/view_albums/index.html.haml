@@ -1,0 +1,25 @@
+- title "All Albums" 
+- heading "All Albums" 
+
+- content_for :head do
+  = stylesheet_link_tag 'dust_album_app'
+
+= will_paginate @albums
+
+%ul{:class => "columns"}
+  - @albums.each do |album|
+    - unless album.photos.empty?
+      %li
+        - @photo = album.photos.find(:first)
+
+        - link_to view_album_path(album.filename), :style => 'float:left; ' do
+          = image_tag @photo.file.url(:thumb), :alt => album.heading
+          .info
+            %p
+              = link_to album.title, view_album_path(album.filename)
+              %br/
+              = truncate(album.desc, :length => 100)
+              = link_to "Read More", view_album_path(album.filename) unless album.desc.blank?
+.clear
+
+= will_paginate @albums

@@ -1,0 +1,17 @@
+= stylesheet( 'dust_album','album_uploadify')
+
+- form_for @photo, :validate => true do |f|
+  = f.error_messages
+  .item
+    %p
+      = f.label :title
+      %br/
+      = f.text_field :title, :class => 'field'
+  .item
+    %p
+      = f.label :desc
+      %br/
+      = f.text_area :desc, :class => 'field'
+  .item
+    %p= f.submit
+

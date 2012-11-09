@@ -1,0 +1,3 @@
+%ul#tree
+  - for rootnode in @menu_item_administration
+    = render :partial => "tree", :locals => {:root => rootnode}

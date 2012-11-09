@@ -1,0 +1,17 @@
+= form_for @cms_menu_item do |f|
+  = f.error_messages
+  .item
+    %p
+      = f.label :title
+      %br/
+      = f.text_field :title, :placeholder => "String For Link", :class => 'field'
+    %p
+      = f.label :controller_name
+      %br/
+      = f.text_field :controller_name, :class => "field"
+    %p
+      = f.label :url
+      %br/
+      = f.text_field :url, :placeholder => "Must begin with a '/'", :class => "field"
+  .item
+    %p= f.submit

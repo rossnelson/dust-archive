@@ -1,0 +1,9 @@
+%h1 Search Results
+#results
+  - if @results.blank?
+    %p Sorry, no results found.
+  - @results.each do |result|
+    %h3= result.title
+    %p
+      = truncate strip_tags(result.body), :length => 100, :separator => ' '
+      = link_to "Read More", "#{result.url_list.last}\##{result.title.parameterize}"

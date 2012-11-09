@@ -1,0 +1,42 @@
+.twelve.columns
+  = raw(block.front_end_content)
+
+- if current_user.nil?
+  - @user = User.new
+  - @user_session = UserSession.new
+  .six.columns
+    %h4 Login
+    = render 'user_sessions/form'
+    %br/
+    %p.info
+      If you do not already have an account, use the form to the right to register for one. Your account will need to be reviewed and approved by Landmark Title before you can log in and use the order system.
+  .six.columns
+    %h4 Register
+    = render partial: 'users/form', locals: { require_password: true }
+- elsif current_user.has_role?('client') && current_user.not_approved?
+  .not-approved
+    Your account must be approved by Landmark Title before you can begin placing orders.
+- else
+  - @user = current_user
+  - @refinance_order = current_user.refinance_orders.build
+  - @letter_report_order = current_user.letter_report_orders.build
+  - @real_estate_sale_order = current_user.real_estate_sale_orders.build
+  
+  .twelve.columns
+    %p.logout
+      Click the links below to begin creating order forms or editing your user information. #{link_to "Click here to logout.", logout_path} 
+      
+  .client-area-form.six.columns
+    %h4 Refinance Order Form
+    = render 'refinance_orders/form'
+  .client-area-form.six.columns
+    %h4 Letter Report Order Form
+    = render 'letter_report_orders/form'
+  .client-area-form.twelve.columns
+    %h4 Real Estate Sales Order Form
+    = render 'real_estate_sale_orders/form'
+  %hr/
+  .client-area-form.twelve.columns
+    %h4 Edit Your Information
+    = render partial: 'users/form', locals: { require_password: false }
+  

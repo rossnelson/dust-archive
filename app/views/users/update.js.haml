@@ -1,0 +1,22 @@
+var options = {
+data:  {format: 'js'},
+clearForm: true
+};
+
+$('.edit_user').ajaxForm(options);
+
+$("#user_submit").click(function () {
+$("#fancybox-inner").fadeTo("slow", 0.1);
+$.fancybox.showActivity();
+});
+
+$('#header').before('<div class="flash_error"> #{escape_javascript(flash.delete(:error))} </div>');
+$('#fancybox-inner').html("#{escape_javascript(render(:partial => 'users/form', :locals => {:user => @user}))}");
+
+$('.flash_error').fadeIn().delay(2000).slideUp('slow', function () {
+$.fancybox.hideActivity();
+});
+
+$("#fancybox-inner").fadeTo("fast", 1);
+
+$.fancybox.resize("fast");

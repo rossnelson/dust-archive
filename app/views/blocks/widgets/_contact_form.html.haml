@@ -1,0 +1,10 @@
+- @contact = Contact.new
+= form_for @contact, :validate => true do |f|
+  = f.error_messages
+  .item
+    = f.text_field :name, :placeholder =>  'name'
+  .item
+    = f.text_field :email, :placeholder =>  'email'
+  .item
+    = f.text_area :message, :placeholder =>  'message'
+  .item= f.submit "Send Now!"

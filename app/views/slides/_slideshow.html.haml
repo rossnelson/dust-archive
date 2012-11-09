@@ -1,0 +1,12 @@
+#slideshow
+  .theme-default
+    .slides.clearfix
+      - slides.each do |slide|
+        .slide
+          .caption.four.columns
+            .inner= raw slide.caption
+          .image.eight.columns= image_tag slide.image_url
+          
+          - if permitted_to? :manage, :slides
+            .edit-link
+              = link_to edit_icon("Slide #{slide.id}"), edit_slide_path(slide, :return => request.fullpath), :class => "to-admin"

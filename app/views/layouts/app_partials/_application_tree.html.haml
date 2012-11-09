@@ -1,0 +1,6 @@
+= content_tag :li, :id => dom_id(root), :class => "menu_item #{'active' if root.is_active?(request.fullpath)}" do
+  = link_to root.title, root.url, root.html_options?(request.fullpath)
+  = content_tag :ul, :class => 'children' do
+    - root.children.each do |child|
+      = render :partial => "layouts/app_partials/application_tree", :locals => {:root => child } if child.active
+  - end unless root.leaf?

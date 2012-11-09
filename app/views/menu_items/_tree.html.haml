@@ -1,0 +1,12 @@
+= content_tag :li, :id => dom_id(root), :class => 'nav_item' do
+  %div
+    %span.handle &nbsp;
+    = link_to root.title, root.url
+    - unless root.linkable_type.blank?
+      %small
+        = link_to "", "/#{root.linkable_type.downcase.pluralize}/#{root.linkable_id}/edit", :class => 'ui-icon	ui-icon-pencil edit tip', :title => "Edit This Item"
+        = link_to "", "/#{root.linkable_type.downcase.pluralize}/#{root.linkable_id}", :confirm => 'Are you sure?', :method => :delete, :class => 'ui-icon ui-icon-close destroy tip', :title => "Destroy This Item"
+  = content_tag :ul do
+    - for child in root.children do
+      = render :partial => "menu_items/tree", :locals => {:root => child }
+  - end unless root.leaf?

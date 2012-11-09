@@ -1,0 +1,65 @@
+!!!
+%html
+  %head
+    %title= h(yield(:title) || "Dust CMS")
+    = #stylesheet_link_tag 'reset', 'cms', 'jquery.fancybox-1.3.1', 'jquery-ui-1.8.5.custom', 'tipTip'
+    = stylesheet_link_tag 'cms'
+    = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
+    = #javascript_include_tag 'jquery-1.4.4.min', 'jquery-ui-1.8.5.custom.min', 'jquery.easing-1.3.pack', 'rails', 'tipTip', 'jquery.mousewheel-3.0.2.pack', 'jquery.fancybox-1.3.1.pack', 'highcharts', 'jquery-validation', 'rails.validations', 'jquery.form'
+    = #javascript_include_tag 'serializelist'
+    = #javascript_include_tag 'nestedsortables'
+    = javascript_include_tag 'cms'
+    = csrf_meta_tag
+    = yield(:head)
+  %body
+    #status
+    #header
+      / begin header
+      = yield(:header)
+      #user{:onselectstart => "return false"}
+        - if logged_in?
+          #profile
+            = link_to "", edit_user_path(current_user, :format => 'js'), :class => "settings tip", :title => "Edit User Settings"
+          #controls
+            #user_info{:onselectstart => "return false"}
+              = current_user.username.titleize
+            .dropdown
+              %ul
+                %li= link_to 'Dashboard', dashboard_path
+                %li= link_to "Log Out", logout_path
+    / end header
+    #wrapper1
+      / sets background to white and creates full length leftcol
+      #wrapper2
+        / sets background to white and creates full length rightcol
+        #maincol
+          / begin main content area
+          #leftcol
+            / begin leftcol
+            = yield(:left)
+            = render 'users/user', :user => current_user if yield(:left).blank?
+          / end leftcol
+          #rightcol
+            / begin rightcol
+            - if logged_in?
+              %ul#nav
+                = render :partial => 'layouts/cms_partials/nav'
+            = yield(:right)
+          / end righttcol
+          #centercol
+            / begin centercol
+            - if show_title?
+              %h2= h yield(:heading)
+            - flash.each do |name, msg|
+              = content_tag :div, msg, :class => "flash_#{name}"
+            = yield
+          / end centercol
+        / end main content area
+        #footer
+          / begin footer
+          .logo
+            = link_to image_tag("smallogo.png", :height => "50", :alt => "Dust CMS | The Super Simple CMS"), "/images/dustlogo.png", :class => "smallogo"
+        / end footer
+      / end wrapper1
+    / end wrapper2
+

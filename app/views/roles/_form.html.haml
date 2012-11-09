@@ -1,0 +1,9 @@
+= form_for @role do |f|
+  = f.error_messages
+  .item
+    %p
+      = f.label :name
+      %br/
+      = f.text_field :name, :class => "field"
+  .item
+    %p= f.submit

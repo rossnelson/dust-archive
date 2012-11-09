@@ -1,0 +1,17 @@
+- title "Real Estate Sale Orders" 
+
+.button_bar
+  = render :partial => 'search'
+  = link_to 'new page', new_real_estate_sale_order_path, :class => 'newfile tip', :title => "New Real Estate Sale Order"
+
+= will_paginate @real_estate_sale_orders
+
+- @real_estate_sale_orders.each do |real_estate_sale_order|
+  .item
+    .ui-widget.ui-helper-clearfix{:style => 'float:right'}
+      = link_to '', edit_real_estate_sale_order_path(real_estate_sale_order), :class => 'ui-icon	ui-icon-pencil edit tip', :title => "Edit This Item"
+      = link_to '', real_estate_sale_order, :confirm => 'Are you sure?', :method => :delete, :class => 'ui-icon ui-icon-close destroy tip', :title => "Destroy This Item"
+
+    %h3= link_to "Order for #{real_estate_sale_order.property_address} by #{real_estate_sale_order.user.proper_name}", real_estate_sale_order
+
+= will_paginate @real_estate_sale_orders 

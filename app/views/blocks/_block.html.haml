@@ -1,0 +1,10 @@
+.block{ :id => "#{block.title.parameterize}", :class => "#{block.classes}" }
+  .block-inner
+    .block-content
+      - if !block.partial_name.blank?
+        = render :partial => "blocks/widgets/#{block.partial_name}", :locals => { :block => block }
+      - else
+        = render :partial => "blocks/normal_block_content", :locals => { :block => block }
+      - if permitted_to? :manage, :blocks
+        .edit-link
+          = link_to edit_icon("Block <br/>'#{block.title}'"), edit_block_path(block, :return => request.fullpath), :class => "to-admin"

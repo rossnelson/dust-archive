@@ -1,0 +1,23 @@
+.item 
+  = f.label "property_multifamily_#{unit}_vacant", "Vacant?"
+  = f.check_box "property_multifamily_#{unit}_vacant", :class => 'field'
+.item 
+  = f.label "property_multifamily_#{unit}_occupation", "Who occupies the unit?"
+  = f.select "property_multifamily_#{unit}_occupation", RealEstateSaleOrder.occupation_types, :class => 'field'
+.item 
+  = f.label "property_multifamily_#{unit}_lease_terms", "Lease terms?"
+  = f.check_box "property_multifamily_#{unit}_lease_terms", :class => 'field'
+.item 
+  = f.label "property_multifamily_#{unit}_rent_due_date", "Rent Due Date"
+  = f.date_select "property_multifamily_#{unit}_rent_due_date", :class => 'field'
+.item 
+  = f.label "property_multifamily_#{unit}_rent_amount", "Rent Amount"
+  %br/
+  = f.text_field "property_multifamily_#{unit}_rent_amount", :class => 'field'
+.item 
+  = f.label "property_multifamily_#{unit}_security_deposit", "Deposit Required?"
+  = f.check_box "property_multifamily_#{unit}_security_deposit", :class => 'field'
+.item 
+  = f.label "property_multifamily_#{unit}_security_deposit_amount", "Deposit Amount"
+  %br/
+  = f.text_field "property_multifamily_#{unit}_security_deposit_amount", :class => 'field'

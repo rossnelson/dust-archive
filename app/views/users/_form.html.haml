@@ -1,0 +1,64 @@
+- require_password ||= false
+
+- if params[:format] == 'js'
+  :javascript
+    var options = {
+      data:  {format: 'js'},
+      clearForm: true
+    };
+
+    $('.edit_user').ajaxForm(options);
+
+    $("#user_submit").click(function () {
+    $("#fancybox-inner").fadeTo("slow", 0.1);
+      $.fancybox.showActivity();
+    });
+
+= form_for @user, :validate => true do |f|
+  .item
+    %p
+      = f.label :username
+      %br/
+      = f.text_field :username, :class => 'field'
+    %p
+      = f.label :email
+      %br/
+      = f.text_field :email, :class => 'field'
+    %p
+      = f.label :password
+      %br/
+      = f.password_field :password, validate: require_password, :class => 'field', value: nil
+    %p
+      = f.label :password_confirmation
+      %br/
+      = f.password_field :password_confirmation, validate: require_password, :class => 'field'
+  .item
+    %p
+      = f.label :proper_name
+      %br/
+      = f.text_field :proper_name, :class => 'field'
+    %p
+      = f.label :company
+      %br/
+      = f.text_field :company, :class => 'field'
+    %p
+      = f.label :address, "Address (include city and state)"
+      %br/
+      = f.text_field :address, :class => 'field'
+    %p
+      = f.label :phone
+      %br/
+      = f.text_field :phone, :class => 'field'      
+    %p
+      = f.label :fax
+      %br/
+      = f.text_field :fax, :class => 'field'
+  - if permitted_to? :manage, :users
+    .item
+      %h4 Select Role
+      = f.collection_select :role_id, Role.all(:order => 'name'), :id, :name, {:include_blank => true}
+    .item
+      %h4 Approve Client
+      = f.check_box :approved, :class => 'field'
+  .item
+    %p= f.submit "Submit"

@@ -1,0 +1,10 @@
+$('#photos_count').html('#{ pluralize(@album.photos.size, "Photo")} | #{link_to "Select Photos For Deletion", manage_photos_path(@album), :class => 'settings' } ');
+$('.sortable').append("#{ escape_javascript(render(:partial => "photos/photo", :locals => {:photo => @photo})) }");
+$("a#inline").fancybox({
+'transitionIn'	:	'elastic',
+'transitionOut'	:	'elastic',
+'speedIn'		:	200,
+'speedOut'		:	200,
+'hideOnContentClick': false
+});
+

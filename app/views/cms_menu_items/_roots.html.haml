@@ -1,0 +1,5 @@
+.button_bar
+  = link_to 'order nav', '', :id => 'ordermenuitems', :class => 'ordernav tip', :title => "Save Menu Order"
+%ul#tree
+  - for rootnode in @roots
+    = render :partial => "tree", :locals => {:root => rootnode}

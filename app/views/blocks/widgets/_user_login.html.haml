@@ -1,0 +1,13 @@
+- @user_session = UserSession.new
+
+= raw(block.front_end_content)
+= form_for @user_session do |f|
+  = f.error_messages
+  .item
+    = f.text_field :username, :class => 'field', placeholder: "Name"
+  .item
+    = f.password_field :password, :class => 'field', placeholder: "Password"
+    
+  .action= f.submit 'Login'
+  .action Forgot your password? #{link_to "Reset It!", new_password_reset_path}
+  .action New? #{link_to "Apply for membership!", "place-an-order"}
