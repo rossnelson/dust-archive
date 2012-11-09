@@ -3,7 +3,7 @@ class Photo < ActiveRecord::Base
   acts_as_nested_set
 
   belongs_to :album
-  has_attached_file :file, :styles => {:large => '800>', :medium => "300x300>", :thumb => "100x100#" }
+  #has_attached_file :file, :styles => {:large => '800>', :medium => "300x300>", :thumb => "100x100#" }
   validates_presence_of :album
 
   def self.page(search, page)
