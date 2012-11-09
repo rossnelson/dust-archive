@@ -6,7 +6,7 @@ Dust::Application.configure do
 
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
-  config.action_controller.perform_caching = true
+  config.action_controller.perform_caching = false
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = false
@@ -15,12 +15,12 @@ Dust::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  # Defaults to nil and saved in location specified by config.assets.prefix
+  # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
   # Specifies the header that your server uses for sending files
@@ -64,4 +64,6 @@ Dust::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  config.logger = Logger.new(config.paths["log"].first, 1, 1048576)
 end
