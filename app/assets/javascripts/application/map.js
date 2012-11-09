@@ -1,4 +1,4 @@
-
+/*
   document.load = gmap_init();
   function gmap_init() {
 
@@ -31,3 +31,4 @@
     });
 
   }
+  */
