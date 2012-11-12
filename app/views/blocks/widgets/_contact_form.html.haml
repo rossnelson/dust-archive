@@ -2,9 +2,19 @@
 = form_for @contact, :validate => true do |f|
   = f.error_messages
   .item
-    = f.text_field :name, :placeholder =>  'name'
+    = f.label :name
+    %br/
+    = f.text_field :name, :class => 'field'
   .item
-    = f.text_field :email, :placeholder =>  'email'
+    = f.label :email
+    %br/
+    = f.text_field :email, :class => 'field'
   .item
-    = f.text_area :message, :placeholder =>  'message'
-  .item= f.submit "Send Now!"
+    = f.label :phone
+    %br/
+    = f.text_field :phone, :class => 'field'
+  .item
+    = f.label :message
+    %br/
+    = f.text_area :message, :class => 'field', :style => "height:128px;"
+  .item= f.submit "Submit"
