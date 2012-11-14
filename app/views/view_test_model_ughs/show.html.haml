@@ -1,0 +1,14 @@
+- title @test_model_ugh.title
+
+- content_tag :div, :class => "page_#{@test_model_ugh.id}" do
+
+  - heading @test_model_ugh.name
+  = @test_model_ugh.name
+
+  - if permitted_to? :manage, :test_model_ughs
+    %p
+      = link_to "Edit", edit_test_model_ugh_path(@test_model_ugh)
+      |
+      = link_to "Destroy", @test_model_ugh, :confirm => 'Are you sure?', :method => :delete
+      |
+      = link_to "View All", test_model_ughs_path

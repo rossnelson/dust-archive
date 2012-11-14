@@ -1,0 +1,12 @@
+= form_for @new_directory, :html_options => {:multipart => true} do |f|
+  = f.error_messages
+  = f.hidden_field :user_id, :value => @user.id
+  - unless @directory.blank?
+    = f.hidden_field :parent_directory_id, :value => @directory.id
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title
+  %p
+    = f.submit
+

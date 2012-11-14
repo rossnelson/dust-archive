@@ -1,0 +1,5 @@
+#searchbox
+  = form_tag test_model_ughs_path, :method => 'get' do
+    = text_field_tag :search, params[:search], :class => "input-text", :placeholder => 'Search Test_model_ughs'
+    = image_submit_tag "admin/blank.png", :class => "image-submit"
+

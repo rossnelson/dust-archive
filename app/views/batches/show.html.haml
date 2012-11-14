@@ -1,0 +1,8 @@
+- title "Batch"
+
+%h2 User: #{link_to @batch.user.username, @batch.user}
+%ul.list
+  = render @batch.account_files, :user => @batch.user
+%p
+  = link_to "View All Batches", batches_path
+

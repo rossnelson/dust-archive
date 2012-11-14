@@ -1,0 +1,19 @@
+- title "Test Model Ughs" 
+
+.button_bar
+  = render :partial => 'search'
+  = link_to 'new page', new_test_model_ugh_path, :class => 'newfile tip', :title => "New Test Model Ugh"
+
+= will_paginate @test_model_ughs
+
+- @test_model_ughs.each do |test_model_ugh|
+  .item
+    .ui-widget.ui-helper-clearfix{:style => 'float:right'}
+      = link_to '', edit_test_model_ugh_path(test_model_ugh), :class => 'ui-icon	ui-icon-pencil edit tip', :title => "Edit This Item"
+      = link_to '', test_model_ugh, :confirm => 'Are you sure?', :method => :delete, :class => 'ui-icon ui-icon-close destroy tip', :title => "Destroy This Item"
+
+    %h3= link_to test_model_ugh.name, test_model_ugh
+    %p
+      = link_to "Preview Test Model Ugh", test_model_ugh, :class => 'remote_iframe'
+
+= will_paginate @test_model_ughs 

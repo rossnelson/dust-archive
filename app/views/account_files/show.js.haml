@@ -1,0 +1,2 @@
+$('.list').append("#{ escape_javascript(render(:partial => "account_files/account_file", :locals => {:account_file => @account_file, :user => @account_file.user})) }");
+line_item_init();

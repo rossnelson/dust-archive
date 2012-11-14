@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  submission_id: 1
+  user: 
+  directory: 
+
+two:
+  submission_id: 1
+  user: 
+  directory: 

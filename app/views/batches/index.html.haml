@@ -1,0 +1,11 @@
+- title "Batches"
+
+%ul.list
+  - @batches.each do |batch|
+    - if batch.account_files 
+      %li.line-item
+        = link_to batch.user.try(:username), batch
+        = batch.created_at.strftime("%F %r")      
+        = link_to "[+]", "#open-menu", :class => "open-menu"
+        %ul.actions.list-item-menu
+          = link_to "Show User's Account", batch.user

@@ -1,0 +1,2 @@
+module TestModelUghsHelper
+end

@@ -1,0 +1,20 @@
+- title @directory.title
+
+- content_for :right do
+  = render 'directories/uploadify_init'
+  = link_to "How To Upload Files", "/how-to-upload-files.html", :id => "how-to-upload-files"
+  .uploadify-form
+    = link_to "Submit Account File", "#", :id => "upload-files", :class => "form-button"
+    = link_to "Select Files", "#", :id => "select-files", :class => "form-button"
+    = render 'account_files/form'
+  = link_to "New Directory", "#new_directory", :id => "new-directory"
+.hide
+  = render 'directories/form'
+%ul.list
+  %li
+    - if @directory.parent_directory_id.blank?
+      = link_to "Parent Directory", user_path(@directory.user), :class => "parent-directory" 
+    - else
+      = link_to "Parent Directory", directory_path(@directory.parent_directory), :class => "parent-directory" 
+  = render @directory.sub_directories
+  = render @directory.account_files, :user => @user

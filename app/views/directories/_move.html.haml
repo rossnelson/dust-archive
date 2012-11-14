@@ -1,0 +1,10 @@
+.hide
+  = form_for directory do |f|
+    = f.error_messages
+    %p
+      = f.label :parent_directory_id
+      %br
+      = f.select :parent_directory_id, @user.directory_select(directory)
+    %p
+      = f.submit
+  - end unless @user.top_level_directories.count == 1 and directory.parent_directory_id == nil

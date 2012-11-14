@@ -1,0 +1,12 @@
+= form_for @account_file, :html_options => {:multipart => true} do |f|
+  = f.error_messages
+  = f.hidden_field :user_id, :value => @user.id
+  = hidden_field_tag :submission_id, :value => Time.now
+  - unless @directory.blank?
+    = f.hidden_field :directory_id, :value => @directory.id
+  %p
+    = f.label :content
+    %br
+    = f.file_field :content
+  %p
+    = f.submit

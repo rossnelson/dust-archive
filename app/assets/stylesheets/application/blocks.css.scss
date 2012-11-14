@@ -52,10 +52,9 @@ $slide-height: 358px;
   font-size:26px;
 }
 
-#callouts-blocks
+#callouts-blocks, #content-blocks
 {
   border-top: $block-divider;
-  border-bottom: $block-divider;
 }
 
 #footer_one-blocks, #footer_two-blocks-wrapper
@@ -192,7 +191,11 @@ $slide-height: 358px;
 {
   position:relative;
   z-index:2;
+  
+  padding-bottom:20px;
 }
+
+.home #content-blocks-wrapper { padding-bottom:0;}
 
 #footer_one-blocks-container
 {
@@ -249,5 +252,15 @@ $slide-height: 358px;
     {
       height:168px;
     }
+  }
+}
+
+.block.darker .block-inner
+{
+  background:#1d242b;
+  
+  .block-content
+  {
+    padding: 20px;
   }
 }

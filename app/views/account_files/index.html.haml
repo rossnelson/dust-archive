@@ -1,0 +1,15 @@
+- title "Account Files"
+
+%table
+  %tr
+    %th Title
+    %th User
+  - for account_file in @account_files
+    %tr
+      %td= account_file.title
+      %td= account_file.user_id
+      %td= link_to 'Show', account_file
+      %td= link_to 'Edit', edit_account_file_path(account_file)
+      %td= link_to 'Destroy', account_file, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Account File", new_account_file_path

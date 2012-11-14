@@ -1,0 +1,8 @@
+= form_for account_file, :html => {:id => "edit_account_file_#{account_file.id}_rename"} do |f|
+  = f.error_messages
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title
+  %p
+    = f.submit "Rename File"
