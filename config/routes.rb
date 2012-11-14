@@ -1,12 +1,25 @@
 Dust::Application.routes.draw do
  
   
+  resources :test_model_ughs
+
+  match "test_model_ugh/:filename" => "view_test_model_ughs#show", :as => :view_test_model_ugh
+
+  match "all-test_model_ughs" => "view_test_model_ughs#index", :as => :view_test_model_ughs
+
   get "sitemap/index"
   get "view_page/show"
   get "dashboard/show"
   
   get "search", :controller => "view_page", :as => :view_page_search #new! search
-
+  
+  resources :batches
+  resources :account_files
+  resources :directories
+  match 'directory/:title' => 'directories#show', :as => :view_directory
+  match 'account_files/:id/:style.:format' => 'account_files#download', :as => :download_file
+  get "reload_user" => "users#reload_user", :as => "reload_user"
+  
   resources :blocks
   resources :cms_menu_items
   resources :menu_items

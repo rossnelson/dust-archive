@@ -25,6 +25,8 @@ gem 'inherited_resources'
 gem 'mustache'
 gem "haml-rails"
 
+gem 'dust-generators'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -55,3 +57,5 @@ gem 'jquery-ui-rails'
 
 # To use debugger
 # gem 'debugger'
+
+gem "mocha", :group => :test

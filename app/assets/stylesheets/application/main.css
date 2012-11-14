@@ -130,13 +130,24 @@ h6
   position: relative;
   float: left;
   list-style: none;
-  padding: 0 20px;
+  padding: 0 ;
   margin:0;
   text-align: center;
 }
 
-#tree li.menu_item.active a { color:white; text-shadow: 1px 1px 2px rgba(0,0,0,0.80); }
+#tree li.menu_item.active a { color:#FABE28; }
 #tree li.menu_item.active a:hover { color:white; text-shadow: 1px 1px 3px rgba(0,0,0,.2);}
+#tree > li.menu_item.active > a:after 
+{ 
+  content:'.'; 
+  text-indent: -99999px; 
+  display:block; 
+  position:absolute; 
+  border-bottom:1px solid #FABE28; 
+  bottom:-5px; 
+  width:80%;
+  height:0;
+}
 
 #tree a
 {
@@ -149,7 +160,7 @@ h6
   -moz-transition: all ease-in-out .5s; /* Firefox 4 */
   -webkit-transition: all ease-in-out .5s; /* Safari and Chrome */
   -o-transition: all ease-in-out .5s; /* Opera */
-  padding: 0;
+  padding: 0 20px;
   background: url(../images/layout/divider-nav.png) 0 22px no-repeat;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
   line-height:100%;
@@ -199,7 +210,7 @@ li.hover .children{ display:block; }
   -webkit-transition: all ease-in-out .5s; /* Safari and Chrome */
   -o-transition: all ease-in-out .5s; /* Opera */
   box-shadow:0 5px 10px rgba(0,0,10,.4);
-  width:120px;
+  width:160px;
 }
 
 
@@ -209,7 +220,7 @@ li.hover .children{ display:block; }
   color:#333;
   text-shadow:none;
   font-size:14px;
-  padding:10px 0;
+  padding:10px 20px;
 }
 
 #tree .children li.menu_item:hover a

@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121106220200) do
+ActiveRecord::Schema.define(:version => 20121112233556) do
+
+  create_table "account_files", :force => true do |t|
+    t.string   "title"
+    t.integer  "directory_id"
+    t.integer  "user_id"
+    t.integer  "batch_id"
+    t.string   "content"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "account_files", ["batch_id"], :name => "index_account_files_on_batch_id"
+  add_index "account_files", ["directory_id"], :name => "index_account_files_on_directory_id"
+  add_index "account_files", ["user_id"], :name => "index_account_files_on_user_id"
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -26,6 +40,17 @@ ActiveRecord::Schema.define(:version => 20121106220200) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "batches", :force => true do |t|
+    t.integer  "submission_id"
+    t.integer  "user_id"
+    t.integer  "directory_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "batches", ["directory_id"], :name => "index_batches_on_directory_id"
+  add_index "batches", ["user_id"], :name => "index_batches_on_user_id"
 
   create_table "blocks", :force => true do |t|
     t.boolean  "show_title"
@@ -83,6 +108,16 @@ ActiveRecord::Schema.define(:version => 20121106220200) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+
+  create_table "directories", :force => true do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.integer  "parent_directory_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "directories", ["user_id"], :name => "index_directories_on_user_id"
 
   create_table "keys", :force => true do |t|
     t.string   "word"
@@ -144,6 +179,9 @@ ActiveRecord::Schema.define(:version => 20121106220200) do
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.string   "image"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "roles", :force => true do |t|
@@ -158,6 +196,9 @@ ActiveRecord::Schema.define(:version => 20121106220200) do
     t.integer  "width"
     t.integer  "height"
     t.string   "image"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end
