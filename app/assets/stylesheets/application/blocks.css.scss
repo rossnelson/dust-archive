@@ -3,7 +3,7 @@ $slide-height: 358px;
 
 #header_one-blocks-wrapper
 {
-  padding-top:40px;
+  padding-top:10px;
   padding-bottom:4px;
   border-bottom: $block-divider;
 }
@@ -43,7 +43,8 @@ $slide-height: 358px;
 {
   text-transform: lowercase;
   font-size:15px;
-  margin-left:100px;
+  margin-left:25px;
+  margin-top:10px;
 }
 
 .block.tagline
@@ -88,7 +89,7 @@ $slide-height: 358px;
   
   .block-content
   {
-    margin-top:-14px;
+    margin-top:4px;
   }
 }
 
