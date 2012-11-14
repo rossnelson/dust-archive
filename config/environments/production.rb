@@ -12,7 +12,7 @@ Dust::Application.configure do
   config.serve_static_assets = false
 
   # Compress JavaScripts and CSS
-  config.assets.compress = true
+  config.assets.compress = false
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = true
@@ -69,3 +69,5 @@ Dust::Application.configure do
 
   config.logger = Logger.new(config.paths["log"].first, 1, 1048576)
 end
+
+ENV['PATH'] = "/usr/local/bin:#{ENV['PATH']}"
