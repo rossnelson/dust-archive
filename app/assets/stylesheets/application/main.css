@@ -119,14 +119,12 @@ h6
 
 #tree
 {
-  position: absolute;
+  position: relative;
   float: right;
   margin: 0;
   overflow: visible;
   font-family: 'Open Sans', sans-serif;
   text-transform: lowercase;
-  top: 83px;
-  right:0;
 }
 
 #tree li.menu_item

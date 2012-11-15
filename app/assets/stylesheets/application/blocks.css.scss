@@ -88,7 +88,7 @@ $slide-height: 358px;
   
   .block-content
   {
-    margin-top:28px;
+    margin-top:20px;
   }
 }
 
@@ -263,4 +263,11 @@ $slide-height: 358px;
   {
     padding: 20px;
   }
+}
+
+.block.main-menu
+{
+  position: absolute;
+  right: 0;
+  top: 83px;
 }
