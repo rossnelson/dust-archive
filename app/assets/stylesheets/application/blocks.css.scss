@@ -198,9 +198,9 @@ $slide-height: 358px;
   z-index:1;
 }
 
-.home #footer_one-blocks-container
+.home #footer_one-blocks
 {
-  margin-top:-90px;
+  margin-top:0px;
 }
 
 #slider-blocks
@@ -265,4 +265,11 @@ $slide-height: 358px;
   position: absolute;
   right: 0;
   top: 117px;
+}
+
+.home .block.quick-contact
+{
+  position: absolute;
+  right: 0;
+  bottom: -90px;
 }
