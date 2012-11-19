@@ -5,6 +5,7 @@ $slide-height: 358px;
 {
   padding-top:20px;
   padding-bottom:20px;
+  margin-bottom:20px;
   border-bottom: $block-divider;
 }
 
@@ -51,12 +52,7 @@ $slide-height: 358px;
   font-size:26px;
 }
 
-#callouts-blocks, #content-blocks
-{
-  border-top: $block-divider;
-}
-
-#footer_one-blocks, #footer_two-blocks-wrapper
+#footer_one-blocks, #footer_two-blocks-wrapper, #callouts-blocks
 {
   border-top: $block-divider;
 }
@@ -85,10 +81,10 @@ $slide-height: 358px;
   font-size:14px;
   line-height:24px;
   
-  .block-content
+  /*.block-content
   {
     margin-top:20px;
-  }
+  }*/
 }
 
 #footer_one-blocks
@@ -268,5 +264,5 @@ $slide-height: 358px;
 {
   position: absolute;
   right: 0;
-  top: 83px;
+  top: 117px;
 }
