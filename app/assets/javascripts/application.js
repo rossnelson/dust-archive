@@ -16,3 +16,16 @@
 //= require_tree ./common
 //= require_tree ./application
 //= require rails.validations
+
+$(document).ready(function() {
+
+ $("#new-directory").fancybox();
+ line_item_init();
+
+});
+
+line_item_init = function() {
+  $('.hide').hide();
+  $('.box-it').fancybox();
+  $('.open-menu').ppg_menu();
+}

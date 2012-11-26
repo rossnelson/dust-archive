@@ -40,6 +40,8 @@ h1, h2, h3, h4, h5, h6 { font-weight:normal; line-height:125%;  font-family: 'Ju
 
 .home h1, .home h2, .home h3, .home h4, .home h5, .home h6 { color: white; }
 
+.faq-services a { color: white; }
+
 h1
 {
   font-size:36px;

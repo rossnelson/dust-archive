@@ -1,5 +1,5 @@
 #page-edit
-  - if permitted_to? :manage, :pages
+  - if (!@page.nil?) && permitted_to?(:manage, :pages)
     .edit-link
       = link_to new_icon("Block"), new_block_path(:show => @page.match_path, :return => request.fullpath), :class => 'to-admin'
       = link_to edit_icon("Page"), edit_page_path(@page), :class => 'to-admin'

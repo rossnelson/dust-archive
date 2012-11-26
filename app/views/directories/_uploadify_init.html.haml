@@ -1,6 +1,7 @@
 - session_key = Rails.application.config.session_options[:key]
 
 :javascript
+  window.onload = {
   $(function() {
 
   jQuery.ajaxSetup({ 
@@ -53,4 +54,4 @@
       $('#new_account_file').uploadifyUpload(); 
     });
   });
-
+  };

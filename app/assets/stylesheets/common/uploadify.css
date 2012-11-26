@@ -1,0 +1,25 @@
+
+
+.uploadifyQueueItem {
+  background-color: whiteSmoke;
+  border: 1px solid #7B93A8;
+  font-size: 12px;
+  margin-top: 5px;
+  padding: 10px;
+  width: 257px;
+}
+
+#new_account_fileQueue {
+padding: 36px 0 0 0;
+}
+
+
+#new_account_fileUploader {
+  position:absolute;
+  left:0;
+}
+
+.uploadify-form {
+  position: relative;
+}
+

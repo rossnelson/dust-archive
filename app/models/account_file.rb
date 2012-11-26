@@ -12,13 +12,17 @@ class AccountFile < ActiveRecord::Base
   belongs_to :batch
 
   def ext_name
-    ext = File.extname(content_file_name)
+    ext = File.extname(content_url)
     ext_name = ext.gsub(/[.]/, '')
     ext_name.downcase
   end
 
   def final_title
-    title || content_file_name
+    title || content_url
+  end
+  
+  def content_filename
+    read_attribute(:content)
   end
 
 end

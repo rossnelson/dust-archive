@@ -7,12 +7,12 @@ class PostOffice < ActionMailer::Base
 
   def contact_confirmation(contact)
     @contact = contact
-    mail(:to => "#{contact.name} <#{contact.email}>", :subject => "Your contact request at #{SITE_URL} has been received.")
+    mail(:to => "#{contact.name} <#{contact.email}>", :subject => "Your contact request has been sent.")
   end
 
   def contact_request(contact)
     @contact = contact
-    mail(:subject => "New contact request at #{SITE_URL} has been received.")
+    mail(:subject => "New contact request has been received.")
   end
 
   def password_reset_instructions(user)

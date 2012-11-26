@@ -23,7 +23,7 @@ class AccountFilesController < ApplicationController
     
     if @account_file.save
       respond_to do |format|
-        format.html { redirect_to @account_file.directory }
+        format.html { redirect_to (@account_file.directory || user_file_path(@account_file.user)) }
         format.json { render :json => { :result => 'success', :account_file => account_file_url(@account_file) } }
       end      
     else

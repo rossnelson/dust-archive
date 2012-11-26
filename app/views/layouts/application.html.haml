@@ -11,13 +11,13 @@
     - flash.each do |name, msg|
       = content_tag :div, msg, :id => "flash_#{name}"
     #container
-      = block_region 'header_one'
-      = block_region 'header_two'
-      = block_region 'slider'
-      = block_region 'callouts'
+      = render_region 'header_one'
+      = render_region 'header_two'
+      = render_region 'slider'
+      = render_region 'callouts'
       = yield
-      = block_region 'footer_one'
-      = block_region 'footer_two'
+      = render_region 'footer_one'
+      = render_region 'footer_two'
       = render :partial => 'users/user_bar'
       = render :partial => 'view_page/admin'
 

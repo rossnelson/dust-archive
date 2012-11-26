@@ -21,9 +21,25 @@ module ApplicationHelper
   def new_icon(type="")
     image_tag("ui/new-icon.png", :class =>"eye tip", :title => "Create New #{type}")
   end
-  
-  def block_region(name)
+    
+  def render_region(name, &block)
     bunch_of_blocks = @blocks.select{ |b| b if b.where_to_show == name }
-    render(:partial => "blocks/block_region", :locals => {:blocks => bunch_of_blocks, :name => name})
+    if !bunch_of_blocks.empty? || block_given?
+      capture_haml do
+        haml_tag :div, :id => "#{name}-blocks-container", :class => "clearfix" do
+          haml_tag :div, :id => "#{name}-blocks-wrapper", :class => "clearfix" do
+            haml_tag :div, :id =>  "#{name}-blocks", :class => "container-twelve" do
+              if block_given?
+                yield
+              else
+                bunch_of_blocks.each do |block|
+                  haml_concat render(:partial => "blocks/block", :locals => {:block => block})
+                end
+              end
+            end
+          end
+        end
+      end
+    end
   end
 end

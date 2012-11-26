@@ -1,6 +1,8 @@
 Dust::Application.routes.draw do
  
   
+  get "view_user/show"
+
   resources :test_model_ughs
 
   match "test_model_ugh/:filename" => "view_test_model_ughs#show", :as => :view_test_model_ugh
@@ -19,6 +21,8 @@ Dust::Application.routes.draw do
   match 'directory/:title' => 'directories#show', :as => :view_directory
   match 'account_files/:id/:style.:format' => 'account_files#download', :as => :download_file
   get "reload_user" => "users#reload_user", :as => "reload_user"
+  
+  resources :user_files
   
   resources :blocks
   resources :cms_menu_items
