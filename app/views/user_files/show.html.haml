@@ -8,7 +8,7 @@
       = render @user.top_level_directories
   .four.columns
     -#= link_to "New File",      '#new_account_file', :class => 'box-it'
-    = link_to "How To Upload Files", "/how-to-upload-files.html", :id => "how-to-upload-files"
+    = #link_to "How To Upload Files", "/how-to-upload-files.html", :id => "how-to-upload-files"
     = render 'directories/uploadify_init'
     .uploadify-form
       = link_to "Submit Account File", "#", :id => "upload-files", :class => "form-button"

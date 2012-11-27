@@ -1,6 +1,6 @@
 %li.line-item
   = link_to "[+]", "#open-menu", :class => "open-menu"
-  = link_to account_file.content_filename, account_file.content.url, :class => account_file.ext_name
+  = link_to account_file.content_filename, "/account_files/#{account_file.id}/download.#{account_file.ext_name}", :class => account_file.ext_name
   %ul.actions.list-item-menu
     %li= link_to "Download", account_file.content.url
     %li= link_to "Rename", "#edit_account_file_#{account_file.id}_rename", :class => 'box-it'

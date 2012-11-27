@@ -1,8 +1,8 @@
 #slideshow
   .theme-default
     .slides.clearfix
-      - slides.each do |slide|
-        .slide
+      - slides.each_with_index do |slide, i|
+        .slide{ :style => (i != 0 ? "display:none;" : nil) }
           .caption.four.columns
             .inner= raw slide.caption
           .image.eight.columns= image_tag slide.image_url

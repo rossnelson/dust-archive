@@ -65,10 +65,10 @@ class AccountFilesController < ApplicationController
   def download
     head(:not_found) and return if (file = AccountFile.find_by_id(params[:id])).nil?
 
-    path = file.content.path(params[:style])
+    path = file.content.path
     head(:bad_request) and return unless File.exist?(path) && params[:format].to_s == File.extname(path).gsub(/^\.+/, '')
 
-    send_file_options = { :type => file.content_content_type }
+    send_file_options = { :type => "pdf" }
 
     case SEND_FILE_METHOD
       when :apache then send_file_options[:x_sendfile] = true

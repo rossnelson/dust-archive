@@ -19,7 +19,7 @@ Dust::Application.routes.draw do
   resources :account_files
   resources :directories
   match 'directory/:title' => 'directories#show', :as => :view_directory
-  match 'account_files/:id/:style.:format' => 'account_files#download', :as => :download_file
+  match 'account_files/:id/:download.:format' => 'account_files#download', :as => :download_file
   get "reload_user" => "users#reload_user", :as => "reload_user"
   
   resources :user_files
