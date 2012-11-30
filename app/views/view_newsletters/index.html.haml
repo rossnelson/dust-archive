@@ -1,0 +1,9 @@
+- title "Newsletters"
+
+= will_paginate @newsletters
+
+- @newsletters.each do |newsletter|
+  .item
+    %h3= link_to newsletter.title, view_newsletter_path(newsletter.title)
+
+= will_paginate @newsletters

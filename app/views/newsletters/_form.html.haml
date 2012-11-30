@@ -1,0 +1,19 @@
+= content_for :head do
+  = javascript_include_tag :ckeditor
+
+- form_for @newsletter, :validate => true do |f|
+  = f.error_messages
+  .item 
+    = f.label :title
+    %br
+    = f.text_field :title, :class => 'field'
+  .item 
+    = f.label :document
+    %br
+    = f.text_field :document, :class => 'field'
+  .item 
+    = f.label :summary
+    %br
+    = f.text_area :summary, :class => 'field'
+  .item
+    = f.submit

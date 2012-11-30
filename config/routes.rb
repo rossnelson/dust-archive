@@ -1,13 +1,10 @@
 Dust::Application.routes.draw do
- 
-  
-  get "view_user/show"
 
-  resources :test_model_ughs
+  resources :newsletters
 
-  match "test_model_ugh/:filename" => "view_test_model_ughs#show", :as => :view_test_model_ugh
+  match "newsletter/:filename" => "view_newsletters#show", :as => :view_newsletter
 
-  match "all-test_model_ughs" => "view_test_model_ughs#index", :as => :view_test_model_ughs
+  match "all-newsletters" => "view_newsletters#index", :as => :view_newsletters
 
   get "sitemap/index"
   get "view_page/show"
@@ -22,7 +19,7 @@ Dust::Application.routes.draw do
   match 'account_files/:id/:download.:format' => 'account_files#download', :as => :download_file
   get "reload_user" => "users#reload_user", :as => "reload_user"
   
-  resources :user_files
+  match 'patient-portal' => "user_files#show"
   
   resources :blocks
   resources :cms_menu_items

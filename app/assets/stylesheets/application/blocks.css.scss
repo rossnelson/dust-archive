@@ -95,6 +95,8 @@ $slide-height: 358px;
 
 .block.recent-news
 {
+  height:348px;
+  
   .post
   {
     padding-top:20px;
@@ -115,14 +117,29 @@ $slide-height: 358px;
     .photo
     {
       float:left;
-      width:120px;
+      width:90px;
     }
     
     .main
     {
       width:260px;
       float:left;
-      line-height:100%;
+      line-height:130%;
+    }
+  }
+  
+  .latest-newsletter
+  {
+    background:#1d242c;
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    min-height:60px;
+    
+    .inner
+    {
+      margin:20px;
     }
   }
 }

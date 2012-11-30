@@ -2,7 +2,13 @@
   .block-inner
     .block-content
       - if !block.partial_name.blank?
-        = render :partial => "blocks/widgets/#{block.partial_name}", :locals => { :block => block }
+        - begin
+          = render :partial => "blocks/widgets/#{block.partial_name}", :locals => { :block => block }
+        - rescue
+          - if logged_in?
+            Error: Content not found or malfunctioning. Please notify the site administrator.
+          - else
+            &nbsp;
       - else
         = render :partial => "blocks/normal_block_content", :locals => { :block => block }
       - if permitted_to? :manage, :blocks
