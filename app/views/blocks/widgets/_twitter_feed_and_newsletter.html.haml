@@ -8,7 +8,7 @@
         = link_to image_tag(tweet.user.profile_image_url_https(:bigger), title: tweet.user.name), "#"
       .main
         .content
-          = raw tweet.text
+          = raw Rinku.auto_link(tweet.text, :all, 'target="_blank"') 
           = tweet.profile_image_url_https
 .latest-newsletter
   .inner

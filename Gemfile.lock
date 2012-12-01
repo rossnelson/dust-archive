@@ -125,6 +125,7 @@ GEM
       json (~> 1.4)
     responders (0.9.3)
       railties (~> 3.1)
+    rinku (1.7.2)
     sass (3.2.2)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -177,6 +178,7 @@ DEPENDENCIES
   mysql2
   nifty-generators
   rails (= 3.2.8)
+  rinku
   sass-rails (~> 3.2.3)
   sorcery
   twitter
