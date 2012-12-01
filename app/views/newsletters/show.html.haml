@@ -15,7 +15,7 @@
     = @newsletter.title
   %p
     %strong Document:
-    = @newsletter.document
+    = link_to @newsletter.document, @newsletter.document.url
   %p
     %strong Summary:
     = @newsletter.summary

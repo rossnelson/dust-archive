@@ -1,5 +1,6 @@
 = raw(block.body)
 - @tweets = Tweet.recent(2)
+- @newsletter = Newsletter.order("created_at").last
     
 .posts.recent
   - @tweets.each do |tweet|
@@ -13,4 +14,7 @@
 .latest-newsletter
   .inner
     %h3 Latest Newsletter
+    .title= link_to @newsletter.title, @newsletter.document.url
     %p
+      = @newsletter.summary
+      = link_to "Read More", @newsletter.document.url
