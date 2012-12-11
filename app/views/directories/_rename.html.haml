@@ -1,9 +1,0 @@
-.hide
-  = form_for directory, :html => {:id => "edit_directory_#{directory.id}_rename"} do |f|
-    = f.error_messages
-    %p
-      = f.label :title
-      %br
-      = f.text_field :title
-    %p
-      = f.submit "Rename Directory"

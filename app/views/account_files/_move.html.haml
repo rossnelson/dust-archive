@@ -1,8 +1,0 @@
-= form_for account_file do |f|
-  = f.error_messages
-  %p
-    = f.label :directory_id
-    %br
-    = f.select :directory_id, user.directory_select
-  %p
-    = f.submit "Move File"

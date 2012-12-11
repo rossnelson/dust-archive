@@ -1,8 +1,0 @@
-%blockquote.testimonial
-  = simple_format "#{testimonial.quote}"
-  .attribution
-    %strong= " – #{testimonial.attribution}"
-  
-  - if permitted_to? :manage, :testimonials
-    .edit-link
-      = link_to edit_icon("Testimonial"), edit_testimonial_path(testimonial, :return => request.fullpath), :class => "to-admin"

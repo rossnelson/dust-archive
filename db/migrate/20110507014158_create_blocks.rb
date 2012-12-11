@@ -10,7 +10,7 @@ class CreateBlocks < ActiveRecord::Migration
       t.string :classes
       t.integer :weight
       t.string :partial_name
-      
+
       t.timestamps
     end
   end

@@ -12,12 +12,11 @@ class ApplicationController < ActionController::Base
 
   def create_menus
     @application_menu_items = MenuItem.menu
-    @cms_menu_items = CmsMenuItem.roots
+    @cms_menu_items = Dust::CmsMenuItem.roots
   end
 
   def meta_tags
     @description = @app_config.default_description
-    @keywords = Key.words
   end
 
   # Loads blocks and groups them by position in the layout

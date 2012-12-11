@@ -11,46 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121130201646) do
-
-  create_table "account_files", :force => true do |t|
-    t.string   "title"
-    t.integer  "directory_id"
-    t.integer  "user_id"
-    t.integer  "batch_id"
-    t.string   "content"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
-  add_index "account_files", ["batch_id"], :name => "index_account_files_on_batch_id"
-  add_index "account_files", ["directory_id"], :name => "index_account_files_on_directory_id"
-  add_index "account_files", ["user_id"], :name => "index_account_files_on_user_id"
-
-  create_table "albums", :force => true do |t|
-    t.string   "title"
-    t.string   "filename"
-    t.text     "desc"
-    t.boolean  "active"
-    t.string   "heading"
-    t.string   "nav"
-    t.integer  "parent_id"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "batches", :force => true do |t|
-    t.integer  "submission_id"
-    t.integer  "user_id"
-    t.integer  "directory_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  add_index "batches", ["directory_id"], :name => "index_batches_on_directory_id"
-  add_index "batches", ["user_id"], :name => "index_batches_on_user_id"
+ActiveRecord::Schema.define(:version => 20121106200754) do
 
   create_table "blocks", :force => true do |t|
     t.boolean  "show_title"
@@ -109,22 +70,6 @@ ActiveRecord::Schema.define(:version => 20121130201646) do
     t.datetime "updated_at",   :null => false
   end
 
-  create_table "directories", :force => true do |t|
-    t.string   "title"
-    t.integer  "user_id"
-    t.integer  "parent_directory_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-  end
-
-  add_index "directories", ["user_id"], :name => "index_directories_on_user_id"
-
-  create_table "keys", :force => true do |t|
-    t.string   "word"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "menu_items", :force => true do |t|
     t.string   "title"
     t.string   "url"
@@ -138,85 +83,19 @@ ActiveRecord::Schema.define(:version => 20121130201646) do
     t.datetime "updated_at",    :null => false
   end
 
-  create_table "newsletters", :force => true do |t|
-    t.string   "title"
-    t.string   "document"
-    t.text     "summary"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "pages", :force => true do |t|
     t.boolean  "active"
-    t.string   "partial_name"
-    t.text     "description"
-    t.string   "keywords"
-    t.string   "title"
+    t.string   "meta_title"
+    t.text     "meta_description"
     t.string   "filename"
     t.string   "nav_link"
-    t.string   "heading"
     t.string   "classes"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
-  create_table "photos", :force => true do |t|
-    t.string   "title"
-    t.text     "desc"
-    t.date     "date_shot"
-    t.string   "location"
-    t.integer  "album_id"
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
-    t.integer  "parent_id"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-  end
-
-  create_table "posts", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.boolean  "published"
-    t.datetime "published_at"
-    t.boolean  "share"
-    t.string   "slug"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.string   "image"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "roles", :force => true do |t|
     t.string "name"
-  end
-
-  create_table "slides", :force => true do |t|
-    t.text     "caption"
-    t.string   "url"
-    t.boolean  "active"
-    t.integer  "position"
-    t.integer  "width"
-    t.integer  "height"
-    t.string   "image"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-  end
-
-  create_table "testimonials", :force => true do |t|
-    t.text     "quote"
-    t.string   "attribution"
-    t.boolean  "approved"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -224,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20121130201646) do
     t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
+    t.string   "role_id"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
     t.string   "remember_me_token"
@@ -237,7 +117,6 @@ ActiveRecord::Schema.define(:version => 20121130201646) do
     t.string   "activation_state"
     t.string   "activation_token"
     t.datetime "activation_token_expires_at"
-    t.integer  "role_id"
   end
 
   add_index "users", ["activation_token"], :name => "index_users_on_activation_token"

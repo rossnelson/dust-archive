@@ -11,7 +11,7 @@ class CreateContacts < ActiveRecord::Migration
       t.string :zip
       t.string :message
       t.string :hear
-      
+
       t.timestamps
     end
   end
