@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   before_filter { |c| Authorization.current_user = c.current_user }
 
   def create_menus
-    @application_menu_items = MenuItem.menu
+    @application_menu_items = Dust::MenuItem.menu
     @cms_menu_items = Dust::CmsMenuItem.roots
   end
 
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
 
   # Loads blocks and groups them by position in the layout
   def load_blocks
-    @blocks = Block.find_active(request.fullpath)
+    @blocks = Dust::Block.find_active(request.fullpath)
   end
 
   def load_app_config

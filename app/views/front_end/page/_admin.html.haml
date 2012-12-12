@@ -1,6 +1,6 @@
 #page-edit
   - if (!@page.nil?) && permitted_to?(:manage, :pages)
     .edit-link
-      = link_to new_icon("Block"), new_block_path(:show => @page.match_path, :return => request.fullpath), :class => 'to-admin'
-      = link_to edit_icon("Page"), edit_page_path(@page), :class => 'to-admin'
-      = link_to index_icon("Pages"), pages_path, :class => 'to-admin'
+      = link_to new_icon("Block"), new_dust_block_path(:show => @page.match_path, :return => request.fullpath), :class => 'to-admin'
+      = link_to edit_icon("Page"), edit_dust_page_path(@page), :class => 'to-admin'
+      = link_to index_icon("Pages"), dust_pages_path, :class => 'to-admin'

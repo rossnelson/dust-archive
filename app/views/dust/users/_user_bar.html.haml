@@ -1,0 +1,10 @@
+- if permitted_to? :manage, :pages
+  #user_nav.logged_in
+    = link_to "Dashboard", dust_dashboard_path
+    |
+    \#{link_to "Edit Profile", edit_dust_user_path(current_user.id)} 
+    |
+    \#{link_to "Logout", dust_logout_path}
+- else
+  #user_nav.logged_out
+    = link_to "Login", dust_login_path

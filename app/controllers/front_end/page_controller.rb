@@ -1,7 +1,7 @@
 class FrontEnd::PageController < ApplicationController
   def show
     @page = Dust::Page.find_by_filename(params[:filename])
-    @contact = Contact.new
+    @contact = Dust::Contact.new
     
     #@album = Album.find_by_filename(params[:gallery])
     #if @album
@@ -19,7 +19,7 @@ class FrontEnd::PageController < ApplicationController
   
   def search
     if params[:query].present?
-      @results = Block.search(params[:query])
+      @results = Dust::Block.search(params[:query])
     else
       @results = []
     end

@@ -1,14 +1,14 @@
 - title "All Pages"
 .button_bar
   = render :partial => 'search'
-  = link_to('new page', new_page_path, :class => 'newfile tip', :title => "New Page")
+  = link_to('new page', new_dust_page_path, :class => 'newfile tip', :title => "New Page")
 = will_paginate @pages
 - @pages.each do |page|
   .item
     .ui-widget.ui-helper-clearfix{:style => "float:right"}
-      = link_to "", edit_page_path(page), :class => 'ui-icon	ui-icon-pencil edit tip', :title => "Edit This Item"
+      = link_to "", edit_dust_page_path(page), :class => 'ui-icon	ui-icon-pencil edit tip', :title => "Edit This Item"
       = link_to "", page, :confirm => 'Are you sure?', :method => :delete, :class => 'ui-icon ui-icon-close destroy tip', :title => "Destroy This Item"
-    %h3= link_to page.title, page.filename
+    %h3= link_to page.meta_title, page.filename
     %p
       = link_to "Preview Page", page.filename, :class => 'remote_iframe'
 = will_paginate @pages

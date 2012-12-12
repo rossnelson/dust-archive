@@ -2,7 +2,7 @@ Dust::Application.routes.draw do
 
   mount Ckeditor::Engine => "/ckeditor"
 
-  namespace :admin do
+  namespace :dust do
 
     resources :blocks
     resources :cms_menu_items

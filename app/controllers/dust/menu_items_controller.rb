@@ -47,7 +47,7 @@ class MenuItemsController < ApplicationController
   end
 
 	def manage
-		@menu_item_administration = MenuItem.manage(params[:search])
+		@menu_item_dustistration = MenuItem.manage(params[:search])
 	end
 	
 	def array

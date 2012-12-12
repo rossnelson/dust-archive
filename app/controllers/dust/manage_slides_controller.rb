@@ -1,4 +1,4 @@
-
+module Dust
   class ManageSlidesController < ApplicationController
     
     if defined?(Dust::Application)
@@ -16,3 +16,4 @@
     end
 
   end
+end

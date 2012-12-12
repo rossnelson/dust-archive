@@ -1,8 +1,6 @@
 - title "User"
 - content_for :left do
-  = render current_user
-- content_for :head do
-  = javascript_include_tag "build_highcharts"
+  = render "admin/users/user", :user => current_user
 .kicker.item
   %p
     %span.run-in Welcome to the administration section of your website.
@@ -22,6 +20,6 @@
         %div
           - options.each do |k, v|
             .item
-              = render 'dashboard/options', :key => k, :value => v, :name => name
+              = render 'admin/dashboard/options', :key => k, :value => v, :name => name
     .item
       = submit_tag
