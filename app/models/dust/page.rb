@@ -1,6 +1,6 @@
 module Dust
   class Page < ActiveRecord::Base
-    attr_accessible :active, :partial_name, :meta_title, :filename, :nav_link, :heading, :keywords, :description, :classes
+    attr_accessible :active, :partial_name, :meta_title, :meta_description, :filename, :nav_link, :heading, :keywords, :description, :classes
 
     include ActionView::Helpers::TextHelper
     include ActionView::Helpers::SanitizeHelper

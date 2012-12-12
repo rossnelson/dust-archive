@@ -14,7 +14,7 @@ module Dust
       @options = params[:options]
       open("#{Rails.root}/config/app_config.yml", 'w') { |f| YAML::dump(@options, f) }
       flash[:notice] = "Successfully saved site wide options!"
-      redirect_to dashboard_url
+      redirect_to dust_dashboard_url
     end
 
   end

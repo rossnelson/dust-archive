@@ -1,23 +1,24 @@
 module Dust
   class RolesController < ApplicationController
     
-    filter_resource_access
+    filter_access_to :all
     
     layout 'cms'
     
     def index
-      @roles = Role.all
+      @roles = Dust::Role.all
     end
     
     def show
-    render :layout => 'cms'
+      @role = Dust::Role.find(params[:id])
     end
     
     def new
-    render :layout => 'cms'
+      @role = Dust::Role.new
     end
     
     def create
+      @role = Dust::Role.new(params[:dust_role])
       if @role.save
         flash[:notice] = "Successfully created role."
         redirect_to @role
@@ -27,11 +28,10 @@ module Dust
     end
     
     def edit
-    render :layout => 'cms'
     end
     
     def update
-      if @role.update_attributes(params[:role])
+      if @role.update_attributes(params[:dust_role])
         flash[:notice] = "Successfully updated role."
         redirect_to @role
       else
@@ -40,9 +40,10 @@ module Dust
     end
     
     def destroy
+      @role = Dust::Role.find(params[:id])
       @role.destroy
       flash[:notice] = "Successfully destroyed role."
-      redirect_to roles_url
+      redirect_to dust_roles_url
     end
   end
 end

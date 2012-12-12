@@ -1,6 +1,6 @@
 - title "User"
 - content_for :left do
-  = render "admin/users/user", :user => current_user
+  = render "dust/users/user", :user => current_user
 .kicker.item
   %p
     %span.run-in Welcome to the administration section of your website.
@@ -13,13 +13,13 @@
   .kicker.item
     %p
       %span.run-in Site Wide Administration.
-  = form_tag('/dashboard/update') do
+  = form_tag('/dust/dashboard/update') do
     .accordion
       - @options.each do |name, options|
         %h3= link_to name.to_s.titleize, '#'
         %div
           - options.each do |k, v|
             .item
-              = render 'admin/dashboard/options', :key => k, :value => v, :name => name
+              = render 'dust/dashboard/options', :key => k, :value => v, :name => name
     .item
       = submit_tag

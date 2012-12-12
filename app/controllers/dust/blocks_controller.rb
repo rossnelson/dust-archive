@@ -1,27 +1,27 @@
 module Dust
   class BlocksController < ApplicationController
     
-    filter_resource_access
+    filter_access_to :all
 
     layout 'cms'
     
     def index
-      @blocks = Block.page(params[:search], params[:page]) 
+      @blocks = Dust::Block.page(params[:search], params[:page]) 
     end
     
     def show
-      @block = Block.find(params[:id])
+      @block = Dust::Block.find(params[:id])
     end
     
     def new
       if params[:show]
-        @block = Block.new(:show => params[:show])
+        @block = Dust::Block.new(:show => params[:show])
       end
-      @block ||= Block.new
+      @block ||= Dust::Block.new
     end
     
     def create
-      @block = Block.new(params[:block])
+      @block = Dust::Block.new(params[:dust_block])
       if @block.save
         flash[:notice] = "Successfully created block."
         try_return_to_previous_page
@@ -31,12 +31,12 @@ module Dust
     end
     
     def edit
-      @block = Block.find(params[:id])
+      @block = Dust::Block.find(params[:id])
     end
     
     def update
-      @block = Block.find(params[:id])
-      if @block.update_attributes(params[:block])
+      @block = Dust::Block.find(params[:id])
+      if @block.update_attributes(params[:dust_block])
         flash[:notice] = "Successfully updated block."
         !params[:return].blank? ? redirect_to(params[:return]) : redirect_to(@block)
       else
@@ -46,7 +46,7 @@ module Dust
 
 
     def destroy
-      @block = Block.find(params[:id])
+      @block = Dust::Block.find(params[:id])
       @block.destroy
       flash[:notice] = "Successfully destroyed block."
       redirect_to blocks_url

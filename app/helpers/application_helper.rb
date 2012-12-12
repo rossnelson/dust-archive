@@ -33,7 +33,7 @@ module ApplicationHelper
                 yield
               else
                 bunch_of_blocks.each do |block|
-                  haml_concat render(:partial => "blocks/block", :locals => {:block => block})
+                  haml_concat render(:partial => "dust/blocks/block", :locals => {:block => block})
                 end
               end
             end

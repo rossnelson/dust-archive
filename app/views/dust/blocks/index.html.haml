@@ -1,12 +1,12 @@
 - title "Blocks"
 .button_bar
   = render :partial => 'search'
-  = link_to 'new page', new_block_path, :class => 'newfile tip', :title => "New Block"
+  = link_to 'new page', new_dust_block_path, :class => 'newfile tip', :title => "New Block"
 = will_paginate @blocks
 - @blocks.each do |block|
   .item
     .ui-widget.ui-helper-clearfix{:style => "float:right"}
-      = link_to "", edit_block_path(block), :class => 'ui-icon	ui-icon-pencil edit tip', :title => "Edit This Item"
+      = link_to "", edit_dust_block_path(block), :class => 'ui-icon	ui-icon-pencil edit tip', :title => "Edit This Item"
       = link_to "", block, :confirm => 'Are you sure?', :method => :delete, :class => 'ui-icon ui-icon-close destroy tip', :title => "Destroy This Item"
     %h3= link_to block.title, block
     %p

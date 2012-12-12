@@ -1,9 +1,6 @@
 authorization do
   role :admin do
     has_omnipotence
-    
-    has_permission_on [:dashboard, :blocks, :photos, :slides, :products, :categories, :view_pages, :pages, :contacts, :keys, :descriptions], :to => [:manage, :view]
-    has_permission_on [:menu_items, :cms_menu_items], :to => [:manage, :view]
   end
   
   role :client do
@@ -16,7 +13,7 @@ authorization do
 
   role :guest do
     has_permission_on [:view_pages], :to => :view
-    has_permission_on [:contacts, :users], :to => :make
+    has_permission_on [:contacts], :to => :make
   end
 
   role :moderator do

@@ -12,7 +12,7 @@
   .item
     %br/
     - @block.where_to_show.blank? ? selected = 'content' : selected = @block.where_to_show
-    = f.select(:where_to_show, Block.regions, {:prompt => 'Where should I show up?', :selected => selected}, {:class => 'field'})
+    = f.select(:where_to_show, Dust::Block.regions, {:prompt => 'Where should I show up?', :selected => selected}, {:class => 'field'})
   .item
     = f.label :weight
     %br/
@@ -34,6 +34,6 @@
       = f.label :partial_name, "Widget"
       %br/
       = #f.text_field :partial_name, :class => 'field'
-      = f.select :partial_name, Block.widget_list, {:include_blank => true}, {:class => 'field'}
+      = f.select :partial_name, Dust::Block.widget_list, {:include_blank => true}, {:class => 'field'}
   .item
     %p= f.submit

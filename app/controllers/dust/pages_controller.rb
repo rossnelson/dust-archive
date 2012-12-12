@@ -16,11 +16,11 @@ module Dust
     
     def create
       
-      @page = Dust::Page.new(params[:page])
+      @page = Dust::Page.new(params[:dust_page])
 
       if @page.save
         flash[:notice] = "Successfully created page."
-        redirect_to view_page_path(@page.filename	)
+        redirect_to front_end_page_path(@page.filename	)
       else
         render :action => 'new', :layout => 'cms'
       end
@@ -33,9 +33,9 @@ module Dust
     
     def update
       @page = Dust::Page.find(params[:id])
-        if @page.update_attributes(params[:page])
+        if @page.update_attributes(params[:dust_page])
           flash[:notice] = "Successfully updated page."
-          redirect_to view_page_path(@page.filename)
+          redirect_to front_end_page_path(@page.filename)
         else
           render :action => 'edit'
         end
@@ -45,7 +45,7 @@ module Dust
       @page = Dust::Page.find(params[:id])
       @page.destroy
       flash[:notice] = "Successfully destroyed page."
-      redirect_to pages_url
+      redirect_to dust_pages_url
     end
   end
 end

@@ -1,9 +1,9 @@
 - title "Role"
 .button_bar
-  = link_to('new role', new_role_path, :class => 'newfile tip', :title => "New Role")
+  = link_to('new role', new_dust_role_path, :class => 'newfile tip', :title => "New Role")
 - for role in @roles
   .item
     .ui-widget.ui-helper-clearfix{:style => "float:right"}
-      = link_to "", edit_role_path(role), :class => 'ui-icon	ui-icon-pencil edit tip', :title => "Edit This Item"
+      = link_to "", edit_dust_role_path(role), :class => 'ui-icon	ui-icon-pencil edit tip', :title => "Edit This Item"
       = link_to "", role, :confirm => 'Are you sure?', :method => :delete, :class => 'ui-icon ui-icon-close destroy tip', :title => "Destroy This Item"
     %h3= role.name

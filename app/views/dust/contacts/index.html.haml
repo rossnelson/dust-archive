@@ -1,16 +1,16 @@
 - title "Contact Requests"
 .button_bar
   = render :partial => 'search'
-  = link_to('new contact', new_contact_path, :class => 'newfile tip', :title => "New Contact Form")
-  = link_to "CSV", download_csv_path, :class => "batch tip", :title => "Downlaod a CSV of all <br /> the past contact requests."
+  = link_to('new contact', new_dust_contact_path, :class => 'newfile tip', :title => "New Contact Form")
+  = link_to "CSV", dust_download_csv_path, :class => "batch tip", :title => "Downlaod a CSV of all <br /> the past contact requests."
 = will_paginate @contacts
 - @contacts.each do |contact|
   .item
     .ui-widget.ui-helper-clearfix{:style => "float:right"}
-      = link_to "", edit_contact_path(contact), :class => 'ui-icon	ui-icon-pencil edit tip', :title => "Edit This Item"
+      = link_to "", edit_dust_contact_path(contact), :class => 'ui-icon	ui-icon-pencil edit tip', :title => "Edit This Item"
       = link_to "", contact, :confirm => 'Are you sure?', :method => :delete, :class => 'ui-icon ui-icon-close destroy tip', :title => "Destroy This Item"
     %h3
-      = link_to contact.name, contact_path(contact)
+      = link_to contact.name, dust_contact_path(contact)
     %p
       = mail_to contact.email, contact.email
     %div{:style => "display:none"}

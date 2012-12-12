@@ -6,13 +6,17 @@
     = f.label :active, "Show in Menu"
     = f.check_box :active
   .item
+    = f.label :meta_title, "Title, Window Title"
+    %br/
+    = f.text_field :meta_title, :class => 'field'
+    %br/
+    = f.label :meta_description
+    %br/
+    = f.text_area :meta_description, :class => 'field'
+  .item
     = f.label :nav_link, "Name, navigation link"
     %br/
     = f.text_field :nav_link, :class => 'field'
-    %br/
-    = f.label :title, "Title, Window Title"
-    %br/
-    = f.text_field :title, :class => 'field'
     %br/
     = f.label :filename, "Filename, Found In The Url"
     %br/
@@ -21,13 +25,5 @@
     = f.label :classes
     %br/
     = f.text_field :classes, :class => 'field'
-  .item
-    = f.label :keywords
-    %br/
-    = f.text_field :keywords, :class => 'field'
-    %br/
-    = f.label :description
-    %br/
-    = f.text_area :description, :class => 'field'
   .item
     %p= f.submit
