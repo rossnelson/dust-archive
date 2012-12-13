@@ -10,16 +10,16 @@ module RegionHelper
   end
 
   def build_regions(name, &block)
-    @regions = region_wrapper("#{name}-blocks-container", "clearfix", raw(block.call))
-    @regions = region_wrapper("#{name}-blocks-wrapper", "clearfix", @regions)
-    @regions = region_wrapper("#{name}-blocks", "container-twelve", @regions)
+    @regions = region_wrapper("#{name}-blocks", "container-twelve", raw(block.call))
+    @regions = region_wrapper("#{name}-blocks-container", "clearfix", @regions)
+    @regions = region_wrapper("#{name}-blocks-wrapper", "cleafix", @regions)
 
     @regions
   end
 
-  def region_wrapper(id, html_class, inards="")
+  def region_wrapper(id, html_class, innards="")
     content_tag :div, :id => id, :class => html_class do
-      inards
+      innards
     end
   end
 
@@ -35,3 +35,4 @@ module RegionHelper
   end
 
 end
+

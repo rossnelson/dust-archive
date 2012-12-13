@@ -1,10 +1,7 @@
 class ApplicationController < ActionController::Base
-  require 'rinku'
 
   protect_from_forgery
-
   include MenuSort
-
   helper :all
 
   before_filter :load_app_config, :meta_tags, :create_menus, :load_blocks

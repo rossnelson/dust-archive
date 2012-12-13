@@ -21,15 +21,11 @@ gem 'awesome_nested_set'
 
 gem 'hashie'
 gem 'inherited_resources'
-
 gem 'mustache'
 gem "haml-rails"
 
 gem 'dust-generators'
 
-gem 'twitter'
-
-gem 'rinku'
 
 # Gems used only for assets and not required
 # in production environments by default.
