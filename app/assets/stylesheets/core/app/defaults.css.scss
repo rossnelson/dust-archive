@@ -85,10 +85,8 @@ h6 {
 
 #tree {
   position: relative;
-  float: right;
   margin: 0;
   overflow: visible;
-  text-transform: lowercase;
   li.menu_item {
     position: relative;
     float: left;
@@ -99,8 +97,6 @@ h6 {
   }
   a {
     display: block;
-    padding: 0 20px;
-    line-height: 100%;
   }
   li {
     &:first-child a {

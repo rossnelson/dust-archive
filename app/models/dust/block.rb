@@ -2,7 +2,7 @@ module Dust
   class Block < ActiveRecord::Base
     attr_accessible :title, :body, :partial_name, :where_to_show, :show, :show_title, :classes, :weight
     
-    @regions = ['header_one', 'header_two', 'slider', 'callouts', 'content', 'footer_one', 'footer_two']
+    @regions = ['header_one', 'header_two', 'slider', 'callouts', 'content-one', 'content-two', 'content-three', 'footer_one', 'footer_two']
     
     default_scope :order => 'weight ASC'
     
