@@ -48,7 +48,7 @@ module Dust
     end
 
     def manage
-      @menu_item_dustistration = Dust::MenuItem.manage(params[:search])
+      @menu_item_administration = Dust::MenuItem.manage(params[:search])
     end
     
     def array

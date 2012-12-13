@@ -22,7 +22,7 @@ module Dust
 
       if @user.save
         flash[:notice] = "Successfully created user."
-        redirect_to users_url
+        redirect_to dust_users_url
       else
         render :action => 'new', :layout => 'cms' 
       end
@@ -42,7 +42,7 @@ module Dust
       if @user.update_attributes(params[:dust_user])
         flash[:notice] = "Successfully updated user information."
         respond_to do |format|
-          format.html { redirect_to users_url }
+          format.html { redirect_to dust_users_url }
           format.js   { redirect_to "/users/#{@user.id}.js" }
         end
       else
@@ -59,7 +59,7 @@ module Dust
       @user = Dust::User.find(params[:id])
       @user.destroy
       flash[:notice] = "Successfully destroyed user."
-      redirect_to users_url
+      redirect_to dust_users_url
     end
     
   end

@@ -90,7 +90,7 @@ $(document).ready(function(){
     //$.fancybox.showActivity();
     
     var mylist = $('#tree').serializelist();
-    $.post("/menu/array", mylist);
+    $.post("/dust/menu/array", mylist);
     
     return false;
   });
@@ -100,7 +100,7 @@ $(document).ready(function(){
     //$.fancybox.showActivity();
     
     var menu_items = $('#tree').serializelist();
-    $.post("/cms_menu/array", menu_items);
+    $.post("/dust/cms_menu/array", menu_items);
 
     return false;
   });

@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
-//= require_tree ./common
+//= require_tree ./core
 //= require_tree ./cms
 //= require rails.validations
 //= require ckeditor/init

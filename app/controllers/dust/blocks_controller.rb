@@ -24,7 +24,7 @@ module Dust
       @block = Dust::Block.new(params[:dust_block])
       if @block.save
         flash[:notice] = "Successfully created block."
-        try_return_to_previous_page
+        try_return_to_previous_page(@block)
       else
         render :action => 'new'
       end
@@ -49,11 +49,11 @@ module Dust
       @block = Dust::Block.find(params[:id])
       @block.destroy
       flash[:notice] = "Successfully destroyed block."
-      redirect_to blocks_url
+      try_return_to_previous_page(dust_blocks_url)
     end
     
-    def try_return_to_previous_page
-      !params[:return].blank? ? redirect_to(params[:return]) : redirect_to(@block)
+    def try_return_to_previous_page(url)
+      !params[:return].blank? ? redirect_to(params[:return]) : redirect_to(url)
     end
     
   end

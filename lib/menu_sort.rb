@@ -16,7 +16,8 @@ module MenuSort
     newlist = newlist.sort
 
     previous = nil
-    this_class = newlist[0][1][:id].split(/_+\d+/).join.camelize.constantize
+    this_class_data = newlist[0][1][:id].match('(dust)_(.+)_\d+')
+    this_class = "#{this_class_data[1].camelize}::#{this_class_data[2].camelize}".constantize
 
     newlist.each_with_index do |array, index|
 

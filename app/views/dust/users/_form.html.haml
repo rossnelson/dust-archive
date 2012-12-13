@@ -32,33 +32,9 @@
       = f.label :password_confirmation
       %br/
       = f.password_field :password_confirmation, validate: require_password, :class => 'field'
-  .item
-    %p
-      = f.label :proper_name
-      %br/
-      = f.text_field :proper_name, :class => 'field'
-    %p
-      = f.label :company
-      %br/
-      = f.text_field :company, :class => 'field'
-    %p
-      = f.label :address, "Address (include city and state)"
-      %br/
-      = f.text_field :address, :class => 'field'
-    %p
-      = f.label :phone
-      %br/
-      = f.text_field :phone, :class => 'field'      
-    %p
-      = f.label :fax
-      %br/
-      = f.text_field :fax, :class => 'field'
   - if permitted_to? :manage, :users
     .item
       %h4 Select Role
-      = f.collection_select :role_id, Role.all(:order => 'name'), :id, :name, {:include_blank => true}
-    .item
-      %h4 Approve Client
-      = f.check_box :approved, :class => 'field'
+      = f.collection_select :role_id, Dust::Role.all(:order => 'name'), :id, :name, {:include_blank => true}
   .item
     %p= f.submit "Submit"

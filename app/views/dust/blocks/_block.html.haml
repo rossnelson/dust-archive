@@ -14,3 +14,4 @@
       - if permitted_to? :manage, :blocks
         .edit-link
           = link_to edit_icon("Block <br/>'#{block.title}'"), edit_dust_block_path(block, :return => request.fullpath), :class => "to-admin"
+          = link_to delete_icon("Delete <br/>'#{block.title}'"), dust_block_path(block, :return => request.fullpath), :class => "to-admin", :confirm => "Are you sure?", :method => :delete
