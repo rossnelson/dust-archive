@@ -1,6 +1,8 @@
 @import "variables_mixins";
 
 #header_one-blocks {
+  height:90px;
+  margin: 27px auto 35px auto;
   color: $logo-blue;
 
   #header-address {
@@ -10,6 +12,7 @@
   }
 
   #header-slogan {
+    margin-top:20px;
     float: right;
     text-align: center;
     font-size: 24px;

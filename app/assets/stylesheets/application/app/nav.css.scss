@@ -1,0 +1,25 @@
+#header_two-blocks {
+
+  border-bottom: 15px solid #000;
+  
+}
+
+#header-nav { margin: 0 20px 0 0 ; }
+
+#tree {
+  height:31px;
+  overflow:hidden;
+  
+  li.menu_item { 
+    height:31px;
+    line-height: 31px;
+    padding: 0 16px;
+    margin-right:1px;
+    background: #000;
+
+    a { text-transform: lowercase; font-weight: 300; font-size:20px; color:#fff; text-shadow:none; }
+  }
+  
+
+
+}

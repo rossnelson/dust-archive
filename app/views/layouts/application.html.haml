@@ -4,7 +4,7 @@
     %title= h(yield(:title) || "Dust")
     %meta{:content => h(@keywords), :name => "keywords"}/
     %meta{:content => yield(:description) + @app_config["site_info"]["default_description"], :name => "description"}/
-    = stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600', 'http://fonts.googleapis.com/css?family=Julius+Sans+One'
+    = stylesheet_link_tag 'application'#, 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600'#, 'http://fonts.googleapis.com/css?family=Julius+Sans+One'
     = csrf_meta_tag
     = yield(:head)
   %body
