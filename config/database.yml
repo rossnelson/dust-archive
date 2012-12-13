@@ -1,23 +1,15 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: dust-3
-  username: root
-  password: 
-  host: 127.0.0.1
-
-test:
-  adapter: mysql2
-  encoding: utf8
-  database: 
-  username: 
-  password: 
-  host: localhost
+  database: naalloy
+  username: naalloy
+  password: chab-wa-ru-fim 
+  host: ganon.imagemanagement.com
 
 production:
   adapter: mysql2
   encoding: utf8
-  database: 
-  username: 
-  password: 
+  database: naalloy
+  username: naalloy
+  password: chab-wa-ru-fim 
   host: ganon.imagemanagement.com

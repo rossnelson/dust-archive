@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  require 'rinku'
 
   protect_from_forgery
 
