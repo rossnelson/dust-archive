@@ -1,21 +1,21 @@
 module Dust
   class MenuItemsController < ApplicationController
     filter_access_to :all
-    
+
     layout "cms"
-    
+
     def index
       @menu_items = Dust::MenuItem.page(params[:search], params[:page]) 
     end
-    
+
     def show
       @menu_item = Dust::MenuItem.find(params[:id])
     end
-    
+
     def new
       @menu_item = Dust::MenuItem.new
     end
-    
+
     def create
       @menu_item = Dust::MenuItem.new(params[:dust_menu_item])
       if @menu_item.save
@@ -25,11 +25,11 @@ module Dust
         render :action => 'new'
       end
     end
-    
+
     def edit
       @menu_item = Dust::MenuItem.find(params[:id])
     end
-    
+
     def update
       @menu_item = Dust::MenuItem.find(params[:id])
       if @menu_item.update_attributes(params[:dust_menu_item])
@@ -39,7 +39,7 @@ module Dust
         render :action => 'edit'
       end
     end
-    
+
     def destroy
       @menu_item = Dust::MenuItem.find(params[:id])
       @menu_item.destroy
@@ -50,11 +50,13 @@ module Dust
     def manage
       @menu_item_administration = Dust::MenuItem.manage(params[:search])
     end
-    
+
     def array
-      menu_sort(params[:ul])
+      #menu_sort(params[:ul])
+      @menu_sort = Dust::MenuSort.new(params[:ul])
+
       flash[:notice] = "Successfully Sorted Menu."
-      redirect_to '/menu-manage.js'
+      redirect_to '/dust/menu-manage.js'
     end
   end
 end

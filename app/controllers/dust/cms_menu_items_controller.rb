@@ -55,9 +55,11 @@ module Dust
     end
       
       def array
-          menu_sort(params[:ul])
-      flash[:notice] = "Successfully Sorted Menu."
-          redirect_to dust_cms_menu_items_url, :format => 'js'
+        #menu_sort(params[:ul])
+        @menu_sort = Dust::MenuSort.new(params[:ul])
+        
+        flash[:notice] = "Successfully Sorted Menu."
+        redirect_to dust_cms_menu_items_url(:format => 'js')
       end
 
   end
