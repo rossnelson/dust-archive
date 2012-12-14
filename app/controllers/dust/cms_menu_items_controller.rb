@@ -55,7 +55,6 @@ module Dust
     end
       
       def array
-        #menu_sort(params[:ul])
         @menu_sort = Dust::MenuSort.new(params[:ul])
         
         flash[:notice] = "Successfully Sorted Menu."
