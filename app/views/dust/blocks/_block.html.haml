@@ -4,7 +4,10 @@
       - if !block.partial_name.blank?
         - begin
           = render :partial => "dust/blocks/widgets/#{block.partial_name}", :locals => { :block => block }
-        - rescue
+        - rescue => e
+          - Rails.logger.info "\n\t[# BLOCK ERROR]"
+          - Rails.logger.info "\t\t#{e}"
+          - Rails.logger.info "\t[/ BLOCK ERROR]\n"
           - if logged_in?
             Error: Content not found or malfunctioning. Please notify the site administrator.
           - else
