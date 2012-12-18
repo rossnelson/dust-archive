@@ -48,7 +48,7 @@ GEM
       execjs
     coffee-script-source (1.4.0)
     declarative_authorization (0.5.6)
-    dust-generators (0.2.8)
+    dust-generators (0.3.2)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -160,7 +160,7 @@ DEPENDENCIES
   client_side_validations
   coffee-rails (~> 3.2.1)
   declarative_authorization
-  dust-generators
+  dust-generators (= 0.3.2)
   haml-rails
   hashie
   inherited_resources
