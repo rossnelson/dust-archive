@@ -9,7 +9,7 @@ development:
 production:
   adapter: mysql2
   encoding: utf8
-  database: naalloy
-  username: naalloy
-  password: chab-wa-ru-fim 
+  database: root
+  username: 
+  password: 
   host: ganon.imagemanagement.com
