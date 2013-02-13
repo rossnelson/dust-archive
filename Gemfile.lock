@@ -1,3 +1,10 @@
+PATH
+  remote: vendor/gems/ckeditor-3.7.3
+  specs:
+    ckeditor (3.7.3)
+      mime-types
+      orm_adapter
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -40,9 +47,6 @@ GEM
     carrierwave (0.7.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
-    ckeditor (3.7.3)
-      mime-types
-      orm_adapter
     client_side_validations (3.2.1)
     coderay (1.0.8)
     coffee-rails (3.2.2)
@@ -169,7 +173,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   carrierwave
-  ckeditor (= 3.7.3)
+  ckeditor!
   client_side_validations
   coffee-rails (~> 3.2.1)
   declarative_authorization

@@ -14,7 +14,7 @@ gem "client_side_validations"
 gem "nifty-generators"
 gem "will_paginate"
 
-gem "ckeditor", "3.7.3"
+gem "ckeditor", :path => "vendor/gems/ckeditor-3.7.3"
 gem "carrierwave"
 gem "mini_magick"
 gem 'awesome_nested_set'
