@@ -29,9 +29,18 @@
     - @page.sections.each_with_index do |section, index|
       .item
         = hidden_field_tag "sections[#{section.id}][_destroy]"
+        = label_tag "title"
+        %br/
         = text_field_tag "sections[#{section.id}][title]", section.title, :class => "field"
+        %br/
+        = label_tag "classes"
+        %br/
         = text_field_tag "sections[#{section.id}][classes]", section.classes
+        %br/
+        = label_tag "position"
+        %br/
         = text_field_tag "sections[#{section.id}][position]", section.position
+        %br/
         = link_to "Remove Section", "#", :class => "remove_fields"
   = link_to "Add Section", "#", :class => "add_fields"
   %script{:type => "text/templte", :id => "placeholder-section"}
