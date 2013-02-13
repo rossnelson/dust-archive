@@ -29,7 +29,7 @@
     - @page.sections.each_with_index do |section, index|
       .item
         = hidden_field_tag "sections[#{section.id}][_destroy]"
-        = text_field_tag "sections[#{section.id}][title]", section.title
+        = text_field_tag "sections[#{section.id}][title]", section.title, :class => "field"
         = text_field_tag "sections[#{section.id}][classes]", section.classes
         = text_field_tag "sections[#{section.id}][position]", section.position
         = link_to "Remove Section", "#", :class => "remove_fields"
@@ -37,9 +37,18 @@
   %script{:type => "text/templte", :id => "placeholder-section"}
     .item
       = hidden_field_tag "sections[section_id][_destroy]"
-      = text_field_tag "sections[section_id][title]"
-      = text_field_tag "sections[section_id][classes]"
-      = text_field_tag "sections[section_id][position]"
-      = link_to "Remove Section", "#", :class => "remove_fields"
+      = label_tag "title"
+      %br/
+      = text_field_tag "sections[section_id][title]", "", :class => "field"
+      %br/
+      = label_tag "classes"
+      %br/
+      = text_field_tag "sections[section_id][classes]", "", :class => "field"
+      %br/
+      = label_tag "position"
+      %br/
+      = text_field_tag "sections[section_id][position]", "", :class => "field"
+      %br/
+      = link_to "Remove Section", "#", :class => "remove_fields right"
   .item
     %p= f.submit
