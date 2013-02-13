@@ -37,7 +37,7 @@ Dust::Application.routes.draw do
     get "search", :controller => "view_page", :as => :view_page_search #new! search
 
     match "sitemap" => "sitemap#index", :as => :sitemap_xml
-    match ':filename' => 'page#show', :as => :front_end_page
+    match '*filename' => 'page#show', :as => :front_end_page
 
     root :to => "page#show", :filename => "welcome"
 
