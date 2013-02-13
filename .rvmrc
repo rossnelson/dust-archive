@@ -1,1 +1,1 @@
-rvm 1.9.3-p0@dust-3 --create
+rvm gemset use ruby-1.9.3-p0@dust-3 --create

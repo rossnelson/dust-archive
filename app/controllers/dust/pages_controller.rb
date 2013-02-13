@@ -15,12 +15,12 @@ module Dust
     end
     
     def create
-      
       @page = Dust::Page.new(params[:dust_page])
+      @builder = Dust::Builder::Page.new(:page => @page, :sections => params[:sections])
 
-      if @page.save
+      if @builder.save
         flash[:notice] = "Successfully created page."
-        redirect_to front_end_page_path(@page.filename	)
+        redirect_to front_end_page_path(@page.filename)
       else
         render :action => 'new', :layout => 'cms'
       end
@@ -33,12 +33,14 @@ module Dust
     
     def update
       @page = Dust::Page.find(params[:id])
-        if @page.update_attributes(params[:dust_page])
-          flash[:notice] = "Successfully updated page."
-          redirect_to front_end_page_path(@page.filename)
-        else
-          render :action => 'edit'
-        end
+      @builder = Dust::Builder::Page.new(:page => @page, :sections => params[:sections], :attrs => params[:dust_page])
+
+      if @builder.update
+        flash[:notice] = "Successfully updated page."
+        redirect_to front_end_page_path(@page.filename)
+      else
+        render :action => 'edit'
+      end
     end
 
     def destroy

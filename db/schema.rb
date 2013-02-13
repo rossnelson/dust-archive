@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121106200754) do
+ActiveRecord::Schema.define(:version => 20130212223934) do
 
   create_table "blocks", :force => true do |t|
     t.boolean  "show_title"
@@ -96,6 +96,15 @@ ActiveRecord::Schema.define(:version => 20121106200754) do
 
   create_table "roles", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "sections", :force => true do |t|
+    t.string   "title"
+    t.string   "classes"
+    t.integer  "position"
+    t.integer  "page_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
