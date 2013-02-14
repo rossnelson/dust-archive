@@ -8,54 +8,24 @@
     = csrf_meta_tag
     = yield(:head)
   %body
-    #status
     #header
-      / begin header
       = yield(:header)
-      #user{:onselectstart => "return false"}
-        - if logged_in?
-          #profile
-            = link_to "", edit_dust_user_path(current_user, :format => 'js'), :class => "settings tip", :title => "Edit User Settings"
-          #controls
-            #user_info{:onselectstart => "return false"}
-              = current_user.username.titleize
-            .dropdown
-              %ul
-                %li= link_to 'Dashboard', dust_dashboard_path
-                %li= link_to "Log Out", dust_logout_path
-    / end header
+      %ul
+        %li= link_to 'Dashboard', dust_dashboard_path
+        %li= link_to "Log Out", dust_logout_path
     #wrapper1
-      / sets background to white and creates full length leftcol
-      #wrapper2
-        / sets background to white and creates full length rightcol
-        #maincol
-          / begin main content area
-          #leftcol
-            / begin leftcol
-            = yield(:left)
-            = render 'dust/users/user', :user => current_user if yield(:left).blank?
-          / end leftcol
-          #rightcol
-            / begin rightcol
-            - if logged_in?
-              %ul#nav
-                = render :partial => 'layouts/cms_partials/nav'
-            = yield(:right)
-          / end righttcol
-          #centercol
-            / begin centercol
-            - if show_title?
-              %h2= h yield(:heading)
-            - flash.each do |name, msg|
-              = content_tag :div, msg, :class => "flash_#{name}"
-            = yield
-          / end centercol
-        / end main content area
-        #footer
-          / begin footer
-          .logo
-            = link_to image_tag("smallogo.png", :height => "50", :alt => "Dust CMS | The Super Simple CMS"), "/images/dustlogo.png", :class => "smallogo"
-        / end footer
-      / end wrapper1
-    / end wrapper2
+      #rightcol
+        - if logged_in?
+          %ul#nav
+            = render :partial => 'layouts/cms_partials/nav'
+        = yield(:right)
+      #centercol
+        - if show_title?
+          %h2= h yield(:heading)
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :class => "flash_#{name}"
+        = yield
+      #footer
+        .logo
+          = link_to image_tag("smallogo.png", :height => "50", :alt => "Dust CMS | The Super Simple CMS"), "/images/dustlogo.png", :class => "smallogo"
 
