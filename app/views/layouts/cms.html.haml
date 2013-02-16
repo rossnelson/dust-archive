@@ -2,30 +2,49 @@
 %html
   %head
     %title= h(yield(:title) || "Dust CMS")
+
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width,minimum-scale=1,maximum-scale=1", :name => "viewport"}/
+    %meta{:content => "width", :name => "MobileOptimized"}/
+    %meta{:content => "true", :name => "HandheldFriendly"}/
+    %meta{:content => "yes", :name => "apple-mobile-web-app-capable"}/
+
     = stylesheet_link_tag 'cms'
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
     = javascript_include_tag 'cms'
     = csrf_meta_tag
     = yield(:head)
   %body
-    #header
-      = yield(:header)
-      %ul
-        %li= link_to 'Dashboard', dust_dashboard_path
-        %li= link_to "Log Out", dust_logout_path
-    #wrapper1
-      #rightcol
-        - if logged_in?
-          %ul#nav
+    #right
+      #nav
+        .section-wrap
+          .item.section
+            .mega-icon.global
+            .label
+              Admin
+          %ul.sub-nav.global-nav
+            %li.item.link
+              = link_to 'Dashboard', dust_dashboard_path
+            %li.item.link
+              = link_to "Log Out", dust_logout_path
+        .section-wrap
+          .item.section
+            .mega-icon.settings
+            .label
+              Settings
+          %ul.sub-nav.settings-nav
             = render :partial => 'layouts/cms_partials/nav'
-        = yield(:right)
-      #centercol
-        - if show_title?
-          %h2= h yield(:heading)
+      = yield(:right)
+    .main-wrap
+      .wrapper
+        #header-wrap.clearfix
+          .wrap.clearfix
+            - if show_title?
+              %h1= h yield(:title)
+            = yield(:header)
         - flash.each do |name, msg|
           = content_tag :div, msg, :class => "flash_#{name}"
         = yield
-      #footer
-        .logo
-          = link_to image_tag("smallogo.png", :height => "50", :alt => "Dust CMS | The Super Simple CMS"), "/images/dustlogo.png", :class => "smallogo"
-
+        #footer-wrap
+          #footer
+            dust cms 

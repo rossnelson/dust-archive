@@ -1,0 +1,116 @@
+@include font-face('EntypoRegular', '/assets/entypo/entypo-webfont');
+
+.mega-icon {
+  position: absolute;
+  top: 10px;
+  color: rgba(10,64,98,1);
+  text-shadow: 1px 1px 0px rgba(26,102,148,1);
+}
+
+.mini-icon, .mega-icon {
+  font-family: 'EntypoRegular';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-transition: color .15s ease-in 0;
+  -webkit-transition: color .15s ease-in 0;
+}
+
+.new-icon {
+  font-size:13px;
+  text-decoration:none;
+  float:right;
+  line-height: 5px;
+}
+.new-icon::before {
+  font-family: 'EntypoRegular';
+  content: "Z";
+  position: relative;
+  top: 2px;
+  right: 2px;
+  font-size: 25px;
+}
+
+.sortable .handle.mega-icon.reorder{
+  margin: 0 0 0 10px;
+  display: block;
+  float: left;
+  color: #c3c3c3;
+  font-size: 22px;
+  cursor:move; 
+  text-shadow: 1px 1px 0px #fff;
+  line-height: 24px;
+}
+
+.ui-sortable .handle.mega-icon.reorder::before {
+  font-size: 36px;
+  line-height: 64%;
+}
+
+.mini-icon::before {
+  font-size: 16px;
+}
+.mega-icon::before {
+  font-size: 32px;
+}
+
+.explode {
+  font-size: 39px;
+  font-family: 'EntypoRegular';
+  text-decoration: none;
+  color: #333;
+  text-shadow: 0px 0px 5px #fff;
+  position: absolute;
+  right: 11px;
+  top: -43px;
+}
+
+li.page .more {
+  line-height: 33px;    
+  margin-right: 9px;
+  
+  .updated { float:left; }
+  
+  a {
+    display:block;
+    float:right;
+    font-family: 'EntypoRegular';
+    font-size: 31px;
+    line-height: 25px;
+    margin: 0 0 0 11px;
+    color: #953D2E;
+  }
+}
+
+
+.sortable .reorder::before {
+  content: "i";
+}
+
+.u-list::before {
+  content: "\f261";
+}
+
+.settings::before {
+  content: "@";  
+  font-size: 53px;
+  padding: 0 0 0 2px;
+  line-height: 33%;
+}
+
+.content::before {
+  content: "t";
+  font-size: 53px;
+  line-height: 33%;
+}
+
+.global::before {
+  content: "C";
+  font-size: 53px;
+  line-height: 33%;
+}
+
+

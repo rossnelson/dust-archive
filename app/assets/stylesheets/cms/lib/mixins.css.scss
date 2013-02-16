@@ -1,0 +1,20 @@
+@mixin vertical-gradient($from-hex, $to-hex) {
+
+  background-color: $from-hex;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($from-hex), to($to-hex));
+  background-image: -webkit-linear-gradient(top, $from-hex, $to-hex);
+  background-image: -moz-linear-gradient(top, $from-hex, $to-hex);
+  background-image: -o-linear-gradient(top, $from-hex, $to-hex);
+  background-image: -ms-linear-gradient(top, $from-hex, $to-hex);
+  background-image: linear-gradient(top, $from-hex, $to-hex);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='$from-hex', EndColorStr='$to-hex');
+
+}
+
+@mixin font-face($font-family, $url) {
+   @font-face {
+      font-family: '#{$font-family}';
+      src: url('#{$url}.eot?') format('eot'), url('#{$url}.woff') format('woff'), url('#{$url}.ttf') format('truetype');
+   }
+}
+

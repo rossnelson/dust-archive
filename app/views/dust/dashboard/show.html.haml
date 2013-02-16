@@ -1,23 +1,25 @@
-- title "User"
-- content_for :left do
-  = render "dust/users/user", :user => current_user
-.kicker.item
-  %p
-    %span.run-in Welcome to the administration section of your website.
-    %br/
-    From here, you can view, edit and delete any page in your website, add a new page or modify your list of keywords. Along with many other features.
-    %br/
-    %span.run-in Have Fun!
-- #contacts_chart{:style => " height:200px;"}
+- title "Dashboard"
+
+- content_for :sub_header do 
+  .button-bar.clearfix
+    .admin-links
+      = link_to current_user.username, current_user, :class => '', :title => ""
+
+  -#.kicker.clearfix
+    -#%p
+      -#%span.run-in Welcome to the administration section of your website.
+      -#%br/
+      -#From here, you can view, edit and delete any page in your website, add a new page or modify your list of keywords. Along with many other features.
+      -#%br/
+      -#%span.run-in Have Fun!
+
 #options
-  .kicker.item
-    %p
-      %span.run-in Site Wide Administration.
+  %h2 Site Wide Administration
   = form_tag('/dust/dashboard/update') do
     .accordion
       - @options.each do |name, options|
-        %h3= link_to name.to_s.titleize, '#'
-        %div
+        .index-item= link_to name.to_s.titleize, '#'
+        .options
           - options.each do |k, v|
             .item
               = render 'dust/dashboard/options', :key => k, :value => v, :name => name

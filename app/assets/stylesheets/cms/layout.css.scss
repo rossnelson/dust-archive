@@ -1,0 +1,146 @@
+body { 
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Open Sans', sans-serif;
+}
+
+a { 
+  color: #1970A3;
+  text-decoration: none;
+}
+
+h1,h2,h3,h4,h5,h5 {
+  line-height: 110%;
+  font-weight: 400;
+}
+
+.main-wrap {
+  background: url(/assets/admin/main-back.png);
+  position: absolute;
+  width: 97%;
+  right: 0;
+  height: 100%;
+  overflow: scroll;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+  &.nav-open { right:-140px; }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.wrapper {
+  padding: 30px 20px;
+  @include grid($width:100%, $max-width:95%);
+}
+
+#header {
+  border-radius: 7px 7px 0 0;
+  border: 1px solid #333333;
+  background: rgb(230, 230, 230);
+}
+
+#header-wrap {
+  color: white;
+  font-size: 15px;
+  margin:0;
+
+  h1 { 
+    float:left;
+  }
+}
+
+.sub-header {
+
+  background: rgb(247, 247, 247);
+  border: 1px solid rgb(204, 204, 204);
+  box-shadow: inset 0px 0px 1px white;
+  border-radius: 7px 7px 0 0;
+  padding: 0px 20px;
+
+  &.solitary-header {
+    border-radius: 7px;
+    margin: 0 10px 15px 10px;
+  }
+
+  .title {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: rgb(68, 68, 68);
+    font-weight: 600;
+    text-shadow: 1px 1px white;
+    line-height: 42px;
+    padding: 0 7px;
+  }
+
+  .button-bar {
+    #searchbox { 
+      float:left; 
+
+      #search {
+        background: white;
+        border: 1px solid rgb(204, 204, 204);
+        padding: 5px 10px;
+        border-radius: 4px;
+        width: 300px;
+        margin: 9px 0 0 0;
+        @include media();
+      }
+      .image-submit {
+        height: 25px;
+        position: relative;
+        top: 9px;
+      }
+    }
+    .admin-links {
+      float: right;
+    }
+
+    a {
+      font-size: 13px;
+      text-transform: uppercase;
+      color: rgb(68, 68, 68);
+      font-weight: 600;
+      text-shadow: 1px 1px white;
+      line-height: 42px;
+      padding: 0 7px;
+
+      &.border {
+        border-right: 1px dotted #BBBBBB;
+      }
+    }
+  }
+}
+
+.content-wrapper {
+  background: #fff;
+  margin-bottom: 15px;
+  padding: 20px;
+  border: 1px solid #CCCCCC;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+
+  h2 {
+    border-bottom: 1px solid rgb(230, 230, 230);
+    padding-bottom: 14px;
+  }
+
+}
+
+.index-item {
+  padding: 7px 10px;
+  border-bottom: 1px solid #DDDDDD;
+
+  &:nth-child(2) {
+    background: rgb(251, 251, 251);
+  }
+
+  &:last-child {
+    border: none;
+  }
+
+  h5 { 
+    margin:0;
+  }
+}
+

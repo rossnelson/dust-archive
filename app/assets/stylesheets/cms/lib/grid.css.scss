@@ -1,0 +1,79 @@
+$col-width: 8.33%;
+
+@mixin media() {
+  @media only screen and (max-width: 960px) {
+    & {width: ($col-width * 6); margin-left:0; }
+  }
+  @media only screen and (max-width: 767px) {
+    & {width: 100%; margin-left: 0;}
+  }
+}
+
+@mixin column($span:auto, $push:10px) { 
+
+  padding-right: 10px;
+  padding-left: 10px;
+
+  @if $push == 10px {}
+  @else { margin-left: ($col-width * $push); }
+
+  float: left;
+
+  @if $span == auto {
+    width: auto;
+  }
+  @else {
+    width: ($col-width * $span);
+  }
+
+  @include media();
+}
+
+@mixin grid($width:90%, $max-width:960px) {
+  width: $width;
+  max-width: $max-width;
+  margin: 0 auto;
+  min-height: 30px;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  *, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+}
+
+@mixin row($margin:"show-margin") {
+  @if $margin == "show-margin" {
+    margin-bottom: 20px;
+  }
+  &:before,
+  &:after {
+    content: '\0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0; }
+
+  &:after {
+    zoom: 1;
+    clear: both; }
+}
+
+/* You can also use a <br class="clear" /> to clear columns */
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
