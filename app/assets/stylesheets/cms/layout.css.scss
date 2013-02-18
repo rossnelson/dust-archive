@@ -13,6 +13,9 @@ h1,h2,h3,h4,h5,h5 {
   font-weight: 400;
 }
 
+.right { float: right; }
+.left { float: left; }
+
 .main-wrap {
   background: url(/assets/admin/main-back.png);
   position: absolute;
@@ -30,7 +33,7 @@ h1,h2,h3,h4,h5,h5 {
 }
 
 .wrapper {
-  padding: 30px 20px;
+  padding: 30px 0px;
   @include grid($width:100%, $max-width:95%);
 }
 
@@ -45,13 +48,17 @@ h1,h2,h3,h4,h5,h5 {
   font-size: 15px;
   margin:0;
 
+  .header-inner {
+    @include column();
+  }
+
   h1 { 
     float:left;
   }
 }
 
 .sub-header {
-
+  @include clearfix();
   background: rgb(247, 247, 247);
   border: 1px solid rgb(204, 204, 204);
   box-shadow: inset 0px 0px 1px white;
@@ -71,6 +78,7 @@ h1,h2,h3,h4,h5,h5 {
     text-shadow: 1px 1px white;
     line-height: 42px;
     padding: 0 7px;
+    float:left;
   }
 
   .button-bar {
@@ -131,7 +139,7 @@ h1,h2,h3,h4,h5,h5 {
   padding: 7px 10px;
   border-bottom: 1px solid #DDDDDD;
 
-  &:nth-child(2) {
+  &:nth-child(2n+2) {
     background: rgb(251, 251, 251);
   }
 

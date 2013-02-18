@@ -2,9 +2,14 @@
   .button-bar.clearfix
     = render :partial => 'search'
     .admin-links
-      = link_to 'all blocks', dust_blocks_path, :class => '', :title => "All Blocks"
+      = link_to 'all blocks', dust_blocks_path, :class => 'border', :title => "All Blocks"
+      = link_to "delete block", @block, :confirm => 'Are you sure?', :method => :delete
 
 .form-wrap.clearfix
+
+  -# custom page variables
+  - @block.where_to_show.blank? ? selected = 'content' : selected = @block.where_to_show
+  - @block.classes.blank? ? css_classes = 'twelve columns' : css_classes = @block.classes
 
   = form_for @block, :validations => true do |f|
     = hidden_field_tag :return, params[:return]
@@ -16,34 +21,38 @@
         .item.block_title
           = f.label :title
           = f.text_field :title, :class => 'field'
-        .item
-          = f.label :where_to_show, "Where should I show up?"
-          - @block.where_to_show.blank? ? selected = 'content' : selected = @block.where_to_show
-          = f.select(:where_to_show, Dust::Block.regions, {:prompt => 'Where should I show up?', :selected => selected}, {:class => 'field'})
-        .item
-          = f.label :weight
-          = f.number_field :weight, :class => 'field'
-        .item
-          = f.label :classes
-          - @block.classes.blank? ? css_classes = 'twelve columns' : css_classes = @block.classes
-          = f.text_field :classes, :value => css_classes, :class => 'field'
-        .item
-          %br/
-          %strong= f.label :show,"What pages is this block visible on."
-          %br/
-          List Urls of pages this block should show up on. One per Line. If this area is blank the block will be visible on all pages.
-          = f.text_area :show, :class => 'field'
         - if permitted_to? :manage, :blocks
           .item
             = f.label :partial_name, "Widget"
             = f.select :partial_name, Dust::Block.widget_list, {:include_blank => true}, {:class => 'field'}
         .item
-          %p= f.submit
+          = f.label :classes, "Column Span Width"
+          = f.select(:classes, Dust::Block.grid.columns, {:prompt => 'Column Span', :selected => selected}, {:class => 'field'})
+          = f.label :classes, "Column Offset Width"
+          = f.select(:classes, Dust::Block.grid.offsets, {:prompt => 'Offset Span', :selected => selected}, {:class => 'field'})
+          - if permitted_to? :manage, :blocks
+            = f.label :classes
+            = f.text_field :classes, :value => css_classes, :class => 'field'
+        .item
+          = f.label :weight
+          = f.number_field :weight, :class => 'field'
+        .item
+          = f.label :where_to_show, "Where should I show up?"
+          = f.select(:where_to_show, Dust::Block.regions, {:prompt => 'Where should I show up?', :selected => selected}, {:class => 'field'})
+        .item
+          %strong= f.label :show,"What pages is this block visible on."
+          %br/
+          List Urls of pages this block should show up on, one per Line. 
+          %br/
+          %em If this area is blank the block will be visible on all pages.
+          = f.text_area :show, :class => 'field'
 
     .content-areas
       .sub-header
         .title block content
       .content-wrapper
         .item
-          = f.label :body
           = f.cktext_area("body", :width => '100%', :height => '400px')
+        .item
+          .right= f.submit
+        .clear

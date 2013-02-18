@@ -24,6 +24,8 @@
               Admin
           %ul.sub-nav.global-nav
             %li.item.link
+              = link_to 'Home', root_url
+            %li.item.link
               = link_to 'Dashboard', dust_dashboard_path
             %li.item.link
               = link_to "Log Out", dust_logout_path
@@ -38,7 +40,7 @@
     .main-wrap
       .wrapper
         #header-wrap.clearfix
-          .wrap.clearfix
+          .header-inner.clearfix
             - if show_title?
               %h1= h yield(:title)
             = yield(:header)

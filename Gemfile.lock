@@ -102,6 +102,9 @@ GEM
     mustache (0.99.4)
     mysql2 (0.3.11)
     nifty-generators (0.4.6)
+    numbers_and_words (0.5.0)
+      activesupport
+      i18n
     oauth (0.4.7)
     oauth2 (0.6.1)
       faraday (~> 0.7)
@@ -188,6 +191,7 @@ DEPENDENCIES
   mustache
   mysql2
   nifty-generators
+  numbers_and_words
   rails (= 3.2.8)
   sass-rails (~> 3.2.3)
   sorcery

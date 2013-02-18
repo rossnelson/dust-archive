@@ -9,10 +9,6 @@ module Dust
       @users = Dust::User.page(params[:search], params[:page])
     end
     
-    def show
-      @user = Dust::User.find(params[:id])
-    end
-    
     def new
       @user = Dust::User.new()
     end

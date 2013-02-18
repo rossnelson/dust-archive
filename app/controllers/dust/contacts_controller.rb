@@ -1,24 +1,20 @@
 module Dust
   class ContactsController < ApplicationController
-    
+
     require "csv"
 
     filter_access_to :all
 
     layout 'cms'
-    
+
     def index
       @contacts = Dust::Contact.page(params[:search], params[:page], params[:date])
     end
-    
-    def show
-      @contact = Dust::Contact.find(params[:id])
-    end
-    
+
     def new
       @contact = Dust::Contact.new
     end
-    
+
     def create
       @page = Dust::Page.find(1)
       @contact = Dust::Contact.new(params[:dust_contact])
@@ -30,11 +26,11 @@ module Dust
         render :action => 'new', :layout => 'application'
       end
     end
-    
+
     def edit
       @contact = Dust::Contact.find(params[:id])
     end
-    
+
     def update
       @contact = Dust::Contact.find(params[:id])
       if @contact.update_attributes(params[:dust_contact])
@@ -44,7 +40,7 @@ module Dust
         render :action => 'edit'
       end
     end
-    
+
     def destroy
       @contact = Dust::Contact.find(params[:id])
       @contact.destroy
@@ -66,19 +62,19 @@ module Dust
         end
 
         send_data(csv_string,
-          :type => 'text/csv; charset=utf-8; header=present',
-          :filename => "AllDust::Contacts#{Date.today}.csv"
-          )
+                  :type => 'text/csv; charset=utf-8; header=present',
+                  :filename => "AllDust::Contacts#{Date.today}.csv"
+                 )
       end
     end
-    
+
     def csv_import
       csv = CSV.new(params[:csv_import][:file])
       csv.each do |row|
         Dust::Contact.create(:name => row[0], 
-                    :email => row[1],
-                    :message => row[2]
-                    )
+                             :email => row[1],
+                             :message => row[2]
+                            )
       end
       csv.close
       flash[:notice] = "Successfully added some Dust::Contact(s)."

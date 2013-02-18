@@ -12,33 +12,33 @@ module LayoutHelper
     @show_title
   end
 
-	def heading(page_heading, show_heading = true)
-		content_for(:heading) { h(page_heading.to_s) }
+  def heading(page_heading, show_heading = true)
+    content_for(:heading) { h(page_heading.to_s) }
     @show_heading = show_heading
   end
-  
+
   def show_heading?
     @show_heading
   end
 
-	def keywords(page_keywords, show_keywords = true)
+  def keywords(page_keywords, show_keywords = true)
     content_for(:keywords) { h(page_keywords.to_s) }
     @show_keywords = show_keywords
   end
-  
+
   def show_keywords?
     @show_keywords
   end
-  
-	def description(page_description, show_description = true)
-   	content_for(:description) { h(page_description.to_s) }
+
+  def description(page_description, show_description = true)
+    content_for(:description) { h(page_description.to_s) }
     @show_description = show_description
   end
-  
+
   def show_description?
     @show_description
   end
-	
+
 
   def stylesheet(*args)
     content_for(:head) { stylesheet_link_tag(*args) }

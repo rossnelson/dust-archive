@@ -1,6 +1,7 @@
 #nav {
 
   &.nav-open {
+    overflow-y: scroll;
     a {
       opacity: 1 !important;
     }
@@ -8,8 +9,8 @@
   margin:0 0 0 0;
 
   height:100%;
-  width:300px;
-  overflow-y:scroll;
+  width:185px;
+  overflow-y: hidden;
   overflow-x: auto;
 
   position: absolute;

@@ -1,11 +1,5 @@
-$('#status').html('#{escape_javascript(flash.discard(:notice))}');
-$('#status').fadeIn().delay(2000).slideUp('slow', function () {
-//$.fancybox.hideActivity();
-});
 
-$('#nav').fadeOut().delay(2000).slideDown('slow', function() {
-$('#nav').html("#{escape_javascript(render(:partial => "layouts/cms_partials/nav", :locals => {:cms_menu_items => @cms_menu_items}))}");
-});
+$('.settings-nav').html("#{escape_javascript(render(:partial => "layouts/cms_partials/nav", :locals => {:cms_menu_items => @cms_menu_items}))}");
+$('.settings-nav .item.link a').animate({opacity: 0.125}, 1000)
 
-$('#nav').slideDown('slow');
 

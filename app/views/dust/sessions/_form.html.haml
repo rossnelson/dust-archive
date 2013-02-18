@@ -1,12 +1,24 @@
-%h1 Log in
-= form_tag dust_sessions_path do
-  .field
-    = label_tag :username
-    = text_field_tag :username, params[:username]
-  .field
-    = label_tag :password
-    = password_field_tag :password
-  .field
-    = check_box_tag :remember_me, 1, params[:remember_me]
-    = label_tag :remember_me
-  .actions= submit_tag "Login"
+.login-content
+  #header-wrap.clearfix
+    .header-inner.clearfix
+      %h1 Log in
+  = form_for @session do |f|
+    = f.error_messages(:header_message => "Unable to login!", :message => "Please try again.")
+    .sub-header
+      .button-bar.clearfix
+        .admin-links
+          = link_to 'Back to site', root_url
+    .content-wrapper
+      .field
+        = f.label :username
+        = f.text_field :username
+      .field
+        = f.label :password
+        = f.password_field :password
+      .field
+        = f.check_box :remember_me
+        = f.label :remember_me
+      .actions= f.submit "Login"
+  #footer-wrap
+    #footer
+      dust cms 

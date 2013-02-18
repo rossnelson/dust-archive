@@ -37,13 +37,13 @@ $(document).ready ->
 
   
   #Fade In and Hide Flash Messages/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  $("#flash_notice,#flash_error,#status").fadeIn().delay(2000).slideUp "slow"
-  $ ->
-    $(".tip").tipTip
-      defaultPosition: "top"
-      delay: 600
-      fadeOut: 10
-      edgeOffset: 8
+  $("#flash_notice,#flash_error,#status").fadeIn().delay(2000).fadeOut("slow")
+
+  $(".tip").tipTip
+    defaultPosition: "top"
+    delay: 600
+    fadeOut: 10
+    edgeOffset: 8
 
 
   $(".slides").cycle
@@ -53,8 +53,3 @@ $(document).ready ->
 
   $("input[placeholder], textarea[placeholder]").placeholder()
   
-  #optional form fields in real estate sales order
-  $(".optional-fields").hide()
-  $(".expand-closing").bind "click", ->
-    $(".optional-fields").toggle()
-

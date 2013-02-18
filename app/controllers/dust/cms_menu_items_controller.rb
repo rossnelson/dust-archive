@@ -1,12 +1,12 @@
 module Dust
   class CmsMenuItemsController < ApplicationController
 
-    #filter_access_to :all
+    filter_access_to :all
 
     layout 'cms'
 
     def index
-      @cms_menu_item_list = Dust::CmsMenuItem.page(params[:search], params[:page]) 
+      @cms_menu_item_list = Dust::CmsMenuItem.page(params[:search], params[:page])
       @roots = Dust::CmsMenuItem.roots
     end
 

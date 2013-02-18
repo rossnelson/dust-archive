@@ -1,5 +1,10 @@
 - title "Menu Management"
-.button_bar
-  = render 'search'
-  = link_to('order nav', '', :id => 'ordernav', :class => 'ordernav tip orderpages', :title => "Save Menu Order")
-= render 'roots'
+
+.sub-header
+  .button-bar.clearfix
+    = render 'search'
+    .admin-links
+      = link_to('order menu', '', :id => 'ordernav', :class => 'order tip', :title => "Save Menu Order")
+
+.content-wrapper
+  = render 'roots'

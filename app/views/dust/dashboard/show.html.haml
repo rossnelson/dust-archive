@@ -1,9 +1,12 @@
 - title "Dashboard"
 
-- content_for :sub_header do 
+
+.sub-header
   .button-bar.clearfix
+    .title Site Wide Administration
+    
     .admin-links
-      = link_to current_user.username, current_user, :class => '', :title => ""
+      = link_to current_user.username, edit_dust_user_path(current_user), :class => '', :title => ""
 
   -#.kicker.clearfix
     -#%p
@@ -12,9 +15,7 @@
       -#From here, you can view, edit and delete any page in your website, add a new page or modify your list of keywords. Along with many other features.
       -#%br/
       -#%span.run-in Have Fun!
-
-#options
-  %h2 Site Wide Administration
+.content-wrapper
   = form_tag('/dust/dashboard/update') do
     .accordion
       - @options.each do |name, options|

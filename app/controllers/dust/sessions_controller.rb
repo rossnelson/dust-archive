@@ -5,15 +5,19 @@ module Dust
     layout "sessions"
 
     def new
+      @session = Dust::Session.new
     end
 
     def create
-      @user = login(params[:username], params[:password], params[:remember_me])
+      @user = login(params[:dust_session][:username], params[:dust_session][:password], params[:dust_session][:remember_me])
+      #raise "hey there"
       if @user
         redirect_back_or_to dust_dashboard_path, :notice => "Logged In!"
       else
-        redirect_to dust_login_url
-        flash.alert = "Email or Password Invalid!"
+        @session = Dust::Session.new(params[:dust_session], @user)
+        @session.valid?
+        render :action => 'new'
+        #flash.alert = "Email or Password Invalid!"
       end
     end
 

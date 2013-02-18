@@ -67,6 +67,20 @@ $col-width: 8.33%;
     clear: both; }
 }
 
+@mixin clearfix() {
+  zoom: 1;
+  overflow: hidden;
+
+  &::before, &::after {
+    content: ' 0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+}
+
 /* You can also use a <br class="clear" /> to clear columns */
 .clear {
   clear: both;

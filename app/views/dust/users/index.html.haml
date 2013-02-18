@@ -1,6 +1,16 @@
 - title "Users"
-.button_bar
-  = render :partial => 'search'
-  = link_to('new user', new_dust_user_path, :class => 'newfile tip', :title => "New User")
-#user_list
-  = render :partial => 'list'
+
+.sub-header
+  .button-bar.clearfix
+    = render :partial => 'search'
+    .admin-links
+      = link_to 'new user', new_dust_user_path, :class => 'newfile tip', :title => "New User"
+
+.content-wrapper
+  = will_paginate @users
+  - for user in @users
+    .index-item
+      .clearfix{:style => "float:right"}
+        = link_to "", user, :confirm => 'Are you sure?', :method => :delete, :class => 'destroy tip', :title => "Destroy This Item"
+      = link_to user.username, edit_dust_user_path(user), :class => 'ui-icon	ui-icon-pencil edit tip', :title => "Edit This Item"
+  = will_paginate @users

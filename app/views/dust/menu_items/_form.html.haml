@@ -1,16 +1,22 @@
-= form_for @menu_item do |f|
-  = f.error_messages
-  .item
-    %p
-      = f.label :title
-      %br/
-      = f.text_field :title, :class => 'field'
-    %p
-      = f.label :url
-      %br/
-      = f.text_field :url, :class => 'field'
-    %p
-      = f.label :active
-      = f.check_box :active
-  .item
-    %p= f.submit
+.form-wrap.clearfix
+
+  = form_for @menu_item do |f|
+    = f.error_messages
+
+    .fields-full
+      .sub-header.clearfix
+        .button-bar.clearfix
+          = render :partial => 'search'
+          .admin-links
+            = link_to 'all menu items', dust_menu_items_path, :class => 'border'
+            = link_to "delete menu item", @menu_item, :confirm => 'Are you sure?', :method => :delete
+      .content-wrapper
+        .item
+          = f.label :title
+          = f.text_field :title, :class => 'field'
+          = f.label :url
+          = f.text_field :url, :class => 'field'
+          = f.label :active
+          = f.check_box :active
+        .item
+          = f.submit

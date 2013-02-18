@@ -1,8 +1,15 @@
-@include font-face('EntypoRegular', '/assets/entypo/entypo-webfont');
+@include font-face('EntypoRegular', '/assets/entypo/entypo');
+
+.destroy {
+  background: url(/assets/admin/ui/icons.png) -96px -127px;
+  display: block;
+  height: 16px;
+  width: 16px;
+}
 
 .mega-icon {
   position: absolute;
-  top: 10px;
+  top: -2px;
   color: rgba(10,64,98,1);
   text-shadow: 1px 1px 0px rgba(26,102,148,1);
 }
@@ -95,22 +102,22 @@ li.page .more {
 }
 
 .settings::before {
-  content: "@";  
+  content: "\2699";  
   font-size: 53px;
   padding: 0 0 0 2px;
-  line-height: 33%;
+  line-height: 100%;
 }
 
 .content::before {
   content: "t";
   font-size: 53px;
-  line-height: 33%;
+  /*line-height: 33%;*/
 }
 
 .global::before {
-  content: "C";
+  content: "\E70C";
   font-size: 53px;
-  line-height: 33%;
+  line-height: 100%;
 }
 
 

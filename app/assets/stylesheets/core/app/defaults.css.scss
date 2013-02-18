@@ -267,23 +267,33 @@ input.error, textarea.error {
   font-size: 15px;
   line-height: 3em;
   overflow: hidden;
-  position: fixed;
-  left: 0;
+  position: absolute;
+  right: 0;
   top: 0;
-  width: 100%;
+  width: 19%;
   z-index: 50000;
-  filter: alpha(opacity = 95);
+  filter: alpha(opacity=95);
   -moz-opacity: .95;
   opacity: .95;
-  border-bottom: solid 1px #000;
+  border-bottom: solid 1px black;
   -moz-box-shadow: 0 15px 55px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0 15px 55px rgba(0, 0, 0, 0.5);
-  margin: 0;
-  padding: 5px;
+  margin: 10px;
+  padding: 0px;
+  border-radius: 7px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.125);
 }
 
 #flash_notice, #status {
-  background-color: #CFC;
+background-color: #ceffce;
+background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(206, 255, 206)), to(rgb(139, 175, 145)));
+background-image: -webkit-linear-gradient(top, rgb(206, 255, 206), rgb(139, 175, 145));
+background-image: -moz-linear-gradient(top, rgb(206, 255, 206), rgb(139, 175, 145));
+background-image: -o-linear-gradient(top, rgb(206, 255, 206), rgb(139, 175, 145));
+background-image: -ms-linear-gradient(top, rgb(206, 255, 206), rgb(139, 175, 145));
+background-image: linear-gradient(top, rgb(206, 255, 206), rgb(139, 175, 145));
+filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ceffce', EndColorStr='#8baf91');
+  
   border: solid 1px #6C6;
 }
 

@@ -8,10 +8,6 @@ module Dust
       @menu_items = Dust::MenuItem.page(params[:search], params[:page]) 
     end
 
-    def show
-      @menu_item = Dust::MenuItem.find(params[:id])
-    end
-
     def new
       @menu_item = Dust::MenuItem.new
     end

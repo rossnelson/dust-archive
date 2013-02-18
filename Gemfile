@@ -26,6 +26,7 @@ gem "haml-rails"
 gem "thin"
 
 gem 'dust-generators', '0.3.3'
+gem 'numbers_and_words'
 
 # Gems used only for assets and not required
 # in production environments by default.
