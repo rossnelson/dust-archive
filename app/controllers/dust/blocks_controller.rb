@@ -6,6 +6,7 @@ module Dust
     layout 'cms'
 
     def index
+      # Dust::Block
       @blocks = Dust::Block.page(params[:search], params[:page]) 
     end
 
