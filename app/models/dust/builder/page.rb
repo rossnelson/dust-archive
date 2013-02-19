@@ -36,6 +36,7 @@ module Dust
             section.destroy
           else
             section_attr[1].delete("_destroy")
+            section.id = nil if section.new_record?
             section.assign_attributes section_attr[1]
 
             determine_validity_of(section)
