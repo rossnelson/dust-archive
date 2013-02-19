@@ -5,7 +5,9 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
+group :production do
+  gem 'pg'
+end
 
 gem "sorcery"
 gem "declarative_authorization"
@@ -43,6 +45,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 group :development do
+  gem 'sqlite'
   gem "better_errors"
   gem 'binding_of_caller'
 end
