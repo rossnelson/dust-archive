@@ -109,6 +109,7 @@ GEM
       httpauth (~> 0.1)
       multi_json (~> 1.3)
     orm_adapter (0.4.0)
+    pg (0.12.2)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -150,7 +151,6 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.7)
     subexec (0.2.2)
     thin (1.5.0)
       daemons (>= 1.0.9)
@@ -189,10 +189,10 @@ DEPENDENCIES
   mustache
   nifty-generators
   numbers_and_words
+  pg
   rails (= 3.2.8)
   sass-rails (~> 3.2.3)
   sorcery
-  sqlite3
   thin
   uglifier (>= 1.0.3)
   will_paginate
