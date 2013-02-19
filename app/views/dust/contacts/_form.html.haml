@@ -3,7 +3,7 @@
     = render :partial => 'search'
     .admin-links
       = link_to 'all contacts', dust_contacts_path, :class => 'border'
-      = link_to "delete contact", @page, :confirm => 'Are you sure?', :method => :delete
+      = link_to "delete contact", @contact, :confirm => 'Are you sure?', :method => :delete
 
 .form-wrap.clearfix
   = form_for @contact, :validate => true, :html => { :multipart => true } do |f|

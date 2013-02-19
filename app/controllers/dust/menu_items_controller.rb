@@ -16,7 +16,7 @@ module Dust
       @menu_item = Dust::MenuItem.new(params[:dust_menu_item])
       if @menu_item.save
         flash[:notice] = "Successfully created menu item."
-        redirect_to @menu_item
+        redirect_to dust_menu_items_url
       else
         render :action => 'new'
       end
@@ -30,7 +30,7 @@ module Dust
       @menu_item = Dust::MenuItem.find(params[:id])
       if @menu_item.update_attributes(params[:dust_menu_item])
         flash[:notice] = "Successfully updated menu item."
-        redirect_to @menu_item
+        redirect_to dust_menu_items_url
       else
         render :action => 'edit'
       end
@@ -40,7 +40,7 @@ module Dust
       @menu_item = Dust::MenuItem.find(params[:id])
       @menu_item.destroy
       flash[:notice] = "Successfully destroyed menu item."
-      redirect_to menu_items_url
+      redirect_to dust_menu_items_url
     end
 
     def manage

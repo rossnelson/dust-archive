@@ -3,6 +3,7 @@
     = render :partial => 'search'
     .admin-links
       = link_to 'all pages', dust_pages_path, :class => 'border'
+      = link_to "view page", front_end_page_path(@page.filename), :class => "border"
       = link_to "delete page", @page, :confirm => 'Are you sure?', :method => :delete
 
 .form-wrap.clearfix
