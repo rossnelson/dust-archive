@@ -1,18 +1,6 @@
-= label_tag key.to_s.titleize
-%br/
-- if value.class != String
-  - if value.class == Array
-    - value.each do |sub_v|
-      - if sub_v.class != String
-        - sub_v.each do |sub_k, sub_v|
-          = render 'dashboard/options', :key => sub_k, :value => sub_v, :name => name
-      - else
-        = text_field_tag "options[#{name}][#{key}][]", sub_v, :class => 'field'
-        %br/
-  - else
-    - value.each do |sub_v|
-      - sub_v.each do |sub_k, sub_v|
-        = render 'dashboard/options', :key => sub_k, :value => sub_v, :name => name
-- else
-  = text_field_tag "options[#{name}][#{key}]", value, :class => 'field'
-  %br/
+
+= label_tag variable.name.titleize
+- if variable.value.split("\n").count > 1
+  = text_area_tag "options[#{variable.id}][value]", variable.value
+-else
+  = text_field_tag "options[#{variable.id}][value]", variable.value

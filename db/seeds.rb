@@ -9,5 +9,5 @@ Dust::CmsMenuItem.create([
 	{:title =>"Users", :controller_name => "admin/users", :url => "/dust/users"}, 
 	{:title =>"Menu Items", :controller_name => "admin/menu_items", :url => "/dust/menu_items"}, 
 	{:title =>"Manage Menu", :controller_name => "admin/pages", :url => "/dust/menu-manage"}, 	
-	{:title =>"Dust Menu Items", :controller_name => "admin/cms_menu_items", :url => "/dust/cms_menu_items"}
+	{:title =>"Admin Menu Items", :controller_name => "admin/cms_menu_items", :url => "/dust/cms_menu_items"}
 ])

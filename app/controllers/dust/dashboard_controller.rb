@@ -6,15 +6,20 @@ module Dust
     layout 'cms'
 
     def show
-      @user = current_user
-      @options = @app_config
+      @options = SiteWide.variables_by_category
     end
 
+
     def update
-      @options = params[:options]
-      open("#{Rails.root}/config/app_config.yml", 'w') { |f| YAML::dump(@options, f) }
-      flash[:notice] = "Successfully saved site wide options!"
-      redirect_to dust_dashboard_url
+      @site_wide = Dust::Builder::SiteWide.new(:options => params[:options])
+
+      if @site_wide.update
+        flash[:notice] = "Successfully saved site wide variables!"
+        redirect_to dust_dashboard_url
+      else
+        @options = @site_wide.variables.group_by{ |i| i.category }
+        render :action => :show
+      end
     end
 
   end

@@ -3,43 +3,24 @@
     = render :partial => 'search'
     .admin-links
       = link_to 'all pages', dust_pages_path, :class => 'border'
-      = link_to "view page", front_end_page_path(@page.filename), :class => "border"
+      = link_to "view page", front_end_page_path(@page.filename), :class => "border" unless @page.new_record?
       = link_to "delete page", @page, :confirm => 'Are you sure?', :method => :delete
 
 .form-wrap.clearfix
-  = form_for @page, :validate => true do |f|
+  = simple_form_for @page, :validate => true do |f|
     = f.error_messages
-
 
     .fields
       .sub-header
         .title page fields
       .content-wrapper
 
-        .item
-          = f.label :active, "Show in Menu"
-          = f.check_box :active
-        .item
-          = f.label :meta_title, "Title, Window Title"
-          %br/
-          = f.text_field :meta_title, :class => 'field'
-          %br/
-          = f.label :meta_description
-          %br/
-          = f.text_area :meta_description, :class => 'field'
-        .item
-          = f.label :nav_link, "Name, navigation link"
-          %br/
-          = f.text_field :nav_link, :class => 'field'
-          %br/
-          = f.label :filename, "Filename, Found In The Url"
-          %br/
-          = f.text_field :filename, :class => 'field'
-        .item
-          = f.label :classes
-          %br/
-          = f.text_field :classes, :class => 'field'
-
+        = f.input :active, :as => :boolean, :label => "Show in Menu"
+        = f.input :meta_title, :label => "Title, Window Title"
+        = f.input :meta_description
+        = f.input :nav_link, :label => "Name, navigation link"
+        = f.input :filename, :label => "Filename, Found In The Url"
+        = f.input :classes
 
     .content-areas
       .sub-header
@@ -50,30 +31,27 @@
             .item
               = hidden_field_tag "sections[#{section.id}][_destroy]"
               = label_tag "title"
-              = text_field_tag "sections[#{section.id}][title]", section.title, :class => "field"
+              = text_field_tag "sections[#{section.id}][title]", section.title
               = label_tag "classes"
               = text_field_tag "sections[#{section.id}][classes]", section.classes
               = label_tag "position"
               = text_field_tag "sections[#{section.id}][position]", section.position
+
               = link_to "Remove Section", "#", :class => "remove_fields right"
+
         = link_to "Add Section", "#", :class => "add_fields"
 
-        .item
-          = f.submit
+        .actions
+          = f.button :submit
 
       %script{:type => "text/templte", :id => "placeholder-section"}
         .item
           = hidden_field_tag "sections[section_id][_destroy]"
           = label_tag "title"
-          %br/
-          = text_field_tag "sections[section_id][title]", "", :class => "field"
-          %br/
+          = text_field_tag "sections[section_id][title]", ""
           = label_tag "classes"
-          %br/
-          = text_field_tag "sections[section_id][classes]", "", :class => "field"
-          %br/
+          = text_field_tag "sections[section_id][classes]", ""
           = label_tag "position"
-          %br/
-          = text_field_tag "sections[section_id][position]", "", :class => "field"
-          %br/
+          = text_field_tag "sections[section_id][position]", ""
+
           = link_to "Remove Section", "#", :class => "remove_fields right"

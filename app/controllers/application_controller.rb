@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper :all
 
-  before_filter :load_app_config, :meta_tags, :create_menus, :load_blocks
+  before_filter :load_app_config, :meta_tags, :create_menus, :load_blocks, :load_sitewide_data
   before_filter { |c| Authorization.current_user = c.current_user }
 
   def create_menus
@@ -24,18 +24,27 @@ class ApplicationController < ActionController::Base
     raw_config = File.read("#{Rails.root}/config/app_config.yml")
     @app_config = Hashie::Mash.new(YAML.load(raw_config))
   end
-  
+
+  def load_sitewide_data
+    @site_data = Dust::SiteWide.all
+  end
+
   def permission_denied
-    flash[:error] = "Sorry, either you need to log in first, or you do not have permission to view that page."
+    flash[:error] = "Sorry, either you need to log in first to view that page."
     if current_user
       redirect_to dust_user_url(current_user)
     else
       redirect_to root_url
     end
   end
-  
+
   def not_authenticated
     redirect_to dust_login_url, :alert => "First log in to view this page."
   end
+
+  def try_return_to_previous_page(url)
+    !params[:return].blank? ? redirect_to(params[:return]) : redirect_to(url)
+  end
   
+
 end

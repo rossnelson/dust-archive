@@ -1,8 +1,11 @@
-= content_tag :li, :id => dom_id(root), :class => 'index-item' do
+= content_tag :li, :id => dom_id(item), :class => "index-item #{menu.nestable}" do
   %div
     %span.handle &nbsp;
-    = link_to root.title, root.url
-  = content_tag :ul do
-    - for child in root.children do
-      = render :partial => "dust/menu_items/tree", :locals => {:root => child }
-  - end unless root.leaf?
+    .clearfix{:style => "float:right"}
+      = link_to "", item, :confirm => 'Are you sure?', :method => :delete, :class => 'ui-icon ui-icon-close destroy tip', :title => "Destroy This Item"
+    = link_to item.title, edit_dust_menu_item_path(item, :return => request.path, :menu_id => menu.id), :class => 'ui-icon	ui-icon-pencil edit tip', :title => "Edit This Item"
+    = content_tag :ul do
+      - item.children.each do |child|
+        = render "dust/menu_items/tree", :item => child, :menu => menu
+    - end unless item.leaf?
+

@@ -1,0 +1,19 @@
+
+.form-wrap.clearfix
+
+  = simple_form_for @<%= singular_table_name %> do |f|
+    = f.error_messages
+
+    .fields-full
+      .sub-header.clearfix
+        .button-bar.clearfix
+          -#= render :partial => 'search'
+          .admin-links
+            = link_to 'all <%= human_name.pluralize %>', <%= plural_table_name %>_path, :class => 'border'
+            = link_to "delete <%= singular_table_name %>", @<%= singular_table_name %>, :confirm => 'Are you sure?', :method => :delete
+      .content-wrapper
+  <% for attribute in attributes -%>
+      = f.input :<%= attribute.name %>
+  <% end -%>
+      .actions
+          = f.button :submit

@@ -15,6 +15,9 @@ gem "declarative_authorization"
 gem "client_side_validations"
 gem "nifty-generators"
 gem "will_paginate"
+gem 'simple_form'
+gem 'country_select'
+gem 'client_side_validations-simple_form'
 
 gem "ckeditor", :path => "vendor/gems/ckeditor-3.7.3"
 gem "carrierwave"
@@ -22,7 +25,7 @@ gem "mini_magick"
 gem 'awesome_nested_set'
 
 gem 'hashie'
-gem 'inherited_resources'
+#gem 'inherited_resources'
 gem 'mustache'
 gem "haml-rails"
 gem "thin"

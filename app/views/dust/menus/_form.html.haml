@@ -1,0 +1,39 @@
+.sub-header.solitary-header.clearfix
+  .button-bar.clearfix
+    -#= render :partial => 'search'
+    .admin-links
+      = link_to 'all Menus', dust_menus_path, :class => 'border'
+      = link_to "delete menu", @menu, :confirm => 'Are you sure?', :method => :delete
+
+.form-wrap.clearfix
+
+  = simple_form_for @menu do |f|
+    = f.error_messages
+
+    .fields
+      .sub-header.clearfix
+        .button-bar.clearfix
+          .title Menu
+      .content-wrapper
+        = f.input :title
+        = f.input :nestable, :collection => [["Yes", "nest"], ["No", "no-nest"]]
+        = f.input :desc
+
+        .actions
+          = f.button :submit
+
+    .content-areas
+      .sub-header.clearfix
+        .button-bar.clearfix
+          .title Menu Items
+          .admin-links
+            = link_to 'Add Menu Item', new_dust_menu_item_path(:return => request.path, :menu_id => @menu.id), :class => 'border' unless @menu.new_record?
+            = link_to('save menu order', '', :id => 'ordernav', :class => 'order', :title => "Save Menu Order")
+      .content-wrapper
+        - unless @menu.new_record?
+
+          %ul#tree{'data-url' => '/dust/menu/array'}
+
+            - @menu.menu_items.roots.each do |item|
+
+              = render "dust/menu_items/tree", :item => item, :menu => @menu

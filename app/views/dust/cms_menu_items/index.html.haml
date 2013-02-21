@@ -17,7 +17,7 @@
   %ul#tree{'data-url' => '/dust/cms_menu/array'}
     - @cms_menu_item_list.each do |cms_menu_item|
 
-      = content_tag :li, :id => dom_id(cms_menu_item), :class => 'index-item' do
+      = content_tag :li, :id => dom_id(cms_menu_item), :class => 'index-item no-nest' do
         %div
           %span.handle &nbsp;
           .clearfix{:style => "float:right"}

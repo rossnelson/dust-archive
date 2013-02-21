@@ -6,7 +6,6 @@ module Dust
     layout 'cms'
 
     def index
-      # Dust::Block
       @blocks = Dust::Block.page(params[:search], params[:page]) 
     end
 
@@ -44,12 +43,6 @@ module Dust
       @block.destroy
       flash[:notice] = "Successfully destroyed block."
       try_return_to_previous_page(dust_blocks_url)
-    end
-
-    private
-
-    def try_return_to_previous_page(url)
-      !params[:return].blank? ? redirect_to(params[:return]) : redirect_to(url)
     end
 
   end

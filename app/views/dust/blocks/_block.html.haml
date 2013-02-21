@@ -1,9 +1,9 @@
-.block{ :id => "#{block.title.parameterize}", :class => "#{block.classes}" }
+.block{ :id => "#{block.title.parameterize}", :class => "#{block.final_classes}" }
   .block-inner
     .block-content
       - if !block.partial_name.blank?
         - begin
-          = render :partial => "dust/blocks/widgets/#{block.partial_name}", :locals => { :block => block }
+          = render File.join("widgets", block.partial_name), :block => block
         - rescue => e
           - Rails.logger.info "\n\t[# BLOCK ERROR]"
           - Rails.logger.info "\t\t#{e}"
@@ -13,7 +13,7 @@
           - else
             &nbsp;
       - else
-        = render :partial => "dust/blocks/normal_block_content", :locals => { :block => block }
+        = render "dust/blocks/normal_block_content", :block => block
       - if permitted_to? :manage, :blocks
         .edit-link
           = link_to edit_icon("Block <br/>'#{block.title}'"), edit_dust_block_path(block, :return => request.fullpath), :class => "to-admin"

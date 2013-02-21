@@ -1,0 +1,19 @@
+- title "New Site Wide Variable"
+.form-wrap.clearfix
+
+  = simple_form_for @site_wide do |f|
+    = f.error_messages
+
+    .fields-full
+      .sub-header.clearfix
+        .button-bar.clearfix
+          .admin-links
+            = link_to "Dashboard", dust_dashboard_path
+      .content-wrapper
+        .item
+          = f.input :name
+          = f.input :value
+          = f.input :category
+          = f.button :submit
+
+

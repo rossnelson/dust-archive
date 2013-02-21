@@ -1,9 +1,10 @@
 module Dust
   class MenuItem < ActiveRecord::Base
-    attr_accessible :title, :url, :active, :lft, :rgt, :parent_id
+    attr_accessible :title, :url, :active, :lft, :rgt, :parent_id, :menu_id
 
     acts_as_nested_set
 
+    belongs_to :menu
     belongs_to :linkable, :polymorphic => true
     #validates_uniqueness_of :url
 

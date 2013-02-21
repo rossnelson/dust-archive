@@ -3,9 +3,9 @@ module Dust
     class Page
 
       def initialize(options={})
-        @page          = options[:page]
-        @sections      = options[:sections] || []
-        @page_attrs    = options[:attrs] if options[:attrs]
+        @page       = options[:page]
+        @sections   = options[:sections] || []
+        @page_attrs = options[:attrs] if options[:attrs]
       end
 
       def save

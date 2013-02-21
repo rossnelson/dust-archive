@@ -12,6 +12,8 @@
             = link_to "delete menu item", @menu_item, :confirm => 'Are you sure?', :method => :delete
       .content-wrapper
         .item
+          = hidden_field_tag "return", params[:return]
+          = hidden_field_tag 'menu_id', params[:menu_id]
           = f.label :title
           = f.text_field :title, :class => 'field'
           = f.label :url

@@ -1,0 +1,18 @@
+- title "<%= human_name %>"
+
+.sub-header
+  .button-bar.clearfix
+    -#= render :partial => 'search'
+    .admin-links
+      = link_to 'new <%= singular_table_name %>', new_<%= singular_table_name %>_path, :class => 'newfile tip', :title => "New <%= human_name %>"
+
+.content-wrapper
+  -#= will_paginate @<%= plural_table_name %>
+
+  - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
+    .index-item
+      .clearfix{:style => "float:right"}
+        = link_to "", <%= singular_table_name %>, :confirm => 'Are you sure?', :method => :delete, :class => 'ui-icon ui-icon-close destroy tip', :title => "Destroy This Item"
+      = link_to <%= singular_table_name %>.<%= attributes.first.name %>.try('capitalize'), edit_<%= singular_table_name %>_path(<%= singular_table_name %>), :class => ' edit tip', :title => "Edit This Item"
+
+  -#= will_paginate @<%= plural_table_name %>

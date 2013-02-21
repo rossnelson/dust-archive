@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130212223934) do
+ActiveRecord::Schema.define(:version => 20130220051658) do
 
   create_table "blocks", :force => true do |t|
     t.boolean  "show_title"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20130212223934) do
     t.text     "body"
     t.string   "where_to_show"
     t.text     "show"
+    t.string   "column_span"
+    t.string   "column_offset"
     t.string   "classes"
     t.integer  "weight"
     t.string   "partial_name"
@@ -83,6 +85,14 @@ ActiveRecord::Schema.define(:version => 20130212223934) do
     t.datetime "updated_at",    :null => false
   end
 
+  create_table "menus", :force => true do |t|
+    t.string   "title"
+    t.string   "nestable"
+    t.text     "desc"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "pages", :force => true do |t|
     t.boolean  "active"
     t.string   "meta_title"
@@ -94,6 +104,12 @@ ActiveRecord::Schema.define(:version => 20130212223934) do
     t.datetime "updated_at",       :null => false
   end
 
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "roles", :force => true do |t|
     t.string "name"
   end
@@ -103,6 +119,13 @@ ActiveRecord::Schema.define(:version => 20130212223934) do
     t.string   "classes"
     t.integer  "position"
     t.integer  "page_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "site_wides", :force => true do |t|
+    t.string   "name"
+    t.text     "value"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -1,6 +1,6 @@
 module Dust
   class Block < ActiveRecord::Base
-    attr_accessible :title, :body, :partial_name, :where_to_show, :show, :show_title, :classes, :weight
+    attr_accessible :title, :body, :partial_name, :where_to_show, :show, :show_title, :classes, :weight, :column_span, :column_offset
 
     @regions = ['header_one', 'header_two', 'slider', 'callouts', 'content-one', 'content-two', 'content-three', 'footer_one', 'footer_two']
 
@@ -42,6 +42,10 @@ module Dust
       end
     end
 
+    def final_classes
+      [column_span, column_offset, classes].join(" ")
+    end
+
     def url_list
       show.split("\r\n")
     end
@@ -66,7 +70,8 @@ module Dust
 
     def self.widget_list
       files = []
-      Dir.entries("#{Rails.root}/app/views/dust/blocks/widgets").each do |filename|
+      Dir.chdir("#{Rails.root}/app/views/widgets/")
+      Dir["**/**"].select{|f|File.file? f}.each do |filename|
         if filename[0] != "." # if file is not hidden
           files.push filename.sub('_', '').gsub('.html.haml', '')
         end

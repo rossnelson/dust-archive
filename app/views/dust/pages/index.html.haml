@@ -10,7 +10,7 @@
   = will_paginate @pages
   - @pages.each do |page|
     .index-item
-      .ui-widget.ui-helper-clearfix{:style => "float:right"}
+      .list-links.clearfix{:style => "float:right"}
         = link_to "", page, :confirm => 'Are you sure?', :method => :delete, :class => 'destroy tip', :title => "Destroy This Item"
       = link_to page.meta_title, edit_dust_page_path(page)
   = will_paginate @pages

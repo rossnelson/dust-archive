@@ -1,7 +1,9 @@
+- @menu = Dust::Menu.find(1)
+- @application_menu_items = @menu.menu_items.roots
 #nav
   %ul#tree
     - @application_menu_items.each do |item|
       = render 'layouts/app_partials/application_tree', :root => item
   - if permitted_to? :manage, :menu
     .edit-link
-      = link_to edit_icon("Menu"), "/dust/menu-manage", :class => "to-admin"
+      = link_to edit_icon("Menu"), edit_dust_menu_path(@menu), :class => "to-admin"

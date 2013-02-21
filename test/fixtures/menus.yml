@@ -2,10 +2,8 @@
 
 one:
   title: MyString
-  user: 
-  parent_directory_id: 1
+  desc: MyText
 
 two:
   title: MyString
-  user: 
-  parent_directory_id: 1
+  desc: MyText

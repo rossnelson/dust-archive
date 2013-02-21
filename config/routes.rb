@@ -1,16 +1,17 @@
 Dust::Application.routes.draw do
-
   mount Ckeditor::Engine => "/ckeditor"
 
   namespace :dust do
 
     resources :blocks
-    resources :cms_menu_items
-    resources :menu_items
     resources :contacts
     resources :pages
     resources :roles
     resources :users
+    resources :menus
+    resources :cms_menu_items
+    resources :menu_items
+    resources :site_wides, :only => [:new, :create, :destroy]
 
     resources :sessions, :only => [:new, :create, :destroy]
     resources :password_resets, :only => [ :new, :create, :edit, :update ]

@@ -1,28 +1,33 @@
 - title "Dashboard"
 
+- content_for :header do
+  - if @site_wide
+    = error_messages_for @site_wide
 
 .sub-header
   .button-bar.clearfix
     .title Site Wide Administration
-    
-    .admin-links
-      = link_to current_user.username, edit_dust_user_path(current_user), :class => '', :title => ""
 
-  -#.kicker.clearfix
-    -#%p
-      -#%span.run-in Welcome to the administration section of your website.
-      -#%br/
-      -#From here, you can view, edit and delete any page in your website, add a new page or modify your list of keywords. Along with many other features.
-      -#%br/
-      -#%span.run-in Have Fun!
+    .admin-links
+      = link_to "New Site Wide Variable", new_dust_site_wide_path, :class => 'border'
+      = link_to current_user.username, edit_dust_user_path(current_user)
+
 .content-wrapper
+
   = form_tag('/dust/dashboard/update') do
     .accordion
       - @options.each do |name, options|
-        .index-item= link_to name.to_s.titleize, '#'
+        
+        .index-item
+          
+          = link_to name.to_s.titleize, '#'
+
         .options
-          - options.each do |k, v|
+          - options.each do |variable|
             .item
-              = render 'dust/dashboard/options', :key => k, :value => v, :name => name
+              .list-links.clearfix{:style => "float:right"}
+                = link_to "", variable, :confirm => 'Are you sure?', :method => :delete, :class => 'destroy tip', :title => "Destroy This Item"
+              
+              = render 'dust/dashboard/options', :variable => variable
     .item
       = submit_tag
