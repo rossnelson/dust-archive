@@ -17,9 +17,9 @@
   = form_tag('/dust/dashboard/update') do
     .accordion
       - @options.each do |name, options|
-        
+
         .index-item
-          
+
           = link_to name.to_s.titleize, '#'
 
         .options
@@ -27,7 +27,7 @@
             .item
               .list-links.clearfix{:style => "float:right"}
                 = link_to "", variable, :confirm => 'Are you sure?', :method => :delete, :class => 'destroy tip', :title => "Destroy This Item"
-              
+
               = render 'dust/dashboard/options', :variable => variable
     .item
       = submit_tag

@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20130220051658) do
     t.integer  "lft"
     t.integer  "rgt"
     t.integer  "parent_id"
+    t.integer  "menu_id"
     t.integer  "linkable_id"
     t.string   "linkable_type"
     t.datetime "created_at",    :null => false
@@ -104,12 +105,6 @@ ActiveRecord::Schema.define(:version => 20130220051658) do
     t.datetime "updated_at",       :null => false
   end
 
-  create_table "posts", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "roles", :force => true do |t|
     t.string "name"
   end
@@ -126,6 +121,7 @@ ActiveRecord::Schema.define(:version => 20130220051658) do
   create_table "site_wides", :force => true do |t|
     t.string   "name"
     t.text     "value"
+    t.string   "category"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

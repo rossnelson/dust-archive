@@ -1,2 +1,0 @@
-unresolved issues:
-- menu sorting doesn't refresh properly on submit

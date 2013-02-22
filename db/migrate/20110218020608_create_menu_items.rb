@@ -8,7 +8,7 @@ class CreateMenuItems < ActiveRecord::Migration
       t.integer :rgt
       t.integer :parent_id
       t.integer :menu_id
-			t.references :linkable, :polymorphic => true
+      t.references :linkable, :polymorphic => true
       t.timestamps
     end
   end
