@@ -16,5 +16,7 @@ setup the `database.yml` file
 
 ## Seeded Admin
 
+navigate to `localhost:3000/dust/login`
+
 - user: `admin`
 - pass: `secret`
