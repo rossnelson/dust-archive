@@ -1,17 +1,26 @@
-= stylesheet( 'dust_album','album_uploadify')
 
-- form_for @photo, :validate => true do |f|
-  = f.error_messages
-  .item
-    %p
-      = f.label :title
-      %br/
-      = f.text_field :title, :class => 'field'
-  .item
-    %p
-      = f.label :desc
-      %br/
-      = f.text_area :desc, :class => 'field'
-  .item
-    %p= f.submit
+.sub-header.solitary-header.clearfix
+  .button-bar.clearfix
+    -#= render :partial => 'search'
+    .admin-links
+      = link_to 'all Photos', edit_dust_gallery_album_path(@photo.album), :class => 'border'
+      = link_to "delete photo", @photo, :confirm => 'Are you sure?', :method => :delete
 
+.form-wrap.clearfix
+
+  = simple_form_for @photo do |f|
+    = f.error_messages
+
+    .fields
+      .sub-header.clearfix
+        .title Photo Fields
+      .content-wrapper
+        = f.input :title
+        = f.input :description
+        .actions
+          = f.button :submit
+    .content-areas
+      .sub-header.clearfix
+        .title Current Photo
+      .content-wrapper
+        = image_tag @photo.filename.url

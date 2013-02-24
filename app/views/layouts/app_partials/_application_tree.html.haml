@@ -1,4 +1,4 @@
-= content_tag :li, :id => dom_id(root), :class => "menu_item #{'active' if root.is_active?(request.fullpath)}" do
+= content_tag :li, :id => dom_id(root).gsub("_", "-"), :class => "menu-item #{'active' if root.is_active?(request.fullpath)}" do
   = link_to root.title, root.url, root.html_options?(request.fullpath)
   = content_tag :ul, :class => 'children' do
     - root.children.each do |child|

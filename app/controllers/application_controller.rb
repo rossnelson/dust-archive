@@ -3,16 +3,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper :all
 
-  before_filter :load_app_config, :meta_tags, :create_menus, :load_blocks, :load_sitewide_data
+  before_filter :load_sitewide_data, :meta_tags, :load_blocks
   before_filter { |c| Authorization.current_user = c.current_user }
 
-  def create_menus
-    @application_menu_items = Dust::MenuItem.menu
-    @cms_menu_items = Dust::CmsMenuItem.roots
-  end
-
   def meta_tags
-    @description = @app_config.default_description
+    @description = @site_data.site_info.default_description
   end
 
   # Loads blocks and groups them by position in the layout
@@ -20,13 +15,8 @@ class ApplicationController < ActionController::Base
     @blocks = Dust::Block.find_active(request.fullpath)
   end
 
-  def load_app_config
-    raw_config = File.read("#{Rails.root}/config/app_config.yml")
-    @app_config = Hashie::Mash.new(YAML.load(raw_config))
-  end
-
   def load_sitewide_data
-    @site_data = Dust::SiteWide.all
+    @site_data = Dust::SiteWide.all_to_object
   end
 
   def permission_denied

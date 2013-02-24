@@ -1,0 +1,21 @@
+.content-wrapper.photos {
+  overflow:hidden;
+  margin-bottom: 20px;
+}
+.index-item.photo-teaser {
+  @include column(2);
+  height: 96px;
+  float: left;
+  border: none;
+  background: none;
+  font-size: 11px;
+  overflow: hidden;
+
+  .photo-actions {
+  }
+
+  .photo-handle {
+    max-height:71px;
+    overflow:hidden;
+  }
+}

@@ -1,0 +1,51 @@
+.sub-header.solitary-header.clearfix
+  .button-bar.clearfix
+    .admin-links
+      = link_to 'all Albums', dust_gallery_albums_path, :class => 'border'
+      = link_to "delete album", @album, :confirm => 'Are you sure?', :method => :delete
+
+
+- unless @album.new_record?
+
+  :javascript
+    window.album = #{@album.to_json}
+    window.photos = #{@album.photos.to_json}
+
+  .content-areas
+    .sub-header.clearfix
+      .button-bar.clearfix
+        .title photos
+        .admin-links
+          = link_to "Select Files", "#", :class => "border", :id => "uploader"
+          = link_to "Save Order", "#", :class => "order", 'data-url' => '/dust/gallery/photos/sort', 'data-class' => "Dust::Gallery::Photo"
+
+    .content-wrapper.photos
+      - @album.photos.roots.each do |photo|
+        .index-item.photo-teaser{"data-id" => photo.id}
+          .photo-actions
+            .photo-handle
+              = image_tag photo.filename.url
+            .clearfix{:style => "float:right"}
+              = link_to "", photo, :confirm => 'Are you sure?', :method => :delete, :class => 'ui-icon ui-icon-close destroy tip', :title => "Destroy This Item"
+            = link_to (photo.title || "edit photo"), edit_dust_gallery_photo_path(photo), :class => ' edit tip', :title => "Edit This Item"
+
+-# end unless @ablum.new_record?
+
+.form-wrap.clearfix
+
+  = simple_form_for @album do |f|
+    = f.error_messages
+
+    .fields
+      .sub-header.clearfix
+        .button-bar.clearfix
+          .title album fields
+          .admin-links
+          -#= render :partial => 'search'
+      .content-wrapper
+        = f.input :title
+        = f.input :description
+        = f.input :active, :as => :boolean
+        .actions
+          = f.button :submit
+

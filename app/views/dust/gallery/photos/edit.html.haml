@@ -1,27 +1,3 @@
-- title "Edit Photo" 
+- title "Edit photo"
 
-- if params[:edit] == 'photo'
-
-  %script{:charset => "utf-8", :type => "text/javascript"}
-    var options = {
-    success: showFlash,
-    data:  {format: 'js'},
-    clearForm: true
-    };
-
-    $('.edit_photo').ajaxForm(options);
-
-    $("#photo_submit").click(function () {
-    $("#fancybox-inner").fadeTo("slow", 0.1);
-    $.fancybox.showActivity();
-    });
-
-    function showFlash() {
-    $("#status").html("Success, Your settings have been saved");
-    $('#status').fadeIn().delay(2000).slideUp('slow');
-    $.fancybox.close();
-    $("#fancybox-inner").fadeTo("slow", 1);
-    }
-
-
-= render :partial => 'form'
+= render 'form'

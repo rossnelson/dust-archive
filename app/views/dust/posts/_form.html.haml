@@ -1,0 +1,30 @@
+.sub-header.solitary-header.clearfix
+  .button-bar.clearfix
+    -#= render :partial => 'search'
+    .admin-links
+      = link_to 'all Posts', dust_posts_path, :class => 'border'
+      = link_to "delete post", @post, :confirm => 'Are you sure?', :method => :delete
+
+.form-wrap.clearfix
+
+  = simple_form_for @post do |f|
+    = f.error_messages
+
+    .fields
+      .sub-header.clearfix
+        .title Post Fields
+      .content-wrapper
+        = f.input :published
+        = f.input :title
+        = f.input :file, :as => :file
+        = f.input :published_at, :as => :string
+        = f.input :share
+        = f.input :share_type
+
+    .content-areas
+      .sub-header.clearfix
+        .title Post Body
+      .content-wrapper
+        = f.cktext_area("body", :width => '100%', :height => '400px')
+        .actions
+          = f.button :submit

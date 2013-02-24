@@ -10,7 +10,6 @@ authorization do
   end
 
   role :guest do
-    has_permission_on [:front_end], :to => :view
     has_permission_on [:dust_contacts], :to => :make
   end
 

@@ -87,7 +87,7 @@ h6 {
   position: relative;
   margin: 0;
   overflow: visible;
-  li.menu_item {
+  .menu-item {
     position: relative;
     float: left;
     list-style: none;
@@ -285,16 +285,19 @@ input.error, textarea.error {
 }
 
 #flash_notice, #status {
-background-color: #ceffce;
-background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(206, 255, 206)), to(rgb(139, 175, 145)));
-background-image: -webkit-linear-gradient(top, rgb(206, 255, 206), rgb(139, 175, 145));
-background-image: -moz-linear-gradient(top, rgb(206, 255, 206), rgb(139, 175, 145));
-background-image: -o-linear-gradient(top, rgb(206, 255, 206), rgb(139, 175, 145));
-background-image: -ms-linear-gradient(top, rgb(206, 255, 206), rgb(139, 175, 145));
-background-image: linear-gradient(top, rgb(206, 255, 206), rgb(139, 175, 145));
-filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ceffce', EndColorStr='#8baf91');
+
+background-color: #aec320;
+background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(174, 195, 32)), to(rgb(128, 148, 15)));
+background-image: -webkit-linear-gradient(top, rgb(174, 195, 32), rgb(128, 148, 15));
+background-image: -moz-linear-gradient(top, rgb(174, 195, 32), rgb(128, 148, 15));
+background-image: -o-linear-gradient(top, rgb(174, 195, 32), rgb(128, 148, 15));
+background-image: -ms-linear-gradient(top, rgb(174, 195, 32), rgb(128, 148, 15));
+background-image: linear-gradient(top, rgb(174, 195, 32), rgb(128, 148, 15));
+filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#aec320', EndColorStr='#80940f');
+
+color: #fff;
   
-  border: solid 1px #6C6;
+  border: solid 1px #637423;
 }
 
 #flash_error {

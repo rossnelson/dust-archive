@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130220051658) do
+ActiveRecord::Schema.define(:version => 20130223044553) do
+
+  create_table "albums", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.boolean  "active"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "blocks", :force => true do |t|
     t.boolean  "show_title"
@@ -103,6 +114,30 @@ ActiveRecord::Schema.define(:version => 20130220051658) do
     t.string   "classes"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "filename"
+    t.integer  "album_id"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.string   "file"
+    t.boolean  "published"
+    t.datetime "published_at"
+    t.boolean  "share"
+    t.string   "share_type"
+    t.text     "body"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "roles", :force => true do |t|

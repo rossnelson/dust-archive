@@ -1,9 +1,9 @@
 class PostOffice < ActionMailer::Base
 
-  @app_config = Hashie::Mash.new(YAML.load(File.read("#{Rails.root}/config/app_config.yml")	))
+  @site_wide = Dust::SiteWide.all_to_object
 
-  default :from => "no-reply@landmarktitleracine.com"
-  default :to => @app_config.contact_forms.default_recipient
+  default :from => "no-reply@dust.com"
+  default :to => @site_wide.contact_info.default_recipient
 
   def contact_confirmation(contact)
     @contact = contact

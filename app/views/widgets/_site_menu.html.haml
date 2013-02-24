@@ -1,6 +1,7 @@
 - @menu = Dust::Menu.find(1)
 - @application_menu_items = @menu.menu_items.roots
-#nav
+
+%nav
   %ul#tree
     - @application_menu_items.each do |item|
       = render 'layouts/app_partials/application_tree', :root => item

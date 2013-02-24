@@ -26,6 +26,7 @@ gem 'awesome_nested_set'
 
 gem 'hashie'
 #gem 'inherited_resources'
+gem 'jbuilder'
 gem 'mustache'
 gem "haml-rails"
 gem "thin"

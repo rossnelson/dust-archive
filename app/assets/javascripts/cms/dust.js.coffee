@@ -10,6 +10,8 @@ Dust.init = ()->
   Dust.window.onResize()
   Dust.nav.init()
   Dust.sortables.init()
+  Dust.gallery.init()
+  Dust
 
 $(document).ready ()->
   Dust.init()

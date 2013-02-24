@@ -47,15 +47,10 @@ module Dust
       redirect_to edit_dust_menu_url(@menu_item.menu)
     end
 
-    def manage
-      @menu_item_administration = Dust::MenuItem.manage(params[:search])
-    end
-
-    def array
-      @menu_sort = Dust::MenuSort.new(params[:ul])
+    def sort
+      @menu_sort = Dust::MenuSort.new(params[:list], params[:class_name])
 
       flash[:notice] = "Successfully Sorted Menu."
-      redirect_to '/dust/menu-manage.js'
     end
   end
 end

@@ -1,4 +1,4 @@
-= content_tag :li, :id => dom_id(item), :class => "index-item #{menu.nestable}" do
+= content_tag :li, :class => "index-item #{menu.nestable}", "data-id" => item.id do
   %div
     %span.handle &nbsp;
     .clearfix{:style => "float:right"}

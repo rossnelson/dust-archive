@@ -2,6 +2,11 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require_tree ./core
+//= require ./cms/lib/underscore
+//= require ./cms/lib/backbone
+//= require ./cms/lib/fineuploader-3.0
+//= require ./cms/lib/handlebars
+//= require ./cms/lib/spin
 //= require ./cms/dust
 //= require_directory ./cms/dust
 //= require rails.validations

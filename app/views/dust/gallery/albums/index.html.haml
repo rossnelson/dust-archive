@@ -1,0 +1,18 @@
+- title "Album"
+
+.sub-header
+  .button-bar.clearfix
+    -#= render :partial => 'search'
+    .admin-links
+      = link_to 'new album', new_dust_gallery_album_path, :class => 'newfile tip', :title => "New Album"
+
+.content-wrapper
+  -#= will_paginate @albums
+
+  - @albums.each do |album|
+    .index-item
+      .clearfix{:style => "float:right"}
+        = link_to "", album, :confirm => 'Are you sure?', :method => :delete, :class => 'ui-icon ui-icon-close destroy tip', :title => "Destroy This Item"
+      = link_to album.title.try('capitalize'), edit_dust_gallery_album_path(album), :class => ' edit tip', :title => "Edit This Item"
+
+  -#= will_paginate @albums

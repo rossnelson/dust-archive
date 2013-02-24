@@ -3,7 +3,8 @@ module Dust
 
     attr_accessor :previous, :position, :value, :id, :class, :list
 
-    def initialize(list={}, parent=nil)
+    def initialize(list={}, class_name=nil, parent=nil)
+      @class_name = class_name
       @parent = parent
       @previous = nil
       @list = format_list(list.to_a) 
@@ -12,9 +13,9 @@ module Dust
 
     def format_list(list)
       list.map! do |item| 
-        Dust::SortableItem.new(:position => item[0].to_i, 
+        Dust::SortableItem.new(:position => item[1]["position"].to_i, 
                                :id => item[1]["id"], 
-                               :class => item[1]["class"], 
+                               :class_name => @class_name, 
                                :children => item[1]["children"]) 
       end
       list.sort_by! { |item| item.position }

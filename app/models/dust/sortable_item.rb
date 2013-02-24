@@ -6,26 +6,14 @@ module Dust
 
     def initialize(options={})
       @position = options[:position]
-      @class = options[:class]
+      @object_class = options[:class_name].constantize
+      @id = options[:id]
 
-      self.id = options[:id]
-      self.object_class = options[:id]
       self.children = options[:children]
     end
 
-    def object_class=(id)
-      this_class_data = id.match('(dust)_(.+)_\d+')
-      @object_class = "#{this_class_data[1].camelize}::#{this_class_data[2].camelize}".constantize
-      @object_class
-    end
-
-    def id=(id)
-      @id = id.match(/\d+/)[0]
-      @id
-    end
-
     def children=(children)
-      @children = Dust::MenuSort.new(children, self.id)
+      @children = Dust::MenuSort.new(children, @object_class, self.id)
       @children
     end
 
