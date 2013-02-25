@@ -31,7 +31,7 @@ module Dust
     end
 
     def self.page(search, page)
-      with_permissions_to(:manage).search(search).paginate(:per_page => 12, :page => page)
+      search(search).paginate(:per_page => 12, :page => page)
     end
 
     def self.search(search)

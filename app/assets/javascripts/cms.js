@@ -9,5 +9,6 @@
 //= require ./cms/lib/spin
 //= require ./cms/dust
 //= require_directory ./cms/dust
+//= require_directory ./cms/dust/gallery
 //= require rails.validations
 //= require ckeditor/init

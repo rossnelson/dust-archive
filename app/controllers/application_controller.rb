@@ -22,14 +22,14 @@ class ApplicationController < ActionController::Base
   def permission_denied
     flash[:error] = "Sorry, either you need to log in first to view that page."
     if current_user
-      redirect_to dust_user_url(current_user)
+      redirect_to dust_dashboard_url
     else
       redirect_to root_url
     end
   end
 
   def not_authenticated
-    redirect_to dust_login_url, :alert => "First log in to view this page."
+    redirect_to dust_login_url, :error => "First log in to view this page."
   end
 
   def try_return_to_previous_page(url)

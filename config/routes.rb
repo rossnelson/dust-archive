@@ -17,6 +17,10 @@ Dust::Application.routes.draw do
       resources :albums
       resources :photos
       post 'photos/sort' => 'photos#sort', :as => :sort_photos
+
+      namespace :api do
+        resources :photos, :only => [:show, :create, :update, :destroy]
+      end
     end
 
     resources :sessions, :only        => [:new, :create, :destroy]

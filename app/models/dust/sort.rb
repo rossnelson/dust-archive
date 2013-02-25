@@ -1,5 +1,5 @@
 module Dust
-  class MenuSort
+  class Sort
 
     attr_accessor :previous, :position, :value, :id, :class, :list
 

@@ -14,16 +14,16 @@ module Dust
         @photo = Dust::Gallery::Photo.find params[:id]
       end
 
-      def create
-        file = AppSpecificStringIO.new(params[:qqfile], request.raw_post)
-        @photo = Dust::Gallery::Photo.new :filename => file, :album_id => params[:album_id]
+      #def create
+        #file = AppSpecificStringIO.new(params[:qqfile], request.raw_post)
+        #@photo = Dust::Gallery::Photo.new :filename => file, :album_id => params[:album_id]
 
-        if @photo.save
-          redirect_to @photo, notice: 'Photo was successfully created.'
-        else
-          render :json => {success: false}
-        end
-      end
+        #if @photo.save
+          #redirect_to @photo, notice: 'Photo was successfully created.'
+        #else
+          #render :json => {success: false}
+        #end
+      #end
 
       def update
         @photo = Photo.find(params[:id])
@@ -43,8 +43,7 @@ module Dust
       end
 
       def sort
-        @menu_sort = Dust::MenuSort.new(params[:list], params[:class_name])
-
+        @menu_sort = Dust::Sort.new(params[:list], params[:class_name])
         flash[:notice] = "Successfully Sorted Album."
       end
 

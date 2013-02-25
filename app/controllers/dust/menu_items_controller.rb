@@ -48,7 +48,7 @@ module Dust
     end
 
     def sort
-      @menu_sort = Dust::MenuSort.new(params[:list], params[:class_name])
+      @menu_sort = Dust::Sort.new(params[:list], params[:class_name])
 
       flash[:notice] = "Successfully Sorted Menu."
     end

@@ -12,7 +12,7 @@ module Dust
     end
     
     def self.page(search, page, date)
-      with_permissions_to(:manage).search(search, date).order("created_at DESC").paginate(:per_page => 12, :page => page)
+      search(search, date).order("created_at DESC").paginate(:per_page => 12, :page => page)
     end
 
     def deliver_messages

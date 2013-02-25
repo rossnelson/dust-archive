@@ -9,19 +9,23 @@ module Dust
     has_many :roles, :through => :assignments
 
     validates_format_of :email, :with => /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i
-    validates_length_of :password, :minimum => 3, :message => "password must be at least 3 characters long", :if => :password
-    validates_confirmation_of :password, :message => "should match confirmation", :if => :password
+    validates_length_of :password, :minimum => 3, :message => "password must be at least 3 characters long", :if => Proc.new{ |u| !u.password.blank? }
+    validates_confirmation_of :password, :message => "should match confirmation", :if => Proc.new{ |u| !u.password.blank? }
 
     def role_symbols
       [(role.name).to_sym]
     end
 
     def has_role?(role)
-      self.role_symbols.include?(role)
+      role_symbols.include?(role)
+    end
+
+    def is?(role)
+      role_symbols.include?(role)
     end
 
     def self.page(search, page)
-      with_permissions_to(:manage).search(search).paginate(:per_page => 12, :page => page)
+      search(search).paginate(:per_page => 12, :page => page)
     end
 
     def self.search(search)
@@ -40,22 +44,6 @@ module Dust
       reset_perishable_token!
       PostOffice.password_reset_instructions(self).deliver
     end
-
-    def avatar
-      # Gravatar
-      require 'digest/md5'
-      if self.respond_to?(:email) && !self.email.blank?
-        email = self.email
-      elsif self.user && self.user.respond_to?(:email) && !self.user.email.blank?
-        email = self.user.email
-      else
-        return ''
-      end
-
-      hash = Digest::MD5.hexdigest(email.downcase)
-      ret = "<img src=\"http://www.gravatar.com/avatar/#{hash}.jpg\" />"
-    end
-
 
   end
 end

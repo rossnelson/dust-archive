@@ -9,7 +9,7 @@
 
   :javascript
     window.album = #{@album.to_json}
-    window.photos = #{@album.photos.to_json}
+    window.photos = #{@album.photos.roots.to_json}
 
   .content-areas
     .sub-header.clearfix
@@ -19,15 +19,8 @@
           = link_to "Select Files", "#", :class => "border", :id => "uploader"
           = link_to "Save Order", "#", :class => "order", 'data-url' => '/dust/gallery/photos/sort', 'data-class' => "Dust::Gallery::Photo"
 
+    = render 'photo'
     .content-wrapper.photos
-      - @album.photos.roots.each do |photo|
-        .index-item.photo-teaser{"data-id" => photo.id}
-          .photo-actions
-            .photo-handle
-              = image_tag photo.filename.url
-            .clearfix{:style => "float:right"}
-              = link_to "", photo, :confirm => 'Are you sure?', :method => :delete, :class => 'ui-icon ui-icon-close destroy tip', :title => "Destroy This Item"
-            = link_to (photo.title || "edit photo"), edit_dust_gallery_photo_path(photo), :class => ' edit tip', :title => "Edit This Item"
 
 -# end unless @ablum.new_record?
 

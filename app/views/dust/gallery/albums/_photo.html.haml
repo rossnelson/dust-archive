@@ -1,0 +1,12 @@
+%script{:id => 'photo-template', :type => "text/template"}
+  .photo-actions
+    .photo-handle
+      %img{:src => "{{filename.url}}"}
+    .clearfix{:style => "float:right"}
+      = link_to "", "/dust/gallery/photos/{{id}}", :confirm => 'Are you sure?', :method => :delete, :class => 'ui-icon ui-icon-close destroy tip', :title => "Destroy This Item"
+    \{{#if title}}
+    = link_to "{{title}}", "/dust/gallery/photos/{{id}}/edit", :class => ' edit tip', :title => "Edit This Item"
+    \{{else}}
+    = link_to "edit photo", "/dust/gallery/photos/{{id}}/edit", :class => ' edit tip', :title => "Edit This Item"
+    \{{/if}}
+

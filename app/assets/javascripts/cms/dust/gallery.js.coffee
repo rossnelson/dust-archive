@@ -5,25 +5,27 @@ Dust.gallery = {
       Dust.gallery.uploader = new qq.FineUploaderBasic
         button: $("#uploader")[0]
         request:
-          endpoint: "/dust/gallery/photos"
+          endpoint: "/dust/gallery/api/photos"
           params:
             album_id: window.album.id
             authenticity_token: $('meta[name="csrf-token"]').attr('content')
         callbacks:
           onComplete: (id, fileName, responseJSON)-> 
             Dust.spinner.stop()
-            #photo = new Dust.Photo(responseJSON)
-            #view = new Dust.PhotoShow(model: photo)
-            #view.render()
+            photo = new Dust.gallery.Photo(responseJSON)
+            view = new Dust.gallery.PhotoView(model: photo)
+            view.render()
           onSubmit: (id, fileName)->
             Dust.spinner.spin($('body')[0])
 
-  dragSortInit: ()->
-    if window.album
-      $('.photos').sortable()
-
   init: ()->
     Dust.gallery.uploaderInit()
-    Dust.gallery.dragSortInit()
+
+    if window.album
+      new Dust.WorkSpace()
+      Backbone.history.start()
+
+      $('.photos').sortable()
+      $( ".photos" ).disableSelection()
 
 }

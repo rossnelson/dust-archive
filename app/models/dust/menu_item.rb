@@ -11,11 +11,11 @@ module Dust
     scope :sitemap, :select => 'url, created_at, updated_at', :limit => 50000
 
     def self.page(search, page)
-      with_permissions_to(:manage).search(search).order("title").paginate(:per_page => 12, :page => page)
+      search(search).order("title").paginate(:per_page => 12, :page => page)
     end
 
     def self.manage(search)
-      with_permissions_to(:manage).roots.search(search).order("title")
+      roots.search(search).order("title")
     end
 
     def self.search(search)

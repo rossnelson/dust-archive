@@ -11,12 +11,14 @@ Dust::MenuItem.create([
 ])
 
 Dust::MenuItem.create([
-	{:title => "Pages", :url    => "/dust/pages", :menu_id    => 2},
-	{:title => "Blocks", :url   => "/dust/blocks", :menu_id   => 2},
-	{:title => "Contacts", :url => "/dust/contacts", :menu_id => 2},
-	{:title => "Roles", :url    => "/dust/roles", :menu_id    => 2},
-	{:title => "Users", :url    => "/dust/users", :menu_id    => 2},
-	{:title => "Menus", :url    => "/dust/menus", :menu_id    => 2}
+	{:title => "Pages", :url    => "/dust/pages", :menu_id          => 2},
+	{:title => "Blocks", :url   => "/dust/blocks", :menu_id         => 2},
+	{:title => "Albums", :url   => "/dust/gallery/albums", :menu_id => 2},
+	{:title => "Posts", :url    => "/dust/posts", :menu_id          => 2},
+	{:title => "Contacts", :url => "/dust/contacts", :menu_id       => 2},
+	{:title => "Roles", :url    => "/dust/roles", :menu_id          => 2},
+	{:title => "Users", :url    => "/dust/users", :menu_id          => 2},
+	{:title => "Menus", :url    => "/dust/menus", :menu_id          => 2}
 ])
 
 Dust::SiteWide.create([

@@ -13,7 +13,7 @@ module Dust
     end
 
     def children=(children)
-      @children = Dust::MenuSort.new(children, @object_class, self.id)
+      @children = Dust::Sort.new(children, @object_class, self.id)
       @children
     end
 

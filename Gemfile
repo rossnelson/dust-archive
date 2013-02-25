@@ -52,6 +52,7 @@ group :development do
   gem 'mysql2'
   gem "better_errors"
   gem 'binding_of_caller'
+  gem 'quiet_assets'
 end
 
 # To use ActiveModel has_secure_password

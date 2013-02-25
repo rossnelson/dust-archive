@@ -18,7 +18,7 @@ module Dust
     
     #-- ActiveRecord Queries --#
     def self.page(search, page)
-      with_permissions_to(:manage).search(search).order("meta_title").paginate(:per_page => 12, :page => page)
+      search(search).order("meta_title").paginate(:per_page => 12, :page => page)
     end
 
     def self.search(search)
