@@ -3,7 +3,7 @@ class PostOffice < ActionMailer::Base
   @site_wide = Dust::SiteWide.all_to_object
 
   default :from => "no-reply@dust.com"
-  default :to => @site_wide.contact_info.default_recipient
+  #default :to => @site_wide.contact_info.default_recipient
 
   def contact_confirmation(contact)
     @contact = contact
