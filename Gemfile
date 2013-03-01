@@ -6,7 +6,7 @@ gem 'rails', '3.2.11'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :production do
-  gem 'pg'
+  gem 'mysql2'
 end
 
 gem "sorcery"
@@ -23,7 +23,7 @@ gem "ckeditor", :path => "vendor/gems/ckeditor-3.7.3"
 gem "carrierwave"
 gem "mini_magick"
 gem 'awesome_nested_set'
-gem "auto_build"
+gem 'auto_build'
 
 gem 'hashie'
 #gem 'inherited_resources'
