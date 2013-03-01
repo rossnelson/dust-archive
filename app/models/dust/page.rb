@@ -7,11 +7,9 @@ module Dust
     include ActionView::Helpers::SanitizeHelper
     include Dust::Menu::ItemDependency
 
-    validates_presence_of :nav_link
     validates_presence_of :meta_title
-    validates_presence_of :filename
-    #validates_uniqueness_of :filename
-    
+    after_create :create_starter_block
+
     #-- ActiveRecord Queries --#
     def self.page(search, page)
       search(search).order("meta_title").paginate(:per_page => 12, :page => page)
@@ -19,17 +17,14 @@ module Dust
 
     def self.search(search)
       if search
-        where("nav_link LIKE ? OR content LIKE ?", "%#{search}%", "%#{search}%")
+        where("meta_title LIKE ? OR content LIKE ?", "%#{search}%", "%#{search}%")
       else
         scoped
       end
     end
 
     def front_end_content
-      options = {
-        :page => self
-      }
-
+      options = { :page => self }
       Handlebar.render(content, options)
     end
 
@@ -43,7 +38,7 @@ module Dust
         :title => "#{self.meta_title} Page Content", 
         :body => "<h1> #{self.meta_title} </h1> <p>New content.</p>", 
         :classes => "twelve columns", 
-        :where_to_show => 'content', 
+        :where_to_show => 'content-one', 
         :show => "/#{self.filename}",
         :weight => 0
       ).save

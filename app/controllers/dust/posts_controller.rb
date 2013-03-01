@@ -10,7 +10,7 @@ module Dust
     end
 
     def new
-      @post = Post.new
+      @post = Post.new_with_menu_item
     end
 
     def edit
@@ -18,7 +18,7 @@ module Dust
     end
 
     def create
-      @post = Post.new(params[:post])
+      @post = Post.new_with_menu_item(params[:post])
 
       if @post.save
         redirect_to posts_path, notice: 'Post was successfully created.'

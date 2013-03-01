@@ -11,7 +11,7 @@ module Dust
       end
 
       def new
-        @album = Dust::Gallery::Album.new
+        @album = Dust::Gallery::Album.new_with_menu_item
       end
 
       def edit
@@ -19,7 +19,7 @@ module Dust
       end
 
       def create
-        @album = Dust::Gallery::Album.new(params[:dust_gallery_album])
+        @album = Dust::Gallery::Album.new_with_menu_item(params[:dust_gallery_album])
 
         if @album.save
           redirect_to edit_dust_gallery_album_path(@album), notice: 'Album was successfully created.'

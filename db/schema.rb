@@ -84,17 +84,17 @@ ActiveRecord::Schema.define(:version => 20130223044553) do
   end
 
   create_table "menu_items", :force => true do |t|
-    t.string   "title"
-    t.string   "url"
-    t.boolean  "active"
+    t.string   "title",         :default => ""
+    t.string   "url",           :default => "/empty"
+    t.boolean  "active",        :default => false
     t.integer  "lft"
     t.integer  "rgt"
     t.integer  "parent_id"
-    t.integer  "menu_id"
+    t.integer  "menu_id",       :default => 0
     t.integer  "linkable_id"
     t.string   "linkable_type"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
   end
 
   create_table "menus", :force => true do |t|
@@ -106,11 +106,8 @@ ActiveRecord::Schema.define(:version => 20130223044553) do
   end
 
   create_table "pages", :force => true do |t|
-    t.boolean  "active"
     t.string   "meta_title"
     t.text     "meta_description"
-    t.string   "filename"
-    t.string   "nav_link"
     t.string   "classes"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false

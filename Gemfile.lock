@@ -36,6 +36,8 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     arel (3.0.2)
+    auto_build (0.5.0)
+      rails (> 3.1.0)
     awesome_nested_set (2.1.6)
       activerecord (>= 3.0.0)
     bcrypt-ruby (3.0.1)
@@ -119,6 +121,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.2)
     orm_adapter (0.4.0)
+    pg (0.12.2)
     polyglot (0.3.3)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
@@ -184,6 +187,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  auto_build
   awesome_nested_set
   better_errors
   binding_of_caller
@@ -205,6 +209,7 @@ DEPENDENCIES
   mysql2
   nifty-generators
   numbers_and_words
+  pg
   quiet_assets
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)

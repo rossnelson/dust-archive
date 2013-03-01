@@ -25,20 +25,20 @@ module Dust
         scoped
       end
     end
-    
+
     def self.menu
       list = self.roots
       list.where("active = ?", true)
     end
-    
+
     def edit_linkable
       "/#{root.linkable_type.downcase.pluralize}/#{root.linkable_id}/edit"
     end
-    
+
     def destroy_linkable
       "/#{root.linkable_type.downcase.pluralize}/#{root.linkable_id}"
     end
-    
+
     def children_urls
       self.descendants.map{ |item| item.url }
     end
@@ -54,11 +54,11 @@ module Dust
       mash.class = "active last" if (self.is_active? uri) and self == self.self_and_siblings.last
       mash
     end
-    
+
     def is_active?(uri)
       true if uri == url or children_urls.include?(uri) or (uri == "/" and self.url == "/welcome")
     end
-    
+
   end
 end
 

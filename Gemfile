@@ -23,6 +23,7 @@ gem "ckeditor", :path => "vendor/gems/ckeditor-3.7.3"
 gem "carrierwave"
 gem "mini_magick"
 gem 'awesome_nested_set'
+gem "auto_build"
 
 gem 'hashie'
 #gem 'inherited_resources'

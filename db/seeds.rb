@@ -1,15 +1,8 @@
 Dust::Role.create([{:name => "admin"}, {:name => "moderator"}])
 Dust::User.create(:username => 'admin', :password => "secret", :password_confirmation => "secret", :email => 'admin@dust.com', :role => Dust::Role.find_by_name("admin"))
 
-Dust::Page.create([{:nav_link => 'Welcome', :meta_title => "Welcome", :active => 1, :filename => "welcome"}])
-
 Dust::Menu.create({:title => "Main Menu", :nestable => "nest"})
 Dust::Menu.create({:title => "Admin Menu", :nestable => "no-nest"})
-
-Dust::MenuItem.create([
-  {:title => "Home", :url => "/", :menu_id => 1}
-])
-
 Dust::MenuItem.create([
 	{:title => "Pages", :url    => "/dust/pages", :menu_id          => 2},
 	{:title => "Blocks", :url   => "/dust/blocks", :menu_id         => 2},
@@ -20,6 +13,12 @@ Dust::MenuItem.create([
 	{:title => "Users", :url    => "/dust/users", :menu_id          => 2},
 	{:title => "Menus", :url    => "/dust/menus", :menu_id          => 2}
 ])
+
+@page = Dust::Page.create({:meta_title => "Welcome"})
+@page.build_menu_item
+@page.menu_item.update_attributes(
+  {:title => "Home", :url => "/welcome", :menu_id => 1}
+)
 
 Dust::SiteWide.create([
   {:name => "site url", :value               => "www.newsite.com", :category                              => "site info"},
