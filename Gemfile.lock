@@ -121,7 +121,6 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.2)
     orm_adapter (0.4.0)
-    pg (0.12.2)
     polyglot (0.3.3)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
@@ -209,7 +208,6 @@ DEPENDENCIES
   mysql2
   nifty-generators
   numbers_and_words
-  pg
   quiet_assets
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)

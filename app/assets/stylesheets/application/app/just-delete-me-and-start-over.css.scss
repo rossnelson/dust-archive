@@ -1,7 +1,58 @@
-body {
-  color: #929487;
-  background: #F4F5ED;
+html {
+  color: #333333;
   -webkit-font-smoothing: antialiased;
+
+  background-color: #ebeded;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(235, 237, 237)), to(rgb(245, 246, 247)));
+  background-image: -webkit-linear-gradient(top, rgb(235, 237, 237), rgb(245, 246, 247));
+  background-image: -moz-linear-gradient(top, rgb(235, 237, 237), rgb(245, 246, 247));
+  background-image: -o-linear-gradient(top, rgb(235, 237, 237), rgb(245, 246, 247));
+  background-image: -ms-linear-gradient(top, rgb(235, 237, 237), rgb(245, 246, 247));
+  background-image: linear-gradient(top, rgb(235, 237, 237), rgb(245, 246, 247));
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ebeded', EndColorStr='#f5f6f7');
+
+  body {
+    background: url(/assets/admin/dust-letterpress.png) 50% 50% no-repeat;
+    background-size: 250px;
+
+    &::after {
+      content: "dust cms";
+      position: absolute; 
+      bottom: 20px;
+      right: 20px;
+
+      text-shadow: 1px 1px 0 #fff;
+      color: #CDD0D2;
+    }
+  }
+}
+
+body {
+    -moz-animation-name: dropHeader;
+    -moz-animation-iteration-count: once;
+    -moz-animation-timing-function: ease-in;
+    -moz-animation-duration: 2s;
+
+    -webkit-animation-name: dropHeader;
+    -webkit-animation-iteration-count: once;
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-duration: 2s;
+}
+@-moz-keyframes dropHeader {
+    0% {
+        background-size: 0px;
+    }
+    100% {
+        background-size: 250px;
+    }
+}
+@-webkit-keyframes dropHeader {
+    0% {
+        background-size: 0px;
+    }
+    100% {
+        background-size: 250px;
+    }
 }
 
 #header_one-blocks-wrapper {
