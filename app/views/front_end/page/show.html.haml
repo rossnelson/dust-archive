@@ -4,7 +4,5 @@
 
 - @page.sections.sort_by!{|s| s.position }.each do |section|
   = render_region section.classes
-= render_region "content-one"
-= render_region "content-two"
-= render_region "content-three"
+= render_region "content-default"
 

@@ -17,7 +17,7 @@ module Dust
 
     def self.search(search)
       if search
-        where("meta_title LIKE ? OR content LIKE ?", "%#{search}%", "%#{search}%")
+        where("meta_title LIKE ? OR meta_description LIKE ?", "%#{search}%", "%#{search}%")
       else
         scoped
       end
