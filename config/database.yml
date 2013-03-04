@@ -12,4 +12,4 @@ production:
   database: dust-3
   username: 
   password: 
-  host: ganon.imagemanagement.com
+  host: 
