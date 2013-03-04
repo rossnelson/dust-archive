@@ -1,5 +1,5 @@
 - @admin_nav = Dust::Menu.find 2
-- @admin_nav.menu_items.roots.each do |item|
+- @admin_nav.active_items.each do |item|
   -#- if permitted_to? :manage, item.controller_name.to_sym
   %li.item.link
     = link_to item.title, item.url #if permitted_to? :manage, item.controller_name.to_sym
