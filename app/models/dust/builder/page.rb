@@ -28,6 +28,7 @@ module Dust
 
       private
 
+
       def build_sections
         @sections.each do |section_attr|
           section = ::Dust::Section.find_or_create_by_id_and_page_id(section_attr[0], @page.id)

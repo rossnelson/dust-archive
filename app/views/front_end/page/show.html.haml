@@ -2,7 +2,10 @@
 - title @page.meta_title
 - description @page.create_description
 
-- @page.sections.sort_by!{|s| s.position }.each do |section|
-  = render_region section.classes
+- content_for :admin do
+  = render :partial => 'front_end/page/admin'
+
+- @page.sections.roots.sort_by!{|s| s.position }.each do |section|
+  = render_region section.title.parameterize, section.classes
 = render_region "content-default"
 

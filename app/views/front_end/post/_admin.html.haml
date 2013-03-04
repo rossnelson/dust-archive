@@ -1,0 +1,7 @@
+#page-edit
+  - if (!@post.nil?) && permitted_to?(:manage, :dust_pages)
+    .edit-link
+      = link_to new_icon("Block"), new_dust_block_path(:show => @post.match_path, :return => request.fullpath), :class => 'to-admin'
+      = link_to edit_icon("Post"), edit_dust_post_path(@post), :class => 'to-admin'
+      = link_to index_icon("Posts"), dust_posts_path, :class => 'to-admin'
+

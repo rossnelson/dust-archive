@@ -18,7 +18,7 @@
       = render_region 'footer_one'
       = render_region 'footer_two'
       = render :partial => 'dust/users/user_bar'
-      = render :partial => 'front_end/page/admin'
+      = yield :admin
 
   = javascript_include_tag 'application'
   = yield(:js)

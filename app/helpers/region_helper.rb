@@ -1,16 +1,16 @@
 module RegionHelper
 
-  def render_region(name, &block)
+  def render_region(name, classes="", &block)
     @block_content = (block_given? ? block : @blocks.select{ |b| b.where_to_show == name })
     unless @block_content.blank?
-      build_regions(name, (@block_content.class == Proc ? @block_content : render_block_wrappers))
+      build_regions(name, classes, (@block_content.class == Proc ? @block_content : render_block_wrappers))
     end
   end
 
-  def build_regions(name, innards)
+  def build_regions(name, classes, innards)
     @regions = region_wrapper("#{name}-blocks", "container-twelve", innards)
     @regions = region_wrapper("#{name}-blocks-container", "clearfix", @regions)
-    @regions = region_wrapper("#{name}-blocks-wrapper", "cleafix", @regions)
+    @regions = region_wrapper("#{name}-blocks-wrapper", "cleafix #{classes}", @regions)
 
     @regions
   end

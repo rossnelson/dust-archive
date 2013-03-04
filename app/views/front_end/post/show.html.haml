@@ -1,0 +1,12 @@
+-#- title @page.meta_title
+-#- description @page.create_description
+
+- content_for :admin do
+  = render :partial => 'front_end/post/admin'
+
+= render_region "content-default", "post-body" do
+  .five.columns
+    = raw @post.body
+  .seven.columns
+    = image_tag @post.file.url
+

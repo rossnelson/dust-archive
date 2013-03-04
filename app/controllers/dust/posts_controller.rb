@@ -18,10 +18,10 @@ module Dust
     end
 
     def create
-      @post = Post.new_with_menu_item(params[:post])
+      @post = Post.new_with_menu_item(params[:dust_post])
 
       if @post.save
-        redirect_to posts_path, notice: 'Post was successfully created.'
+        redirect_to front_end_post_path(@post.slug), notice: 'Post was successfully created.'
       else
         render action: "new"
       end
@@ -30,8 +30,8 @@ module Dust
     def update
       @post = Post.find(params[:id])
 
-      if @post.update_attributes(params[:post])
-        redirect_to posts_path, notice: 'Post was successfully updated.'
+      if @post.update_attributes(params[:dust_post])
+        redirect_to front_end_post_path(@post.slug), notice: 'Post was successfully updated.'
       else
         render action: "edit"
       end

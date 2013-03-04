@@ -11,12 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130223044553) do
+ActiveRecord::Schema.define(:version => 20130304014647) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.boolean  "active"
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
@@ -148,6 +147,9 @@ ActiveRecord::Schema.define(:version => 20130223044553) do
     t.integer  "page_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
   end
 
   create_table "site_wides", :force => true do |t|

@@ -1,6 +1,0 @@
-= content_for :js do
-  :javascript
-    var address = "#{map.address}";
-    var content = "#{map.content}";
-  = javascript_include_tag "http://maps.googleapis.com/maps/api/js?key=AIzaSyBwKDzf17n1wF6-Q77kl7wFKpwKcitNp8s&sensor=false", "map"
-#map_canvas{:style => "width:#{map.width}px;height:#{map.height}px;"}

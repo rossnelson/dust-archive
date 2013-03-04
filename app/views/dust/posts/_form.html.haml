@@ -7,7 +7,7 @@
 
 .form-wrap.clearfix
 
-  = simple_form_for @post do |f|
+  = simple_form_for @post, :html => {:multipart => true} do |f|
     = f.error_messages
 
     .fields
@@ -17,7 +17,7 @@
         = f.input :published
         = f.input :title
         = f.input :file, :as => :file
-        = f.input :published_at, :as => :string
+        = f.input :published_date, :as => :string
         = f.input :share
         = f.input :share_type
 

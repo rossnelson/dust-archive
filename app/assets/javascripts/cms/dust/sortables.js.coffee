@@ -37,7 +37,7 @@ Dust.sortables = {
     $('.order').data('class')
 
   list: ()->
-    _.map($('.index-item'), (item, index)->
+    _.map($('.index-item, .sortable-item'), (item, index)->
       return {
         id: $(item).data('id')
         position: index

@@ -9,4 +9,13 @@ $(document).ready ->
     regexp = new RegExp('section_id', 'g')
     section = $('#placeholder-section').html()
     $('.sections').append(section.replace(regexp, time))
+    $('.section-data-more').unbind 'click'
+    $('.section-data-more').bind 'click', (e)->
+      $(e.target).siblings('.section-additional-data').toggle()
     return false
+
+  $('.section-data-more').bind 'click', (e)->
+    $(e.target).siblings('.section-additional-data').toggle()
+
+  
+  

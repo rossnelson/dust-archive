@@ -29,20 +29,26 @@
 
     .content-areas
       .sub-header
-        .title page sections
+        .button-bar.clearfix
+          .title page sections
+          .admin-links
+            = link_to('save menu order', '', :class => 'order', 'data-url' => '/dust/menu/sort', 'data-class' => "Dust::Section")
       .content-wrapper
-        .sections
+        %ul.sections#tree
           - @page.sections.each_with_index do |section, index|
-            .item
-              = hidden_field_tag "sections[#{section.id}][_destroy]"
-              = label_tag "title"
-              = text_field_tag "sections[#{section.id}][title]", section.title
-              = label_tag "classes"
-              = text_field_tag "sections[#{section.id}][classes]", section.classes
-              = label_tag "position"
-              = text_field_tag "sections[#{section.id}][position]", section.position
+            - section_id = section.id ? section.id : index
+            %li.item.sortable-item{"data-id" => section.id}
+              .section-item
+                %span.handle &nbsp;
+                = hidden_field_tag "sections[#{section_id}][_destroy]"
+                = text_field_tag "sections[#{section_id}][title]", section.title, :placeholder => "title", :class => "section-title"
 
-              = link_to "Remove Section", "#", :class => "remove_fields right"
+                = link_to "More", "#", :class => "section-data-more"
+                = link_to "", "#", :class => "remove_fields destroy right"
+                .section-additional-data
+                  = label_tag "classes"
+                  = text_field_tag "sections[#{section_id}][classes]", section.classes
+
 
         = link_to "Add Section", "#", :class => "add_fields"
 
@@ -50,13 +56,15 @@
           = f.button :submit
 
       %script{:type => "text/templte", :id => "placeholder-section"}
-        .item
-          = hidden_field_tag "sections[section_id][_destroy]"
-          = label_tag "title"
-          = text_field_tag "sections[section_id][title]", ""
-          = label_tag "classes"
-          = text_field_tag "sections[section_id][classes]", ""
-          = label_tag "position"
-          = text_field_tag "sections[section_id][position]", ""
+        %li.item.sortable-item{"data-id" => "section_id"}
+          .section-item
+            %span.handle &nbsp;
+            = hidden_field_tag "sections[section_id][_destroy]"
+            = text_field_tag "sections[section_id][title]", "", :placeholder => "title", :class => "section-title"
 
-          = link_to "Remove Section", "#", :class => "remove_fields right"
+            = link_to "More", "#", :class => "section-data-more"
+            = link_to "", "#", :class => "remove_fields destroy right"
+            .section-additional-data
+              = label_tag "classes"
+              = text_field_tag "sections[section_id][classes]", ""
+
