@@ -56,17 +56,6 @@ ActiveRecord::Schema.define(:version => 20130304014647) do
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_assetable_type"
   add_index "ckeditor_assets", ["user_id"], :name => "fk_user"
 
-  create_table "cms_menu_items", :force => true do |t|
-    t.string   "title"
-    t.string   "url"
-    t.string   "controller_name"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.integer  "parent_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
   create_table "contacts", :force => true do |t|
     t.string   "name"
     t.string   "email"
