@@ -17,7 +17,7 @@
         .title photos
         .admin-links
           = link_to "Select Files", "#", :class => "border", :id => "uploader"
-          = link_to "Save Order", "#", :class => "order", 'data-url' => '/dust/gallery/photos/sort', 'data-class' => "Dust::Gallery::Photo"
+          = link_to "Save Order", "#", :class => "order", 'data-url' => '/dust/sort', 'data-class' => "Dust::Gallery::Photo"
 
     = render 'photo'
     .content-wrapper.photos

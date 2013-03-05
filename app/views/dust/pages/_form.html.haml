@@ -32,7 +32,8 @@
         .button-bar.clearfix
           .title page sections
           .admin-links
-            = link_to('save menu order', '', :class => 'order', 'data-url' => '/dust/menu/sort', 'data-class' => "Dust::Section")
+            = link_to('save menu order', '', :class => 'order border', 'data-url' => '/dust/sort', 'data-class' => "Dust::Section")
+            = link_to "Add Section", "#", :class => "add_fields"
       .content-wrapper
         %ul.sections#tree
           - @page.sections.each_with_index do |section, index|
@@ -50,7 +51,6 @@
                   = text_field_tag "sections[#{section_id}][classes]", section.classes
 
 
-        = link_to "Add Section", "#", :class => "add_fields"
 
         .actions
           = f.button :submit

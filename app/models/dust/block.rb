@@ -71,7 +71,7 @@ module Dust
     def self.widget_list
       files = []
       Dir.chdir("#{Rails.root}/app/views/widgets/")
-      Dir["**/**"].select{|f|File.file? f}.each do |filename|
+      Dir["**/**"].select{|f| File.file? f }.each do |filename|
         if filename[0] != "." # if file is not hidden
           files.push filename.sub('_', '').gsub('.html.haml', '')
         end

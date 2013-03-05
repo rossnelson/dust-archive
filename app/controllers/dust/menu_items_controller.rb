@@ -47,14 +47,5 @@ module Dust
       redirect_to edit_dust_menu_url(@menu_item.menu)
     end
 
-    def sort
-      @menu_sort = Dust::Sort.new(params[:list], params[:class_name])
-      rescue ActiveRecord::RecordNotFound => e
-        not_found = true
-        flash[:error] = "Sorting Failed | #{e}"
-        
-
-      flash[:notice] = "Successfully Sorted Menu." unless not_found
-    end
   end
 end

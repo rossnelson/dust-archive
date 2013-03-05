@@ -42,11 +42,6 @@ module Dust
         redirect_to edit_dust_gallery_album_path(@photo.album)
       end
 
-      def sort
-        @menu_sort = Dust::Sort.new(params[:list], params[:class_name])
-        flash[:notice] = "Successfully Sorted Album."
-      end
-
     end
   end
 end

@@ -13,10 +13,11 @@ Dust::Application.routes.draw do
     resources :menu_items
     resources :site_wides, :only => [:new, :create, :destroy]
 
+    post 'sort' => 'sortable#sort', :as => :sort_items
+
     namespace :gallery do
       resources :albums
       resources :photos
-      post 'photos/sort' => 'photos#sort', :as => :sort_photos
 
       namespace :api do
         resources :photos, :only => [:show, :create, :update, :destroy]
@@ -31,8 +32,6 @@ Dust::Application.routes.draw do
 
     match 'download/csv' => 'contacts#csv', :as => :download_csv
     match 'import/csv' => 'contacts#csv_import', :as => :import_csv
-
-    match 'menu/sort' => 'menu_items#sort', :as => :menu_sort
 
     get "logout" => "sessions#destroy", :as => "logout"
     get "login" => "sessions#new", :as => "login"

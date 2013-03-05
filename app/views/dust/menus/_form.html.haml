@@ -28,7 +28,7 @@
           .title Menu Items
           .admin-links
             = link_to 'Add Menu Item', new_dust_menu_item_path(:return => request.path, :menu_id => @menu.id), :class => 'border' unless @menu.new_record?
-            = link_to('save menu order', '', :class => 'order', 'data-url' => '/dust/menu/sort', 'data-class' => "Dust::MenuItem")
+            = link_to('save menu order', '', :class => 'order', 'data-url' => '/dust/sort', 'data-class' => "Dust::MenuItem")
       .content-wrapper
         - unless @menu.new_record?
 
