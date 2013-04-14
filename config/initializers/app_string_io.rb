@@ -10,5 +10,3 @@ class AppSpecificStringIO < StringIO
     File.basename(filepath)
   end
 end
-
-

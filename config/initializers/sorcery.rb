@@ -395,3 +395,4 @@ Rails.application.config.sorcery.configure do |config|
   # Define which model authenticates with sorcery.
   config.user_class = "Dust::User"
 end
+

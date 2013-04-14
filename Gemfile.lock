@@ -1,4 +1,10 @@
 PATH
+  remote: lib/dust
+  specs:
+    dust (0.0.1)
+      rails (~> 3.2.11)
+
+PATH
   remote: vendor/gems/ckeditor-3.7.3
   specs:
     ckeditor (3.7.3)
@@ -7,6 +13,7 @@ PATH
 
 GEM
   remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     actionmailer (3.2.11)
       actionpack (= 3.2.11)
@@ -109,7 +116,6 @@ GEM
     multipart-post (1.1.5)
     mustache (0.99.4)
     mysql2 (0.3.11)
-    nifty-generators (0.4.6)
     numbers_and_words (0.5.0)
       activesupport
       i18n
@@ -198,6 +204,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   country_select
   declarative_authorization
+  dust!
   haml-rails
   hashie
   jbuilder
@@ -207,7 +214,6 @@ DEPENDENCIES
   mocha
   mustache
   mysql2
-  nifty-generators
   numbers_and_words
   pg
   quiet_assets
