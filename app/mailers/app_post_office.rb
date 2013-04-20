@@ -1,0 +1,3 @@
+class AppPostOffice < PostOffice
+
+end

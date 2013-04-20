@@ -1,6 +1,6 @@
 
 if Rails.env.development?
-  lib_reloader = ActiveSupport::FileUpdateChecker.new(Dir["lib/dust/**/*"]) do
+  lib_reloader = ActiveSupport::FileUpdateChecker.new(Dir["vendor/gems/dust/**/*"]) do
     Rails.application.reload_routes! # or do something better here
   end
 

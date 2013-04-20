@@ -6,7 +6,7 @@ group :production do
   gem 'pg'
 end
 
-gem 'dust', :path => 'lib/dust'
+gem 'dust', :path => 'vendor/gems/dust'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

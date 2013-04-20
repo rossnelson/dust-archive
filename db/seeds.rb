@@ -21,6 +21,7 @@ Dust::MenuItem.create([
 )
 
 Dust::SiteWide.create([
+  {:name => "analytics code", :value               => "UA-xxxxx-1", :category                              => "site info"},
   {:name => "site url", :value               => "www.newsite.com", :category                              => "site info"},
   {:name => "default description", :value    => "welcome to our new website", :category                   => "site info"},
   {:name => "default recipiant", :value      => "admin@dust.com", :category                               => "contact info"},
