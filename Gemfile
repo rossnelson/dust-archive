@@ -1,13 +1,22 @@
+source 'https://rubygems.org'
 
-# ===================================================
-# Declare any app specific gems in the AppGemfile
-# ===================================================
-#
-#
-# Install gems for AppGemfile
-app_gemfile = File.join(File.dirname(__FILE__), "AppGemfile")
-eval(IO.read(app_gemfile), binding)
+gem 'rails', '3.2.11'
 
-# Install gems from dust core
-core_gemfile = File.join(File.dirname(__FILE__), 'vendor', 'gems', 'dust', "Gemfile")
-eval(IO.read(core_gemfile), binding)
+group :production do
+  gem 'pg'
+end
+
+gem 'dust', :path => 'vendor/gems/dust'
+
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
+end
+
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+
+gem "mocha", :group => :test
+
+
