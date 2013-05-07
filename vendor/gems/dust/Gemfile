@@ -3,42 +3,42 @@ source "http://rubygems.org"
 # Declare your gem's dependencies in dust.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
-# gemspec
+gemspec
 
 # jquery-rails is used by the dummy application
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
+#gem 'jquery-rails'
+#gem 'jquery-ui-rails'
 
-gem "sorcery"
-gem "declarative_authorization"
+#gem "sorcery"
+#gem "declarative_authorization"
 
-gem "client_side_validations"
-gem "will_paginate"
-gem 'simple_form'
-gem 'country_select'
-gem 'client_side_validations-simple_form'
+#gem "client_side_validations"
+#gem "will_paginate"
+#gem 'simple_form'
+#gem 'country_select'
+#gem 'client_side_validations-simple_form'
 
-gem "ckeditor", :path => "vendor/gems/ckeditor-3.7.3"
-gem "carrierwave"
-gem "mini_magick"
-gem 'awesome_nested_set'
-gem 'auto_build'
+#gem "ckeditor", :path => "vendor/gems/ckeditor-3.7.3"
+#gem "carrierwave"
+#gem "mini_magick"
+#gem 'awesome_nested_set'
+#gem 'auto_build'
 
-gem 'hashie'
-#gem 'inherited_resources'
-gem 'jbuilder'
-gem 'mustache'
-gem "haml-rails"
-gem "thin"
+#gem 'hashie'
+##gem 'inherited_resources'
+#gem 'jbuilder'
+#gem 'mustache'
+#gem "haml-rails"
+#gem "thin"
 
-gem 'numbers_and_words'
+#gem 'numbers_and_words'
 
-group :development do
-  gem 'mysql2'
-  gem "better_errors"
-  gem 'binding_of_caller'
-  gem 'quiet_assets'
-end
+#group :development do
+  #gem 'mysql2'
+  #gem "better_errors"
+  #gem 'binding_of_caller'
+  #gem 'quiet_assets'
+#end
 # 
 
 

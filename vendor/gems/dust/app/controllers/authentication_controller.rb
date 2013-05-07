@@ -5,7 +5,6 @@ class AuthenticationController < ActionController::Base
 
   before_filter { |c| Authorization.current_user = c.current_user }
 
-
   def permission_denied
     flash[:error] = "Sorry, either you need to log in first to view that page."
     if current_user

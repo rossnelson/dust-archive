@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130304014647) do
+ActiveRecord::Schema.define(:version => 20130507023560) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(:version => 20130304014647) do
   end
 
   create_table "menu_items", :force => true do |t|
-    t.string   "title",         :default => ""
+    t.string   "title",         :default => "Empty"
     t.string   "url",           :default => "/empty"
     t.boolean  "active",        :default => false
     t.integer  "lft"
@@ -134,11 +134,11 @@ ActiveRecord::Schema.define(:version => 20130304014647) do
     t.string   "classes"
     t.integer  "position"
     t.integer  "page_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "site_wides", :force => true do |t|

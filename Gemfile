@@ -2,10 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 
-group :production do
-  gem 'pg'
-end
+gem 'mysql2'
 
+gem "ckeditor", :path => "vendor/gems/ckeditor-3.7.3"
 gem 'dust', :path => 'vendor/gems/dust'
 
 group :assets do

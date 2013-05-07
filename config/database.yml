@@ -1,7 +1,7 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: dust-3
+  database: ayurvedamt
   username: root
   password: 
   host: 127.0.0.1
@@ -9,7 +9,7 @@ development:
 production:
   adapter: mysql2
   encoding: utf8
-  database: dust-3
-  username: 
+  database: ayurvedamt
+  username: root
   password: 
-  host: 
+  host: 127.0.0.1
